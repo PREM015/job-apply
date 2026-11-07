@@ -1,0 +1,37 @@
+sources:
+  jsonld:
+    enabled: true
+    request_cap: 5
+    terms: "public careers page"
+  sitemap:
+    enabled: true
+    request_cap: 3
+    terms: "public sitemap"
+  greenhouse:
+    enabled: true
+    request_cap: 5
+    terms: "public ATS board"
+  lever:
+    enabled: true
+    request_cap: 5
+    terms: "public ATS board"
+  ashby:
+    enabled: true
+    request_cap: 5
+    terms: "public ATS board"
+  smartrecruiters:
+    enabled: true
+    request_cap: 5
+    terms: "public ATS board"
+  workable:
+    enabled: true
+    request_cap: 5
+    terms: "public ATS board"
+  keka:
+    enabled: false
+    request_cap: 2
+    terms: "fixture research only"
+  zoho:
+    enabled: false
+    request_cap: 2
+    terms: "fixture research only"
