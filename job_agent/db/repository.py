@@ -115,6 +115,42 @@ class Database:
         assert self.connection is not None
         return int(self.connection.execute("SELECT COUNT(*) FROM companies").fetchone()[0])
 
+    # ------------------------------------------------------------- global targets
+    def upsert_global_target(self, target: dict[str, Any]) -> int:
+        assert self.connection is not None
+        with self.transaction() as conn:
+            conn.execute(
+                """
+                INSERT INTO global_targets(target_id, company, tier, careers_url, status,
+                    matched_master_id, source)
+                VALUES (:target_id, :company, :tier, :careers_url, :status,
+                    :matched_master_id, :source)
+                ON CONFLICT(target_id) DO UPDATE SET
+                    company=excluded.company, tier=excluded.tier, careers_url=excluded.careers_url,
+                    status=excluded.status, matched_master_id=excluded.matched_master_id,
+                    source=excluded.source
+                """,
+                {
+                    "target_id": target["target_id"],
+                    "company": target["company"],
+                    "tier": target.get("tier"),
+                    "careers_url": target.get("careers_url"),
+                    "status": target.get("status"),
+                    "matched_master_id": target.get("matched_master_id"),
+                    "source": target.get("source"),
+                },
+            )
+        return int(target["target_id"])
+
+    def list_global_targets(self) -> list[dict[str, Any]]:
+        assert self.connection is not None
+        return [dict(r) for r in self.connection.execute(
+            "SELECT * FROM global_targets ORDER BY target_id")]
+
+    def count_global_targets(self) -> int:
+        assert self.connection is not None
+        return int(self.connection.execute("SELECT COUNT(*) FROM global_targets").fetchone()[0])
+
     # -------------------------------------------------------------------- sources
     def add_source(self, source: dict[str, Any]) -> int:
         assert self.connection is not None

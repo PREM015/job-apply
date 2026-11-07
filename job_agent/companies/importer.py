@@ -78,11 +78,73 @@ def read_companies(workbook_path: str | Path, sheet: str = "Companies") -> dict[
             "hash_after": after, "hash_unchanged": before == after, "headers": headers}
 
 
+def read_global_targets(workbook_path: str | Path,
+                        sheet: str = "Global Product Targets") -> dict[str, Any]:
+    path = Path(workbook_path)
+    before = _hash_file(path)
+    workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
+    targets: list[dict[str, Any]] = []
+    errors: list[dict[str, Any]] = []
+    columns: dict[str, int] = {}
+    headers: list[str] = []
+    try:
+        if sheet not in workbook.sheetnames:
+            return {"global_targets": targets, "errors": errors, "columns": columns,
+                    "hash_before": before, "hash_after": before, "hash_unchanged": True,
+                    "sheet_present": False}
+        worksheet = workbook[sheet]
+        rows = worksheet.iter_rows(values_only=True)
+        try:
+            headers = [str(cell).strip() if cell is not None else "" for cell in next(rows)]
+        except StopIteration:
+            raise ValueError("empty Global Product Targets sheet")
+        required = {"target_id": "#", "company": "Company", "tier": "Tier",
+                    "careers_url": "Careers Page", "status": "Status",
+                    "matched_master_id": "Matched Master ID (Companies)", "source": "Source"}
+        for field, header in required.items():
+            if header not in headers:
+                raise ValueError(f"missing required header in {sheet}: {header}")
+            columns[field] = headers.index(header) + 1
+        for row_number, values in enumerate(rows, start=2):
+            if not any(value not in (None, "") for value in values):
+                continue
+            record = {field: values[index - 1] if index - 1 < len(values) else None
+                      for field, index in columns.items()}
+            if record.get("target_id") in (None, ""):
+                errors.append({"row": row_number, "error": "missing_target_id"})
+                continue
+            if not record.get("company"):
+                errors.append({"row": row_number, "error": "missing_company"})
+                continue
+            matched = record.get("matched_master_id")
+            if matched not in (None, ""):
+                try:
+                    record["matched_master_id"] = int(matched)
+                except (TypeError, ValueError):
+                    errors.append({"row": row_number, "error": "invalid_matched_master_id"})
+                    record["matched_master_id"] = None
+            targets.append(record)
+    finally:
+        workbook.close()
+    after = _hash_file(path)
+    return {"global_targets": targets, "errors": errors, "columns": columns,
+            "hash_before": before, "hash_after": after, "hash_unchanged": before == after,
+            "sheet_present": True}
+
+
 def import_companies(db: Database, workbook_path: str | Path, sheet: str = "Companies",
+                     target_sheet: str = "Global Product Targets",
                      commit: bool = False) -> dict[str, Any]:
     report = read_companies(workbook_path, sheet)
     if not report["hash_unchanged"]:
         raise RuntimeError("workbook hash changed during read-only import")
+    targets = read_global_targets(workbook_path, target_sheet)
+    if not targets["hash_unchanged"]:
+        raise RuntimeError("workbook hash changed during read-only global target import")
+    report["global_targets"] = targets["global_targets"]
+    report["global_target_errors"] = targets["errors"]
+    report["global_target_columns"] = targets["columns"]
+    report["global_target_sheet_present"] = targets["sheet_present"]
     if commit:
         for company in report["companies"]:
             db.upsert_company({
@@ -96,6 +158,16 @@ def import_companies(db: Database, workbook_path: str | Path, sheet: str = "Comp
                 "resolution_status": "unresolved",
                 "last_resolved_at": None,
                 "notes": company.get("notes"),
+            })
+        for target in report["global_targets"]:
+            db.upsert_global_target({
+                "target_id": int(target["target_id"]),
+                "company": str(target.get("company", "")),
+                "tier": target.get("tier"),
+                "careers_url": target.get("careers_url"),
+                "status": target.get("status"),
+                "matched_master_id": target.get("matched_master_id"),
+                "source": target.get("source"),
             })
     return report
 

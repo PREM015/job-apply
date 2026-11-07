@@ -67,6 +67,9 @@ def cmd_import(args, config: dict) -> int:
         db.migrate()
         report = import_companies(db, args.workbook, sheet=args.sheet, commit=args.commit)
         print(json.dumps({"companies": len(report["companies"]), "errors": report["errors"],
+                          "global_targets": len(report["global_targets"]),
+                          "global_target_errors": report["global_target_errors"],
+                          "global_target_columns": report["global_target_columns"],
                           "hash_before": report["hash_before"], "hash_after": report["hash_after"],
                           "hash_unchanged": report["hash_unchanged"]}, indent=2))
         return 0

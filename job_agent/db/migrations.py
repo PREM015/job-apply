@@ -136,5 +136,19 @@ MIGRATIONS: list[tuple[int, str]] = [
             applied_at TEXT NOT NULL
         );
         """,
-    )
+    ),
+    (
+        2,
+        """
+        CREATE TABLE IF NOT EXISTS global_targets (
+            target_id INTEGER PRIMARY KEY,
+            company TEXT NOT NULL,
+            tier TEXT,
+            careers_url TEXT,
+            status TEXT,
+            matched_master_id INTEGER REFERENCES companies(master_id) ON DELETE SET NULL,
+            source TEXT
+        );
+        """,
+    ),
 ]

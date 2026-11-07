@@ -4,7 +4,8 @@ from pathlib import Path
 
 import openpyxl
 
-from job_agent.companies.importer import data_quality_report, import_companies, read_companies
+from job_agent.companies.importer import (data_quality_report, import_companies, read_companies,
+                                          read_global_targets)
 from job_agent.companies.resolver import detect_ats, resolve_company, source_coverage_report
 from tests.support import sha256
 
@@ -20,6 +21,51 @@ def make_workbook(path: Path) -> Path:
     sheet.append(["", "Broken", "Tier 3", "", "", "", ""])
     workbook.save(path)
     return path
+
+
+def add_global_targets(path: Path) -> Path:
+    workbook = openpyxl.load_workbook(path)
+    sheet = workbook.create_sheet("Global Product Targets")
+    headers = [""] * 15
+    headers[0] = "#"
+    headers[1] = "Company"
+    headers[2] = "Tier"
+    headers[7] = "Careers Page"
+    headers[9] = "Status"
+    headers[13] = "Matched Master ID (Companies)"
+    headers[14] = "Source"
+    sheet.append(headers)
+    row = [""] * 15
+    row[0] = 1
+    row[1] = "Acme"
+    row[2] = "Tier 1"
+    row[7] = "https://boards.greenhouse.io/acme"
+    row[9] = "Not Started"
+    row[13] = 1
+    row[14] = "TRK"
+    sheet.append(row)
+    workbook.save(path)
+    return path
+
+
+def test_read_global_targets_maps_columns_and_is_read_only(tmp_path):
+    path = add_global_targets(make_workbook(tmp_path / "companies.xlsx"))
+    before = sha256(path)
+    report = read_global_targets(path)
+    assert sha256(path) == before
+    assert report["hash_unchanged"] is True
+    assert report["columns"] == {"target_id": 1, "company": 2, "tier": 3, "careers_url": 8,
+                                 "status": 10, "matched_master_id": 14, "source": 15}
+    assert report["global_targets"][0]["matched_master_id"] == 1
+    assert report["global_targets"][0]["careers_url"] == "https://boards.greenhouse.io/acme"
+
+
+def test_import_global_targets_commit(tmp_path, db):
+    path = add_global_targets(make_workbook(tmp_path / "companies.xlsx"))
+    report = import_companies(db, path, commit=True)
+    assert len(report["global_targets"]) == 1
+    assert db.count_global_targets() == 1
+    assert db.list_global_targets()[0]["status"] == "Not Started"
 
 
 def test_read_companies_is_read_only(tmp_path):
