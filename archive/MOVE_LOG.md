@@ -1,0 +1,42 @@
+# Move log
+
+Task: **G2 Batch 2 (archive only)**
+Date: **2026-11-06**
+Policy: archive only; no permanent deletion. No source, data, workbook, resume, private config, or `.env` file was moved.
+
+## Moved files
+
+| # | Source | Destination | SHA-256 |
+|---|---|---|---|
+| 1 | `apply.py` | `archive/legacy_20261106/apply.py` | `CE6101C0A0DAFFAADE91BF9BD4CDEA5594EC64DBC6DC1025E3524AEC170E6A84` |
+| 2 | `create_tracker.py` | `archive/legacy_20261106/create_tracker.py` | `367BCCF520A4B23A404EC47288CCCCDADB05288744AD41005D3D113032EE3FC6` |
+| 3 | `clear_tracker.py` | `archive/legacy_20261106/clear_tracker.py` | `BD6CDFA748E9D0957FAA58205A20E86B8B31E08BF100643D5F5112FA5CF39BAA` |
+| 4 | `require.md` | `archive/legacy_20261106/require.md` | `E403360CA84E7EB229BAC956D759DFEA0571E093F4AD9E30D0812E2452EA15C9` |
+
+## Result
+
+- Files moved: 4
+- Files deleted permanently: 0
+- Source files no longer in root (they have been moved into archive).
+
+## Appended repair: A-003 Batch 1 `.pyc` rows
+
+Date: **2026-11-07**
+Note: these rows were missing from the earlier file. Rows above are unchanged; this section is append-only.
+
+| # | Source | Destination | SHA-256 |
+|---|---|---|---|
+| 1 | `__pycache__/apply.cpython-315.pyc` | `archive/legacy_20261106/cache/__pycache__/apply.cpython-315.pyc` | `2CCE7DFC25FE907C85F24E6E3D9872E03A9C94B342BF7F457FD5F0FBBE3D41CE` |
+| 2 | `__pycache__/discover.cpython-315.pyc` | `archive/legacy_20261106/cache/__pycache__/discover.cpython-315.pyc` | `1339F7C4877DE75405619ED759195BFDA63BADB5B1D2BC5CFA2F3981DFB60D25` |
+| 3 | `__pycache__/excel_io.cpython-315.pyc` | `archive/legacy_20261106/cache/__pycache__/excel_io.cpython-315.pyc` | `C507AD4156673347C1892598A6703D08FE6A8CE087FFB15C682F772E53B0F48B` |
+| 4 | `__pycache__/match.cpython-315.pyc` | `archive/legacy_20261106/cache/__pycache__/match.cpython-315.pyc` | `21BC9AC2F93658FF9B9AC7A0FBCAD346AF9CB02BD7DE6F124F36C04D578FB6BA` |
+| 5 | `__pycache__/notify.cpython-315.pyc` | `archive/legacy_20261106/cache/__pycache__/notify.cpython-315.pyc` | `477CDDA7533C918FFD124A97DE606F900DA2E70B2141E2CD39A9F65022462588` |
+
+## Appended repair: `notify.py`
+
+Date: **2026-11-07**
+Note: moved after the earlier file was written and omitted from it. Rows above are unchanged; this section is append-only.
+
+| # | Source | Destination | SHA-256 |
+|---|---|---|---|
+| 1 | `notify.py` | `archive/legacy_20261106/notify.py` | `A7DE9034139F2135A88225700B53453012ED6AC4DEC152DE695BC6ED86AEE346` |
