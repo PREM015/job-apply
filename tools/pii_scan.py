@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SKIP_DIRS = {".git", ".venv", "archive", "data", "__pycache__", ".pytest_cache"}
 TEXT_SUFFIXES = {".py", ".md", ".yaml", ".yml", ".txt", ".json", ".bat", ".sh", ".toml"}
 EMAIL = re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE)
+PHONE = re.compile(r"(?<!\d)(?:\+?\d[\d ()-]{7,}\d)(?!\d)")
 SENSITIVE_NAME = re.compile(
     r"(?i)^(profile\.yaml|answers\.yaml|\.env|.*resume.*\.pdf|.*\.(pdf|xlsx|sqlite|sqlite3|db|exe))$"
 )
@@ -63,6 +64,7 @@ def main() -> int:
             except (OSError, UnicodeError):
                 text = ""
             content_matches += len(EMAIL.findall(text))
+            content_matches += len(PHONE.findall(text))
             content_matches += sum(text.count(value) for value in personal if value)
         if filename_match or content_matches:
             found += 1
