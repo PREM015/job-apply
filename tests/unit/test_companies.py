@@ -48,6 +48,20 @@ def add_global_targets(path: Path) -> Path:
     return path
 
 
+def test_jt_master_ids_are_normalized(tmp_path, db):
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.title = "Companies"
+    sheet.append(["Master ID", "Company Name", "Priority Tier (Best Available)"])
+    sheet.append(["JT-0515", "Acme", "Tier 1"])
+    path = tmp_path / "jt.xlsx"
+    workbook.save(path)
+    report = import_companies(db, path, commit=True)
+    assert report["companies"][0]["master_id"] == "JT-0515"
+    assert db.count_companies() == 1
+    assert db.get_company(515)["name"] == "Acme"
+
+
 def test_read_global_targets_maps_columns_and_is_read_only(tmp_path):
     path = add_global_targets(make_workbook(tmp_path / "companies.xlsx"))
     before = sha256(path)

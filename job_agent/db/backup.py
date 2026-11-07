@@ -18,3 +18,15 @@ def backup_database(database_path: str | Path, backup_dir: str | Path = "data/ba
     for old in backups[:-keep]:
         old.unlink()
     return str(target)
+
+
+def restore_database(backup_path: str | Path, database_path: str | Path) -> str:
+    source = Path(backup_path)
+    target = Path(database_path)
+    if not source.exists():
+        raise FileNotFoundError(f"backup does not exist: {source}")
+    if source.resolve() == target.resolve():
+        raise ValueError("backup and database paths must differ")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(source, target)
+    return str(target)

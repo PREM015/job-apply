@@ -74,3 +74,13 @@ def test_backup_on_reconnect(tmp_path: Path):
     db2.close()
     backups = list((tmp_path / "backups").glob("*.sqlite3"))
     assert backups
+
+
+def test_restore_database(tmp_path: Path):
+    from job_agent.db.backup import restore_database
+
+    source = tmp_path / "backup.sqlite3"
+    source.write_bytes(b"backup")
+    target = tmp_path / "restored" / "db.sqlite3"
+    assert restore_database(source, target) == str(target)
+    assert target.read_bytes() == b"backup"

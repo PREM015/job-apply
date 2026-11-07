@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 from pathlib import Path
 from typing import Any
 
@@ -27,6 +28,14 @@ def _hash_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(65536), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _to_master_id(value: Any) -> int:
+    text = str(value).strip()
+    match = re.fullmatch(r"(?:JT-)?0*(\d+)", text, re.I)
+    if not match:
+        raise ValueError(f"invalid master id: {text}")
+    return int(match.group(1))
 
 
 def _map_headers(headers: list[str]) -> dict[str, int]:
@@ -119,7 +128,7 @@ def read_global_targets(workbook_path: str | Path,
             matched = record.get("matched_master_id")
             if matched not in (None, ""):
                 try:
-                    record["matched_master_id"] = int(matched)
+                    record["matched_master_id"] = _to_master_id(matched)
                 except (TypeError, ValueError):
                     errors.append({"row": row_number, "error": "invalid_matched_master_id"})
                     record["matched_master_id"] = None
@@ -148,7 +157,7 @@ def import_companies(db: Database, workbook_path: str | Path, sheet: str = "Comp
     if commit:
         for company in report["companies"]:
             db.upsert_company({
-                "master_id": int(company["master_id"]),
+                "master_id": _to_master_id(company["master_id"]),
                 "name": str(company.get("name", "")),
                 "tier": company.get("tier"),
                 "careers_url": company.get("careers_url"),
