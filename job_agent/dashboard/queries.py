@@ -58,14 +58,22 @@ def stats(db: Database) -> dict:
 
 
 def portal_links(db: Database) -> list[dict]:
+    registry = db.list_registry_platforms()
+    if registry:
+        return registry
     links = []
     for company in db.list_companies():
         for field in ("careers_url", "openings_url"):
             url = company.get(field)
             if url:
                 links.append({"master_id": company["master_id"], "company": company["name"],
-                              "kind": field, "url": url})
+                              "kind": field, "url": url, "handling_class": "link_only",
+                              "owner_has_account": 0, "alerts_set": 0})
     return links
+
+
+def saved_alerts(db: Database) -> list[dict]:
+    return db.list_saved_alerts()
 
 
 def sources(db: Database) -> list[dict]:

@@ -84,3 +84,14 @@ def test_restore_database(tmp_path: Path):
     target = tmp_path / "restored" / "db.sqlite3"
     assert restore_database(source, target) == str(target)
     assert target.read_bytes() == b"backup"
+
+
+def test_nested_transactions_roll_back_bulk_operations(db):
+    import pytest
+
+    with pytest.raises(RuntimeError, match="abort bulk write"):
+        with db.transaction():
+            db.upsert_company({"master_id": 1, "name": "Acme"})
+            db.upsert_company({"master_id": 2, "name": "Beta"})
+            raise RuntimeError("abort bulk write")
+    assert db.count_companies() == 0

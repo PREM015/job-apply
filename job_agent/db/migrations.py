@@ -151,4 +151,60 @@ MIGRATIONS: list[tuple[int, str]] = [
         );
         """,
     ),
+    (
+        3,
+        """
+        ALTER TABLE companies ADD COLUMN origin TEXT NOT NULL DEFAULT 'master';
+        ALTER TABLE companies ADD COLUMN region TEXT NOT NULL DEFAULT 'unknown';
+        ALTER TABLE companies ADD COLUMN owner_group TEXT;
+        ALTER TABLE companies ADD COLUMN needs_review INTEGER NOT NULL DEFAULT 0;
+
+        CREATE TABLE IF NOT EXISTS company_career_candidates (
+            candidate_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            company_master_id INTEGER NOT NULL REFERENCES companies(master_id) ON DELETE CASCADE,
+            url TEXT NOT NULL,
+            url_verified INTEGER NOT NULL DEFAULT 0,
+            origin TEXT NOT NULL,
+            UNIQUE (company_master_id, url, origin)
+        );
+
+        CREATE TABLE IF NOT EXISTS registry_platforms (
+            platform_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            normalized_key TEXT NOT NULL UNIQUE,
+            name TEXT NOT NULL,
+            url TEXT NOT NULL,
+            url_verified INTEGER NOT NULL DEFAULT 0,
+            handling_class TEXT NOT NULL,
+            feed_url TEXT,
+            terms_url TEXT,
+            approved INTEGER NOT NULL DEFAULT 0,
+            owner_has_account INTEGER NOT NULL DEFAULT 0,
+            alerts_set INTEGER NOT NULL DEFAULT 0,
+            notes TEXT NOT NULL DEFAULT ''
+        );
+
+        CREATE TABLE IF NOT EXISTS platform_tags (
+            platform_id INTEGER NOT NULL REFERENCES registry_platforms(platform_id) ON DELETE CASCADE,
+            section TEXT NOT NULL,
+            owner_group TEXT,
+            PRIMARY KEY (platform_id, section, owner_group)
+        );
+
+        CREATE TABLE IF NOT EXISTS saved_alerts (
+            alert_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            label TEXT NOT NULL UNIQUE,
+            keyword_group TEXT NOT NULL,
+            keyword TEXT NOT NULL,
+            portal_key TEXT,
+            enabled INTEGER NOT NULL DEFAULT 1,
+            checked INTEGER NOT NULL DEFAULT 0
+        );
+        """,
+    ),
+    (
+        4,
+        """
+        ALTER TABLE jobs ADD COLUMN origin TEXT NOT NULL DEFAULT 'discovery';
+        """,
+    ),
 ]

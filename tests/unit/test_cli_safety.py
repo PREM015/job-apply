@@ -3,9 +3,11 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
+from pathlib import Path
 
 import yaml
 
+from job_agent import cli
 from job_agent.cli import main
 from job_agent.dashboard.app import assert_local_host
 from job_agent.errors import SafetyLockError
@@ -36,6 +38,18 @@ def test_legacy_job_agent_constructor_refuses_live():
         raise AssertionError("live JobAgent was constructed")
 
 
+def test_tracker_resolution_prefers_authoritative_master(tmp_path, monkeypatch):
+    import excel_io
+
+    authoritative = tmp_path / "authoritative.xlsx"
+    local_starter = tmp_path / "Master_Job_Tracker_final.xlsx"
+    authoritative.touch()
+    local_starter.touch()
+    monkeypatch.setattr(excel_io, "AUTHORITATIVE_TRACKER", authoritative)
+    monkeypatch.chdir(tmp_path)
+    assert excel_io.get_tracker_path() == str(authoritative)
+
+
 def test_legacy_run_is_disabled():
     import main as legacy
 
@@ -58,31 +72,70 @@ def test_dashboard_binds_localhost_only():
         raise AssertionError("non-local host was accepted")
 
 
-def test_cli_run_report_export_and_db_check(config_path, tmp_path, capsys):
+def test_cli_run_report_export_and_db_check(config_path, tmp_path, capsys, monkeypatch):
     prefs = ROOT / "config" / "preferences.example.yaml"
     assert prefs.exists()
+    fixture_db = tmp_path / "fixture_job_agent.sqlite3"
+    monkeypatch.setattr(cli, "FIXTURE_DATABASE_PATH", fixture_db)
     run = main(["--config", str(config_path), "run", "--fixtures", str(FIXTURES / "e2e_fixture.json"),
                 "--preferences", str(prefs)])
     assert run == 0
     output = json.loads(capsys.readouterr().out)
     assert output["counters"]["queued_count"] == 3
+    assert output["dataset"] == "FIXTURE"
+    configured_real_db = Path(yaml.safe_load(config_path.read_text(encoding="utf-8"))["database_path"])
+    assert not configured_real_db.exists()
 
-    report = main(["--config", str(config_path), "report"])
+    report = main(["--config", str(config_path), "--db", str(fixture_db), "report"])
     assert report == 0
     report_data = json.loads(capsys.readouterr().out)
     assert len(report_data["queue"]) == 3
 
-    export = main(["--config", str(config_path), "export", "--out",
+    export = main(["--config", str(config_path), "--db", str(fixture_db), "export", "--out",
                    str(tmp_path / "exports" / "daily.xlsx")])
     assert export == 0
     exported = json.loads(capsys.readouterr().out)
     assert exported["sha256"]
     assert (tmp_path / "exports" / "daily.xlsx").exists()
 
-    check = main(["--config", str(config_path), "db-check"])
+    check = main(["--config", str(config_path), "--db", str(fixture_db), "db-check"])
     assert check == 0
     counts = json.loads(capsys.readouterr().out)
     assert counts["counts"]["jobs"] == 3
+
+
+def test_cli_fixture_run_rejects_real_database(config_path, tmp_path, capsys):
+    code = main([
+        "--config", str(config_path), "--db", str(tmp_path / "real.sqlite3"),
+        "run", "--fixtures", str(FIXTURES / "e2e_fixture.json"),
+    ])
+    assert code == 2
+    assert "fixture runs are confined to data/fixture_job_agent.sqlite3" in capsys.readouterr().err
+
+
+def test_cli_run_requires_preferences_file(config_path, tmp_path, capsys):
+    code = main([
+        "--config", str(config_path),
+        "run", "--fixtures", str(FIXTURES / "e2e_fixture.json"),
+        "--preferences", str(tmp_path / "missing-preferences.yaml"),
+    ])
+    assert code == 2
+    assert "NETWORK LOCK: preferences file is required" in capsys.readouterr().err
+
+
+def test_daily_launcher_is_locked_without_owner_preferences(config_path, capsys):
+    root = ROOT
+    launcher = (root / "run_daily.bat").read_text(encoding="utf-8")
+    assert 'if not exist "config\\preferences.yaml"' in launcher
+    assert "NETWORK LOCK:" in launcher
+    code = main([
+        "--config", str(config_path), "doctor",
+        "--preferences", str(root / "config" / "preferences.yaml.missing"),
+    ])
+    assert code == 0
+    output = capsys.readouterr().out
+    assert "Live mode: DISABLED" in output
+    assert "Network lock: LOCKED" in output
 
 
 def test_cli_import_companies(config_path, tmp_path, capsys):

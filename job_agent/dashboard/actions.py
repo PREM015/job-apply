@@ -46,6 +46,7 @@ def add_manual_job(db: Database, canonical_url: str, title: str, company_name: s
         "experience_level": "unknown",
         "description_text": description_text.strip(),
         "status": "active",
+        "origin": "manual",
         "score_total": 0,
         "score_breakdown": {"source": "manual"},
         "dedupe_key": f"manual:{digest}",

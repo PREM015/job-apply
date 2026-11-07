@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
+from itertools import count
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
@@ -10,6 +11,8 @@ from typing import Any, Iterator
 
 from .backup import backup_database
 from .migrations import MIGRATIONS
+
+_SAVEPOINTS = count()
 
 
 def now_iso() -> str:
@@ -48,11 +51,24 @@ class Database:
     @contextmanager
     def transaction(self) -> Iterator[sqlite3.Connection]:
         assert self.connection is not None, "connect() first"
+        nested = self.connection.in_transaction
+        savepoint = f"job_agent_sp_{next(_SAVEPOINTS)}"
         try:
+            if nested:
+                self.connection.execute(f"SAVEPOINT {savepoint}")
+            else:
+                self.connection.execute("BEGIN")
             yield self.connection
-            self.connection.commit()
+            if nested:
+                self.connection.execute(f"RELEASE SAVEPOINT {savepoint}")
+            else:
+                self.connection.commit()
         except Exception:
-            self.connection.rollback()
+            if nested:
+                self.connection.execute(f"ROLLBACK TO SAVEPOINT {savepoint}")
+                self.connection.execute(f"RELEASE SAVEPOINT {savepoint}")
+            else:
+                self.connection.rollback()
             raise
 
     def migrate(self) -> list[int]:
@@ -78,14 +94,18 @@ class Database:
             conn.execute(
                 """
                 INSERT INTO companies(master_id, name, tier, careers_url, openings_url, ats_type,
-                    ats_identifier, resolution_status, last_resolved_at, notes)
+                    ats_identifier, resolution_status, last_resolved_at, notes, origin, region,
+                    owner_group, needs_review)
                 VALUES (:master_id, :name, :tier, :careers_url, :openings_url, :ats_type,
-                    :ats_identifier, :resolution_status, :last_resolved_at, :notes)
+                    :ats_identifier, :resolution_status, :last_resolved_at, :notes, :origin,
+                    :region, :owner_group, :needs_review)
                 ON CONFLICT(master_id) DO UPDATE SET
                     name=excluded.name, tier=excluded.tier, careers_url=excluded.careers_url,
                     openings_url=excluded.openings_url, ats_type=excluded.ats_type,
                     ats_identifier=excluded.ats_identifier, resolution_status=excluded.resolution_status,
-                    last_resolved_at=excluded.last_resolved_at, notes=excluded.notes
+                    last_resolved_at=excluded.last_resolved_at, notes=excluded.notes,
+                    origin=excluded.origin, region=excluded.region, owner_group=excluded.owner_group,
+                    needs_review=excluded.needs_review
                 """,
                 {
                     "master_id": company["master_id"],
@@ -98,9 +118,26 @@ class Database:
                     "resolution_status": company.get("resolution_status", "unresolved"),
                     "last_resolved_at": company.get("last_resolved_at"),
                     "notes": company.get("notes"),
+                    "origin": company.get("origin", "master"),
+                    "region": company.get("region", "unknown"),
+                    "owner_group": company.get("owner_group"),
+                    "needs_review": int(company.get("needs_review", False)),
                 },
             )
         return int(company["master_id"])
+
+    def add_company_career_candidate(self, company_master_id: int, url: str,
+                                     origin: str = "owner_list") -> None:
+        assert self.connection is not None
+        with self.transaction() as conn:
+            conn.execute(
+                """
+                INSERT OR IGNORE INTO company_career_candidates(
+                    company_master_id, url, url_verified, origin
+                ) VALUES (?, ?, 0, ?)
+                """,
+                (company_master_id, url, origin),
+            )
 
     def get_company(self, master_id: int) -> dict[str, Any] | None:
         assert self.connection is not None
@@ -150,6 +187,112 @@ class Database:
     def count_global_targets(self) -> int:
         assert self.connection is not None
         return int(self.connection.execute("SELECT COUNT(*) FROM global_targets").fetchone()[0])
+
+    def upsert_registry_platform(self, platform: dict[str, Any]) -> int:
+        assert self.connection is not None
+        with self.transaction() as conn:
+            conn.execute(
+                """
+                INSERT INTO registry_platforms(
+                    normalized_key, name, url, url_verified, handling_class, feed_url, terms_url,
+                    approved, owner_has_account, alerts_set, notes
+                ) VALUES (
+                    :normalized_key, :name, :url, 0, :handling_class, :feed_url, :terms_url,
+                    :approved, :owner_has_account, :alerts_set, :notes
+                )
+                ON CONFLICT(normalized_key) DO UPDATE SET
+                    name=excluded.name, url=excluded.url,
+                    url_verified=0,
+                    handling_class=excluded.handling_class,
+                    feed_url=excluded.feed_url, terms_url=excluded.terms_url,
+                    approved=excluded.approved
+                """,
+                {
+                    **platform,
+                    "feed_url": platform.get("feed_url"),
+                    "terms_url": platform.get("terms_url"),
+                    "approved": int(platform.get("approved", False)),
+                    "owner_has_account": int(platform.get("owner_has_account", False)),
+                    "alerts_set": int(platform.get("alerts_set", False)),
+                    "notes": platform.get("notes", ""),
+                },
+            )
+            row = conn.execute(
+                "SELECT platform_id FROM registry_platforms WHERE normalized_key=?",
+                (platform["normalized_key"],),
+            ).fetchone()
+            platform_id = int(row[0])
+            conn.execute(
+                "INSERT OR IGNORE INTO platform_tags(platform_id, section, owner_group) VALUES (?, ?, ?)",
+                (platform_id, platform["section"], platform.get("owner_group")),
+            )
+        return platform_id
+
+    def list_registry_platforms(self) -> list[dict[str, Any]]:
+        assert self.connection is not None
+        rows = self.connection.execute(
+            """
+            SELECT p.*, GROUP_CONCAT(DISTINCT t.section) AS sections,
+                   GROUP_CONCAT(DISTINCT t.owner_group) AS owner_groups
+            FROM registry_platforms p
+            LEFT JOIN platform_tags t ON t.platform_id=p.platform_id
+            GROUP BY p.platform_id ORDER BY p.name COLLATE NOCASE
+            """
+        )
+        return [dict(row) for row in rows]
+
+    def update_registry_platform(self, platform_id: int, *, owner_has_account: bool | None = None,
+                                 alerts_set: bool | None = None) -> None:
+        assert self.connection is not None
+        fields = []
+        values: list[Any] = []
+        if owner_has_account is not None:
+            fields.append("owner_has_account=?")
+            values.append(int(owner_has_account))
+        if alerts_set is not None:
+            fields.append("alerts_set=?")
+            values.append(int(alerts_set))
+        if not fields:
+            return
+        values.append(platform_id)
+        with self.transaction() as conn:
+            cursor = conn.execute(
+                f"UPDATE registry_platforms SET {', '.join(fields)} WHERE platform_id=?",
+                values,
+            )
+            if cursor.rowcount != 1:
+                raise ValueError(f"unknown registry platform: {platform_id}")
+
+    def upsert_saved_alert(self, label: str, keyword_group: str, keyword: str,
+                           portal_key: str | None = None, enabled: bool = True) -> None:
+        assert self.connection is not None
+        with self.transaction() as conn:
+            conn.execute(
+                """
+                INSERT INTO saved_alerts(label, keyword_group, keyword, portal_key, enabled)
+                VALUES (?, ?, ?, ?, ?)
+                ON CONFLICT(label) DO UPDATE SET
+                    keyword_group=excluded.keyword_group, keyword=excluded.keyword,
+                    portal_key=excluded.portal_key, enabled=excluded.enabled
+                """,
+                (label, keyword_group, keyword, portal_key, int(enabled)),
+            )
+
+    def list_saved_alerts(self) -> list[dict[str, Any]]:
+        assert self.connection is not None
+        return [dict(row) for row in self.connection.execute(
+            "SELECT * FROM saved_alerts ORDER BY keyword_group, label"
+        )]
+
+    def set_saved_alert_checked(self, alert_id: int, checked: bool) -> None:
+        assert self.connection is not None
+        with self.transaction() as conn:
+            cursor = conn.execute(
+                "UPDATE saved_alerts SET checked=? WHERE alert_id=?",
+                (int(checked), alert_id),
+            )
+            if cursor.rowcount != 1:
+                raise ValueError(f"unknown saved alert: {alert_id}")
 
     # -------------------------------------------------------------------- sources
     def add_source(self, source: dict[str, Any]) -> int:
@@ -248,12 +391,12 @@ class Database:
                 INSERT INTO jobs(source_id, company_master_id, source_job_id, canonical_url, apply_url,
                     title, company_name, location_raw, city, region, country, work_mode, employment_type,
                     experience_level, is_internship, is_software, software_evidence, skills_required,
-                    skills_preferred, description_text, posted_at, discovered_at, last_seen_at, status,
+                    skills_preferred, description_text, posted_at, discovered_at, last_seen_at, status, origin,
                     score_total, score_breakdown, dedupe_key, fingerprint, is_active, created_at, updated_at)
                 VALUES (:source_id, :company_master_id, :source_job_id, :canonical_url, :apply_url,
                     :title, :company_name, :location_raw, :city, :region, :country, :work_mode, :employment_type,
                     :experience_level, :is_internship, :is_software, :software_evidence, :skills_required,
-                    :skills_preferred, :description_text, :posted_at, :discovered_at, :last_seen_at, :status,
+                    :skills_preferred, :description_text, :posted_at, :discovered_at, :last_seen_at, :status, :origin,
                     :score_total, :score_breakdown, :dedupe_key, :fingerprint, 1, :created_at, :updated_at)
                 """,
                 {
@@ -281,6 +424,7 @@ class Database:
                     "discovered_at": job.get("discovered_at", stamp),
                     "last_seen_at": stamp,
                     "status": job.get("status", "active"),
+                    "origin": job.get("origin", "discovery"),
                     "score_total": int(job.get("score_total", 0)),
                     "score_breakdown": json.dumps(job.get("score_breakdown", {}), sort_keys=True),
                     "dedupe_key": job["dedupe_key"],

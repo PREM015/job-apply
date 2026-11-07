@@ -88,6 +88,7 @@ def test_read_companies_is_read_only(tmp_path):
     report = read_companies(path)
     assert sha256(path) == before
     assert report["hash_unchanged"] is True
+    assert report["sheet_count"] == 1
     assert len(report["companies"]) == 2
     assert report["errors"] == [{"row": 4, "error": "missing_master_id"}]
 
@@ -100,7 +101,9 @@ def test_import_companies_commit_and_quality(tmp_path, db):
     quality = data_quality_report(report["companies"])
     assert quality["total"] == 2
     assert quality["tiers"]["Tier 1"] == 1
-    assert quality["ats_counts"]["unknown"] == 2
+    assert quality["careers_urls"] == 2
+    assert quality["ats_like_urls"] == 2
+    assert quality["ats_counts"] == {"greenhouse": 1, "lever": 1}
 
 
 def test_import_companies_without_commit(tmp_path, db):

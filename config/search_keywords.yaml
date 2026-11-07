@@ -1,0 +1,32 @@
+frontend:
+  - React Developer
+  - Next.js Developer
+  - Frontend Developer
+  - Frontend Engineer
+  - UI Developer
+backend:
+  - Node.js Developer
+  - Backend Developer
+  - API Developer
+  - Software Engineer
+fullstack:
+  - Full Stack Developer
+  - MERN Stack Developer
+  - JavaScript Developer
+  - TypeScript Developer
+entry_level:
+  - Software Developer Intern
+  - SDE Intern
+  - Graduate Engineer Trainee
+  - Associate Software Engineer
+  - Junior Software Engineer
+  - Entry-Level Developer
+remote:
+  - Remote React Developer
+  - Remote Next.js Developer
+  - Remote Node.js Developer
+contract_optional:
+  enabled: false
+  keywords:
+    - Freelance Full Stack Developer
+    - Junior Full Stack Contractor

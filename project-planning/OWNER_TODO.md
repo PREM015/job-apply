@@ -1,44 +1,47 @@
 # Owner TODO
 
-The build is paused at Stage F. Do not start PART 4 until the owner acts.
+Local commits on `rebuild` are authorized. Do not push. There is no remote
+configured for this work.
 
-## 1. Approve or edit preferences
+## PART 4 approval gate
 
-Read `project-planning/PREFERENCES_DRAFT.md` and `config/preferences.example.yaml`.
-Reply with the exact line below only when the draft is acceptable:
+Do not start PART 4 until the owner sends the exact phrase:
 
 ```text
 PREFERENCES APPROVED
 ```
 
-If changes are needed, list them and the draft will be regenerated.
+Before approving, review `config/preferences.draft.yaml` and save the approved
+version as `config/preferences.yaml`. The draft is not executable preferences
+and must not be copied automatically.
 
-## 2. Approve Stage F -> PART 4
+PART 4, once approved, is limited to:
 
-Part 4 includes live-source proof and the five-job end-to-end proof. It is blocked until
-preferences are approved and the owner explicitly allows a live run.
+- Up to 25 Tier 1/2 companies, preferring known-ATS hosts.
+- At most 1 request per second per host and a 300-request total cap.
+- Respect robots.txt; skip a host after repeated 403 or 429 responses.
+- Verify each adapter against a real response; keep it UNVERIFIED if it differs.
+- The scope may widen by 25 more companies only under the later approved process.
+- Never pad the candidate list, use placeholder data, or relax the score floor.
+- No automatic applications or submissions.
 
-## 3. Real company import (G4)
+The current correction explicitly does not authorize PART 4 or any LIVE
+network requests.
 
-`import-companies` is implemented and read-only by default. Do not run it against the
-authoritative master until the owner approves the output and understands that:
+## Remaining owner inputs
 
-- the workbook is hashed before and after;
-- nothing is written to the workbook;
-- the master path is `D:\code\plans\PLACEMENT\job\Master_Job_Tracker_final.xlsx`.
-
-## 4. Live discovery spike (A-029)
-
-Live HTTP is implemented but not exercised. The owner must approve a specific allowlist
-of public sources and a request cap before any real request is made.
-
-## 5. Blocked items
-
-`project-planning/BLOCKED.md` lists A-029, A-030..A-033, A-034, real A-048 labelling,
-Batch 3 cleanup, and PART 4. The task board and BLOCKED file disagree about A-030..A-034;
-the build treats them as pure fixture classifiers, which is the conservative choice.
-
-## 6. Repository state
-
-There are no commits. The branch is `rebuild`. Staging and commits require explicit
-owner approval; no `git add .` or `git add -A` was used.
+- Supply real labels before requesting real A-048 labeling.
+- Decide the Batch 3 disposition of backups, the local starter workbook,
+  browser_profile, proofs, and add_companies.py. No permanent deletion is
+  allowed without an explicit decision.
+- Review the adapter endpoint assumptions before authorizing any LIVE checks.
+- G6 deletion decision: default is no deletion.
+- Remove any Telegram keys from protected config.yaml manually; this repository
+  must not edit that protected file.
+- Approve terms separately for each open-feed candidate before any adapter is
+  implemented or used.
+- Set owner_has_account for portals in the local dashboard as applicable.
+- Decide whether to enable the contract_optional Freelance/Contractor keywords.
+- Review whether the keyword groups should later be connected to role relevance;
+  they currently populate the checklist only.
+- Provide real labels for approximately 50 jobs before real A-048 labeling.

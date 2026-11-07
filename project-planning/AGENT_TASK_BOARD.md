@@ -1,16 +1,17 @@
 # Agent task board
 
 Last updated: **2026-11-07**
-Current task: **Stage C-F build complete; paused at Stage F gate**
+Current task: **Correction 4 local safety and registry implementation**
 Next task: **PART 4 only after exact `PREFERENCES APPROVED`**.
 
 ## Execution update (2026-11-07)
 
-The table below preserves the original 2026-11-06 plan status. The implementation now
-has A-005..A-060 offline/distributed through the `job_agent` package, 97 passing tests,
-an offline fixture E2E run, and a safe export. Live A-012/A-029/A-042/A-056 remain
-blocked. See `PROJECT_STATUS.md` section 14 and `RUN_LOG.md` for evidence. Do not treat
-the historical `TODO` cells below as current state.
+The detailed task rows below are the original planning snapshot, not current
+execution evidence. Use the latest local commits, test output, and
+`project-planning/BLOCKED.md` to determine present status. The current build is
+offline-only: fixture jobs are separated from the owner company database,
+registry URLs are stored unverified, and no LIVE source or apply request is
+authorized. The real G4 import has not been confirmed in this session.
 
 ## 1. Status legend
 

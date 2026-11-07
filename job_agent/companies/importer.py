@@ -9,6 +9,7 @@ from typing import Any
 import openpyxl
 
 from ..db.repository import Database
+from .resolver import resolve_company
 
 HEADER_ALIASES = {
     "master_id": ("Master ID", "master_id"),
@@ -53,6 +54,7 @@ def read_companies(workbook_path: str | Path, sheet: str = "Companies") -> dict[
     before = _hash_file(path)
     workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
     try:
+        sheet_count = len(workbook.sheetnames)
         if sheet not in workbook.sheetnames:
             raise ValueError(f"missing sheet: {sheet}")
         worksheet = workbook[sheet]
@@ -84,7 +86,8 @@ def read_companies(workbook_path: str | Path, sheet: str = "Companies") -> dict[
         workbook.close()
     after = _hash_file(path)
     return {"companies": companies, "errors": errors, "hash_before": before,
-            "hash_after": after, "hash_unchanged": before == after, "headers": headers}
+            "hash_after": after, "hash_unchanged": before == after, "headers": headers,
+            "sheet_count": sheet_count}
 
 
 def read_global_targets(workbook_path: str | Path,
@@ -150,34 +153,46 @@ def import_companies(db: Database, workbook_path: str | Path, sheet: str = "Comp
     targets = read_global_targets(workbook_path, target_sheet)
     if not targets["hash_unchanged"]:
         raise RuntimeError("workbook hash changed during read-only global target import")
+    if report["hash_before"] != targets["hash_before"]:
+        raise RuntimeError("workbook changed between company and global target reads")
     report["global_targets"] = targets["global_targets"]
     report["global_target_errors"] = targets["errors"]
     report["global_target_columns"] = targets["columns"]
     report["global_target_sheet_present"] = targets["sheet_present"]
     if commit:
-        for company in report["companies"]:
-            db.upsert_company({
-                "master_id": _to_master_id(company["master_id"]),
-                "name": str(company.get("name", "")),
-                "tier": company.get("tier"),
-                "careers_url": company.get("careers_url"),
-                "openings_url": company.get("openings_url"),
-                "ats_type": company.get("ats_type") or "unknown",
-                "ats_identifier": company.get("ats_identifier"),
-                "resolution_status": "unresolved",
-                "last_resolved_at": None,
-                "notes": company.get("notes"),
-            })
-        for target in report["global_targets"]:
-            db.upsert_global_target({
-                "target_id": int(target["target_id"]),
-                "company": str(target.get("company", "")),
-                "tier": target.get("tier"),
-                "careers_url": target.get("careers_url"),
-                "status": target.get("status"),
-                "matched_master_id": target.get("matched_master_id"),
-                "source": target.get("source"),
-            })
+        parsed_companies = [
+            (company, _to_master_id(company["master_id"]))
+            for company in report["companies"]
+        ]
+        parsed_targets = [
+            (target, int(target["target_id"]))
+            for target in report["global_targets"]
+        ]
+        with db.transaction():
+            for company, master_id in parsed_companies:
+                resolution = resolve_company(company)
+                db.upsert_company({
+                    "master_id": master_id,
+                    "name": str(company.get("name", "")),
+                    "tier": company.get("tier"),
+                    "careers_url": company.get("careers_url"),
+                    "openings_url": company.get("openings_url"),
+                    "ats_type": company.get("ats_type") or resolution.get("source_type") or "unknown",
+                    "ats_identifier": company.get("ats_identifier") or resolution.get("identifier"),
+                    "resolution_status": resolution.get("resolution_status", "unresolved"),
+                    "last_resolved_at": None,
+                    "notes": company.get("notes"),
+                })
+            for target, target_id in parsed_targets:
+                db.upsert_global_target({
+                    "target_id": target_id,
+                    "company": str(target.get("company", "")),
+                    "tier": target.get("tier"),
+                    "careers_url": target.get("careers_url"),
+                    "status": target.get("status"),
+                    "matched_master_id": target.get("matched_master_id"),
+                    "source": target.get("source"),
+                })
     return report
 
 
@@ -185,6 +200,8 @@ def data_quality_report(companies: list[dict[str, Any]]) -> dict[str, Any]:
     tiers: dict[str, int] = {}
     missing_id = 0
     missing_url = 0
+    careers_urls = 0
+    ats_like_urls = 0
     ats_counts: dict[str, int] = {}
     names: set[str] = set()
     duplicates = 0
@@ -193,13 +210,29 @@ def data_quality_report(companies: list[dict[str, Any]]) -> dict[str, Any]:
         tiers[tier] = tiers.get(tier, 0) + 1
         if not company.get("master_id"):
             missing_id += 1
+        careers_url = company.get("careers_url")
+        openings_url = company.get("openings_url")
+        if careers_url:
+            careers_urls += 1
         if not (company.get("careers_url") or company.get("openings_url")):
             missing_url += 1
-        ats = str(company.get("ats_type") or "unknown").lower()
+        resolution = resolve_company(company)
+        detected_ats = str(resolution.get("source_type") or "").lower()
+        if detected_ats not in {"greenhouse", "lever", "ashby", "smartrecruiters",
+                                "workable", "keka", "zoho"}:
+            detected_ats = "unknown"
+        if detected_ats != "unknown" and (careers_url or openings_url):
+            ats_like_urls += 1
+        ats = str(company.get("ats_type") or detected_ats or "unknown").lower()
+        if ats not in {"greenhouse", "lever", "ashby", "smartrecruiters",
+                       "workable", "keka", "zoho"}:
+            ats = "unknown"
         ats_counts[ats] = ats_counts.get(ats, 0) + 1
         name = str(company.get("name", "")).strip().lower()
         if name in names:
             duplicates += 1
         names.add(name)
     return {"total": len(companies), "tiers": tiers, "missing_id": missing_id,
-            "missing_url": missing_url, "ats_counts": ats_counts, "duplicate_names": duplicates}
+            "missing_url": missing_url, "careers_urls": careers_urls,
+            "ats_like_urls": ats_like_urls, "ats_counts": ats_counts,
+            "duplicate_names": duplicates}

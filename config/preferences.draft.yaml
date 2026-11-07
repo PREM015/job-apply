@@ -1,0 +1,68 @@
+# Draft only; review before saving as config/preferences.yaml.
+# source: profile.yaml:target_roles
+target_roles:
+  - Full Stack Developer
+  - Full Stack Developer Intern
+  - Frontend Developer
+  - Frontend Intern
+  - Backend Developer
+  - Backend Intern
+  - Software Engineer Intern
+  - Entry-Level Software Engineer
+
+# source: profile.yaml:skills
+skills:
+  - JavaScript
+  - TypeScript
+  - Python
+  - Java
+  - C++
+  - SQL
+  - HTML5
+  - CSS3
+  - React
+  - Next.js
+  - Tailwind CSS
+  - Redux
+  - Framer Motion
+  - ShadCN/UI
+  - Node.js
+  - Express.js
+  - NestJS
+  - REST APIs
+  - Mongoose
+  - Zod
+  - bcrypt
+  - PostgreSQL
+  - MySQL
+  - MongoDB
+  - Prisma
+  - Redis
+  - NeonDB
+  - Supabase
+  - NextAuth.js
+  - Firebase Auth
+  - JWT/OAuth2
+  - RBAC/Permissions
+  - MFA/2FA
+  - Encryption/Hashing
+  - API Security
+  - Git
+  - GitHub
+  - CI/CD
+  - Vercel
+  - Railway
+  - Render
+  - Docker
+  - Postman
+  - Node.js REPL/nvm
+
+# ASSUMPTION - owner to confirm
+years_of_experience: unknown
+
+# source: profile.yaml:location
+locations:
+  - Bihar, India
+
+# ASSUMPTION - owner to confirm
+work_modes: unknown

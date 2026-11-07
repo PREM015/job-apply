@@ -10,6 +10,7 @@ from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.utils import get_column_letter
 
 TRACKER_FILE = "Master_Job_Tracker_final.xlsx"
+AUTHORITATIVE_TRACKER = Path(r"D:\code\plans\PLACEMENT\job\Master_Job_Tracker_final.xlsx")
 JOB_OPENINGS_SHEET = "Job Openings"
 DAILY_RUN_LOG_SHEET = "Daily Run Log"
 
@@ -45,7 +46,9 @@ APP_TRACKER_HEADERS = [
 
 
 def get_tracker_path():
-    # Look in current dir and parent dirs
+    if AUTHORITATIVE_TRACKER.exists():
+        return str(AUTHORITATIVE_TRACKER)
+    # Legacy fallback is used only when the configured authoritative file is absent.
     for base in [Path("."), Path(".."), Path("D:/code/plans/PLACEMENT/job/apply project")]:
         candidate = base / TRACKER_FILE
         if candidate.exists():

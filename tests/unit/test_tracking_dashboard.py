@@ -1,11 +1,12 @@
 from __future__ import annotations
 
+import ast
 from pathlib import Path
 
 import pytest
 
 from job_agent.dashboard import actions, queries
-from job_agent.dashboard.app import assert_local_host
+from job_agent.dashboard.app import DASHBOARD_PAGES, assert_local_host
 from job_agent.errors import SafetyLockError
 from job_agent.tracking.applications import log_application
 from job_agent.tracking.queue import set_state
@@ -60,6 +61,7 @@ def test_dashboard_pages_and_manual_add(db):
     )
     assert created is True
     assert queries.job_detail(db, job_id)["company_name"] == "Example"
+    assert queries.job_detail(db, job_id)["origin"] == "manual"
     same_id, created_again = actions.add_manual_job(
         db, "https://example.com/jobs/manual", "Backend Engineer", "Example",
     )
@@ -72,9 +74,39 @@ def test_dashboard_is_local_only_and_has_no_network_imports():
     with pytest.raises(SafetyLockError):
         assert_local_host("0.0.0.0")
     dashboard_dir = Path(__file__).resolve().parents[2] / "job_agent" / "dashboard"
-    source = "\n".join(path.read_text(encoding="utf-8") for path in dashboard_dir.glob("*.py"))
-    for token in ("import requests", "import httpx", "import urllib", "import socket"):
-        assert token not in source
+    network_modules = {"requests", "httpx", "urllib", "socket", "aiohttp"}
+    for path in dashboard_dir.glob("*.py"):
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                modules = [alias.name for alias in node.names]
+            elif isinstance(node, ast.ImportFrom):
+                modules = [node.module or "", *(alias.name for alias in node.names)]
+            else:
+                modules = []
+            for module in modules:
+                parts = module.split(".")
+                assert not network_modules.intersection(parts)
+                assert not {"apply", "submit"}.intersection(parts)
+            if isinstance(node, ast.Call):
+                called = node.func
+                while isinstance(called, ast.Attribute):
+                    called = called.value
+                if isinstance(called, ast.Name):
+                    assert called.id not in network_modules
+
+
+def test_dashboard_pages_and_launcher_are_local():
+    required_pages = {
+        "Today's Apply List", "Job Detail", "All Jobs", "Applications", "Needs Review",
+        "Companies", "Source Health", "Stats", "Portal Links", "Saved Alert Checklist", "Add Job",
+    }
+    assert required_pages.issubset(DASHBOARD_PAGES)
+    root = Path(__file__).resolve().parents[2]
+    launcher = (root / "run_dashboard.bat").read_text(encoding="utf-8")
+    assert r".venv\Scripts\activate.bat" in launcher
+    assert "--server.address 127.0.0.1" in launcher
+    assert "-m streamlit run job_agent\\dashboard\\app.py" in launcher
 
 
 def test_invalid_queue_state(db):

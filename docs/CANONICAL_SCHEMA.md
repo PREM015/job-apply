@@ -8,6 +8,10 @@ master store. The authoritative workbook stays read-only and is never written by
 | Table | Purpose | Key columns |
 |---|---|---|
 | `companies` | normalized company directory | `master_id` (PK), `name`, `tier`, `careers_url`, `openings_url`, `ats_type`, `resolution_status` |
+| `company_career_candidates` | unverified owner-list career links | `candidate_id` (PK), `company_master_id`, `url`, `url_verified`, `origin` |
+| `registry_platforms` | owner-supplied portals; URLs are link-only data unless separately approved | `platform_id` (PK), `normalized_key`, `url`, `handling_class`, `approved`, `owner_has_account`, `alerts_set` |
+| `platform_tags` | registry section membership | `platform_id`, `section`, `owner_group` |
+| `saved_alerts` | owner checklist items derived from keywords/portals | `alert_id` (PK), `keyword_group`, `keyword`, `enabled`, `checked` |
 | `sources` | one fetch target per company | `source_id` (PK), `company_master_id` (FK), `source_type`, `url`, `enabled`, `fail_count` |
 | `jobs` | normalized postings | `job_id` (PK), `source_id`, `company_master_id`, `canonical_url`, `dedupe_key`, `fingerprint` |
 | `applications` | human-owned application log | `application_id` (PK), `job_id`, `status`, `applied_at`, `notes` |
@@ -22,6 +26,11 @@ master store. The authoritative workbook stays read-only and is never written by
 - `jobs.canonical_url`, `jobs.dedupe_key`, and `jobs.fingerprint` are unique.
 - `(sources.company_master_id, sources.url)` is unique.
 - `(queue.run_id, queue.job_id)` is unique.
+- Fixture CLI runs are confined to `data/fixture_job_agent.sqlite3`; owner company
+  imports target `data/job_agent.sqlite3`.
+- Registry URLs are stored unverified and are never fetched by import or dashboard code.
+- Manual jobs carry `jobs.origin = 'manual'`; imported owner-list companies carry
+  `companies.origin = 'owner_list'`.
 - `applications.status` is owner-managed; automatic submission is not supported.
 - Deletes are blocked by `ON DELETE CASCADE` only for derived child rows; source data is
   archived, never silently removed.
