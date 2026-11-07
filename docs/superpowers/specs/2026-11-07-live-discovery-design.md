@@ -2,11 +2,24 @@
 
 ## Status
 
-The owner approved this design in chat. Implementation and any network access remain gated on review of this document and an implementation plan.
+The owner approved the design in chat. Requirement identifiers were added for planning traceability; this amendment awaits owner review. Implementation and any network access remain gated on approval of the amendment and an implementation plan.
 
 ## Goal
 
 Add an explicit, bounded LIVE discovery command that retrieves public job listings from Tier 1/2 company career pages or supported ATS feeds, runs the existing job-processing pipeline, and reports genuine results without submitting applications.
+
+## Requirements
+
+- **REQ-001 - Explicit LIVE command gates:** Provide a separate `discover-live` command that requires valid preferences and `--network-ok`, validates caps before network access, and supports `--dry-report`.
+- **REQ-002 - Bounded safe HTTP:** Enforce GET-only HTTP(S), request/timeout/retry limits, per-host pacing, cookie-free requests, and same-host redirect handling with one global request counter.
+- **REQ-003 - Robots and host safety:** Respect robots rules, fail closed when robots policy cannot be established, skip a host after repeated 403/429 responses, and record every actual request in a path-only ledger.
+- **REQ-004 - Safe company/source selection:** Select only Tier 1/2 companies from the real database, prioritize supported ATS sources, resolve boundedly, and exclude portal-registry sources.
+- **REQ-005 - Honest adapter verification:** Parse only supported response shapes and report adapter verification only when a real response sample agrees with parsed fields; otherwise report UNVERIFIED.
+- **REQ-006 - LIVE data isolation and backup:** Back up the real database before writes, label jobs `LIVE`, keep fixture data separate, and make dry-report mode non-mutating.
+- **REQ-007 - Existing pipeline behavior:** Reuse the existing normalization, validation, classification, hard gates, scoring, dedupe, and quota without relaxing thresholds or padding results; report the funnel.
+- **REQ-008 - No application submission:** Check apply URLs using counted GETs only; never submit or automate an application.
+- **REQ-009 - Offline regression coverage:** Cover safety gates, HTTP policy, resolution, data isolation, pipeline origin, and apply-link checks with network-mocked FIXTURE tests; preserve existing fixture and apply-refusal behavior.
+- **REQ-010 - Evidence and results:** Save the request ledger and run evidence, and report actual jobs and statuses without credentials, cookies, or full response dumps.
 
 ## Non-goals
 
@@ -70,13 +83,13 @@ All automated network-policy tests use `responses`; tests make no real network c
 
 ## Acceptance criteria
 
-1. The command refuses before network access unless preferences validate and `--network-ok` is supplied.
-2. No run can exceed 25 companies or 300 actual GET requests, including robots, retries, redirects, and apply checks.
-3. The only job sources are Tier 1/2 company careers/ATS URLs resolved under the constraints above.
-4. LIVE records are labeled `LIVE`; fixture data never enters the real database.
-5. Existing pipeline gates, score floor, dedupe, and quota are preserved.
-6. The request ledger, per-adapter verification results, funnel, and actual top results are reproducible from the run evidence.
-7. Automated tests run offline and pass; LIVE APPLY remains impossible.
+1. **REQ-001/REQ-002:** The command refuses before network access unless preferences validate and `--network-ok` is supplied; caps are enforced before requests.
+2. **REQ-002/REQ-003:** No run can exceed 25 companies or 300 actual GET requests, including robots, retries, redirects, and apply checks.
+3. **REQ-004:** The only job sources are Tier 1/2 company careers/ATS URLs resolved under the constraints above.
+4. **REQ-006:** LIVE records are labeled `LIVE`; fixture data never enters the real database; database writes are preceded by a backup.
+5. **REQ-007:** Existing pipeline gates, score floor, dedupe, and quota are preserved.
+6. **REQ-005/REQ-010:** The request ledger, per-adapter verification results, funnel, and actual top results are reproducible from the run evidence.
+7. **REQ-008/REQ-009:** Apply URLs receive GET-only checks, automated tests run offline, and LIVE APPLY remains impossible.
 
 ## Known limitations
 
