@@ -48,6 +48,29 @@ def test_preferences_example_is_valid_and_weights_sum_100():
     assert sum(prefs["weights"].values()) == 100
 
 
+def test_owner_preferences_load_with_application_schema():
+    prefs = load_preferences(ROOT / "config" / "preferences.yaml")
+    assert prefs["experience"]["ceiling_years"] == 2
+    assert prefs["locations"]["countries"] == ["IN"]
+    assert prefs["locations"]["cities"] == ["Bihar, India"]
+
+
+def test_old_owner_preferences_keys_are_rejected(tmp_path: Path):
+    path = tmp_path / "preferences.owner-original.yaml"
+    path.write_text(
+        """
+target_roles: [Developer]
+skills: [Python]
+max_years_experience: 2
+locations: [Bihar, India]
+work_modes: [hybrid]
+""",
+        encoding="utf-8",
+    )
+    with pytest.raises(ConfigError, match="unknown keys.*max_years_experience"):
+        load_preferences(path)
+
+
 def test_bad_weights_are_rejected(tmp_path):
     data = yaml.safe_load((ROOT / "config" / "preferences.example.yaml").read_text(encoding="utf-8"))
     data["weights"]["role_title"] = 99

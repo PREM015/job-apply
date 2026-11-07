@@ -3,6 +3,8 @@
 .env.*
 !.env.example
 /config.yaml
+/config/preferences.yaml
+/config/preferences.owner_original.yaml
 profile.yaml
 answers.yaml
 config/profile.yaml
@@ -77,4 +79,3 @@ desktop.ini
 *.swo
 *.exe
 python-*.exe
-

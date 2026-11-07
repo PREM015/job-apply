@@ -169,8 +169,16 @@ def cmd_doctor(args, config: dict) -> int:
     else:
         print("  no database file")
     print(f"Preferences file: {'present' if preferences.is_file() else 'not present'} ({preferences})")
+    try:
+        load_preferences(preferences)
+    except JobAgentError as exc:
+        print(f"Preferences schema: INVALID ({exc})")
+        preferences_valid = False
+    else:
+        print("Preferences schema: VALID")
+        preferences_valid = True
     print("Network lock: LOCKED (LIVE mode is disabled in this build)")
-    return 0
+    return 0 if preferences_valid else 1
 
 
 def build_parser() -> argparse.ArgumentParser:

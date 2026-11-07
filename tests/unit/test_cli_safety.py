@@ -132,10 +132,35 @@ def test_daily_launcher_is_locked_without_owner_preferences(config_path, capsys)
         "--config", str(config_path), "doctor",
         "--preferences", str(root / "config" / "preferences.yaml.missing"),
     ])
-    assert code == 0
+    assert code == 1
     output = capsys.readouterr().out
     assert "Live mode: DISABLED" in output
     assert "Network lock: LOCKED" in output
+    assert "Preferences schema: INVALID" in output
+
+
+def test_doctor_reports_valid_and_invalid_preferences(config_path, tmp_path, capsys):
+    valid = main([
+        "--config", str(config_path), "doctor",
+        "--preferences", str(ROOT / "config" / "preferences.yaml"),
+    ])
+    valid_output = capsys.readouterr().out
+    assert valid == 0
+    assert "Preferences schema: VALID" in valid_output
+
+    invalid_preferences = tmp_path / "old-preferences.yaml"
+    invalid_preferences.write_text(
+        "target_roles: [Developer]\nmax_years_experience: 2\n",
+        encoding="utf-8",
+    )
+    invalid = main([
+        "--config", str(config_path), "doctor",
+        "--preferences", str(invalid_preferences),
+    ])
+    invalid_output = capsys.readouterr().out
+    assert invalid == 1
+    assert "Preferences schema: INVALID" in invalid_output
+    assert "unknown keys" in invalid_output
 
 
 def test_cli_import_companies(config_path, tmp_path, capsys):
