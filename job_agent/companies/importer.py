@@ -9,7 +9,7 @@ from typing import Any
 import openpyxl
 
 from ..db.repository import Database
-from .resolver import resolve_company
+from .resolver import detect_ats, resolve_company
 
 HEADER_ALIASES = {
     "master_id": ("Master ID", "master_id"),
@@ -202,6 +202,7 @@ def data_quality_report(companies: list[dict[str, Any]]) -> dict[str, Any]:
     missing_url = 0
     careers_urls = 0
     ats_like_urls = 0
+    companies_with_ats_like_url = 0
     ats_counts: dict[str, int] = {}
     names: set[str] = set()
     duplicates = 0
@@ -216,13 +217,22 @@ def data_quality_report(companies: list[dict[str, Any]]) -> dict[str, Any]:
             careers_urls += 1
         if not (company.get("careers_url") or company.get("openings_url")):
             missing_url += 1
+        detected_types = set()
+        for url in (careers_url, openings_url):
+            if not url:
+                continue
+            ats_type, _ = detect_ats(str(url))
+            if ats_type in {"greenhouse", "lever", "ashby", "smartrecruiters",
+                            "workable", "keka", "zoho"}:
+                ats_like_urls += 1
+                detected_types.add(ats_type)
+        if detected_types:
+            companies_with_ats_like_url += 1
         resolution = resolve_company(company)
         detected_ats = str(resolution.get("source_type") or "").lower()
         if detected_ats not in {"greenhouse", "lever", "ashby", "smartrecruiters",
                                 "workable", "keka", "zoho"}:
             detected_ats = "unknown"
-        if detected_ats != "unknown" and (careers_url or openings_url):
-            ats_like_urls += 1
         ats = str(company.get("ats_type") or detected_ats or "unknown").lower()
         if ats not in {"greenhouse", "lever", "ashby", "smartrecruiters",
                        "workable", "keka", "zoho"}:
@@ -234,5 +244,7 @@ def data_quality_report(companies: list[dict[str, Any]]) -> dict[str, Any]:
         names.add(name)
     return {"total": len(companies), "tiers": tiers, "missing_id": missing_id,
             "missing_url": missing_url, "careers_urls": careers_urls,
-            "ats_like_urls": ats_like_urls, "ats_counts": ats_counts,
+            "ats_like_urls": ats_like_urls,
+            "companies_with_ats_like_url": companies_with_ats_like_url,
+            "ats_counts": ats_counts,
             "duplicate_names": duplicates}

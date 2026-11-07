@@ -14,8 +14,9 @@ source request or job submission is authorized by this document.
   adapter tasks in the current task board.
 - **A-034 - LIVE verification:** The fixture-only work-mode and country
   classifier is implemented, but no real job input has been used.
-- **A-048 - real labeling:** Not completed. The harness has no owner-provided
-  real labels; fixture labels are not real labels.
+- **Real A-048 labeling request:** Not completed. The task board assigns A-048
+  to scheduler-safe launchers (implemented); the separate owner request for
+  real labels is blocked because no owner-provided real labels are available.
 - **Batch 3 cleanup:** Blocked pending owner decisions for backups, local
   starter workbook, browser_profile, proofs, and add_companies.py. No files
   were permanently deleted.

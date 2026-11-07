@@ -103,7 +103,19 @@ def test_import_companies_commit_and_quality(tmp_path, db):
     assert quality["tiers"]["Tier 1"] == 1
     assert quality["careers_urls"] == 2
     assert quality["ats_like_urls"] == 2
+    assert quality["companies_with_ats_like_url"] == 2
     assert quality["ats_counts"] == {"greenhouse": 1, "lever": 1}
+
+
+def test_quality_report_counts_ats_url_cells_and_companies_separately():
+    quality = data_quality_report([{
+        "master_id": 1,
+        "name": "Acme",
+        "careers_url": "https://boards.greenhouse.io/acme",
+        "openings_url": "https://jobs.lever.co/acme",
+    }])
+    assert quality["ats_like_urls"] == 2
+    assert quality["companies_with_ats_like_url"] == 1
 
 
 def test_import_companies_without_commit(tmp_path, db):
