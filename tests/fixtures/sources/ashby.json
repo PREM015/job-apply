@@ -1,0 +1,12 @@
+{
+  "jobs": [
+    {
+      "id": "ash-1",
+      "title": "Frontend Engineer",
+      "jobUrl": "https://jobs.ashbyhq.com/acme/ash-1",
+      "location": "Remote",
+      "descriptionHtml": "<p>JavaScript, React, Node.js. Entry level. Bachelor degree.</p>",
+      "publishedAt": "2026-11-04T08:00:00Z"
+    }
+  ]
+}

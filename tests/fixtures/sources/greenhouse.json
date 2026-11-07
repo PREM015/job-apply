@@ -1,0 +1,12 @@
+{
+  "jobs": [
+    {
+      "id": 101,
+      "title": "Software Engineer",
+      "absolute_url": "https://boards.greenhouse.io/acme/jobs/101?utm_source=test",
+      "location": {"name": "Bengaluru, India"},
+      "content": "Build Python and React services. Bachelor degree. 0-1 years. Fresher.",
+      "updated_at": "2026-11-06T10:00:00Z"
+    }
+  ]
+}

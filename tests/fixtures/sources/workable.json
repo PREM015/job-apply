@@ -1,0 +1,12 @@
+{
+  "jobs": [
+    {
+      "shortcode": "wk-1",
+      "title": "QA Automation Engineer",
+      "url": "https://acme.workable.com/j/wk-1",
+      "location": {"location_str": "Chennai, India"},
+      "description": "Python test automation. Entry level.",
+      "published_on": "2026-11-02T06:00:00Z"
+    }
+  ]
+}

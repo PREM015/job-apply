@@ -1,0 +1,44 @@
+{
+  "companies": [
+    {"master_id": 1, "name": "Acme", "tier": "Tier 1", "careers_url": "https://boards.greenhouse.io/acme", "openings_url": null, "ats_type": "greenhouse", "ats_identifier": "acme", "resolution_status": "resolved"},
+    {"master_id": 2, "name": "Beta", "tier": "Tier 2", "careers_url": "https://jobs.lever.co/beta", "openings_url": null, "ats_type": "lever", "ats_identifier": "beta", "resolution_status": "resolved"},
+    {"master_id": 3, "name": "Gamma", "tier": "Tier 3", "careers_url": "https://gamma.example.com/careers", "openings_url": null, "ats_type": "jsonld", "ats_identifier": "Gamma", "resolution_status": "resolved"}
+  ],
+  "sources": [
+    {"company_master_id": 1, "source_type": "greenhouse", "url": "https://boards.greenhouse.io/acme", "enabled": true, "request_cap": 5},
+    {"company_master_id": 2, "source_type": "lever", "url": "https://jobs.lever.co/beta", "enabled": true, "request_cap": 5}
+  ],
+  "batches": [
+    {
+      "source_id": 1,
+      "company_master_id": 1,
+      "source_type": "greenhouse",
+      "url": "https://boards.greenhouse.io/acme",
+      "tier": "Tier 1",
+      "jobs": [
+        {"source_type": "greenhouse", "source_job_id": "101", "title": "Software Engineer", "company_name": "Acme", "url": "https://boards.greenhouse.io/acme/jobs/101?utm_source=test", "location": "Bengaluru, India", "description": "Python and React. Bachelor degree. 0-1 years. Fresher.", "posted_at": "2026-11-06T10:00:00Z", "employment_type": "full_time"},
+        {"source_type": "greenhouse", "source_job_id": "102", "title": "Accountant", "company_name": "Acme", "url": "https://boards.greenhouse.io/acme/jobs/102", "location": "Bengaluru, India", "description": "Accounts and tax. Bachelor degree.", "posted_at": "2026-11-06T10:00:00Z", "employment_type": "full_time"}
+      ]
+    },
+    {
+      "source_id": 2,
+      "company_master_id": 2,
+      "source_type": "lever",
+      "url": "https://jobs.lever.co/beta",
+      "tier": "Tier 2",
+      "jobs": [
+        {"source_type": "lever", "source_job_id": "lev-1", "title": "Backend Developer", "company_name": "Beta", "url": "https://jobs.lever.co/beta/lev-1", "location": "Pune, India", "description": "Python and SQL. Degree. 1-2 years.", "posted_at": "2026-11-05T09:00:00Z", "employment_type": "full_time"},
+        {"source_type": "lever", "source_job_id": "lev-2", "title": "Senior Software Engineer", "company_name": "Beta", "url": "https://jobs.lever.co/beta/lev-2", "location": "Pune, India", "description": "Python and SQL. Senior role.", "posted_at": "2026-11-05T09:00:00Z", "employment_type": "full_time"},
+        {"source_type": "lever", "source_job_id": "lev-3", "title": "Frontend Engineer", "company_name": "Beta", "url": "https://jobs.lever.co/beta/lev-3", "location": "Remote", "description": "JavaScript, React, Node.js. Entry level. Bachelor degree.", "posted_at": "2026-11-04T08:00:00Z", "employment_type": "full_time"}
+      ]
+    },
+    {
+      "company_master_id": 3,
+      "source_type": "jsonld",
+      "url": "https://gamma.example.com/careers",
+      "tier": "Tier 3",
+      "jobs": [],
+      "error": "http_403"
+    }
+  ]
+}

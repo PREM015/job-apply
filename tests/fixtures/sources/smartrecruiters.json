@@ -1,0 +1,12 @@
+{
+  "content": [
+    {
+      "id": "sr-1",
+      "name": "Data Engineer",
+      "ref": "https://jobs.smartrecruiters.com/acme/sr-1",
+      "location": {"city": "Hyderabad", "country": "India"},
+      "releasedDate": "2026-11-03T07:00:00Z",
+      "jobAd": {"sections": {"jobDescription": {"text": "Python and SQL. Fresher. Bachelor degree."}}}
+    }
+  ]
+}
