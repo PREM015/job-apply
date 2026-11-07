@@ -210,14 +210,17 @@ MIGRATIONS: list[tuple[int, str]] = [
     (
         5,
         """
-        DELETE FROM platform_tags
-        WHERE rowid NOT IN (
-            SELECT MIN(rowid)
-            FROM platform_tags
-            GROUP BY platform_id, section, COALESCE(owner_group, '')
-        );
-        CREATE UNIQUE INDEX IF NOT EXISTS idx_platform_tags_identity
-            ON platform_tags(platform_id, section, COALESCE(owner_group, ''));
+        CREATE INDEX IF NOT EXISTS idx_platform_tags_lookup
+            ON platform_tags(platform_id, section);
+        """,
+    ),
+    (
+        # Version 5 may already be recorded by databases that ran its earlier
+        # implementation, so version 6 repeats the non-destructive index step.
+        6,
+        """
+        CREATE INDEX IF NOT EXISTS idx_platform_tags_lookup
+            ON platform_tags(platform_id, section);
         """,
     ),
 ]

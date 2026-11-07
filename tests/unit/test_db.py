@@ -10,6 +10,56 @@ def test_migrations_apply_once(db):
     assert db.counts()["jobs"] == 0
 
 
+def test_version_five_database_upgrades_without_changing_rows(tmp_path: Path):
+    from job_agent.db.repository import Database
+
+    path = tmp_path / "version-five.sqlite3"
+    db = Database(path)
+    db.connect()
+    db.migrate()
+    assert db.connection is not None
+    db.connection.execute("DELETE FROM schema_migrations WHERE version=6")
+    db.connection.execute("DROP INDEX idx_platform_tags_lookup")
+    db.connection.execute(
+        """
+        INSERT INTO registry_platforms
+            (normalized_key, name, url, handling_class)
+        VALUES ('sample', 'Sample', 'https://example.test', 'link_only')
+        """
+    )
+    platform_id = db.connection.execute(
+        "SELECT platform_id FROM registry_platforms WHERE normalized_key='sample'"
+    ).fetchone()[0]
+    db.connection.executemany(
+        "INSERT INTO platform_tags(platform_id, section, owner_group) VALUES (?, ?, ?)",
+        [(platform_id, "section", None), (platform_id, "section", None)],
+    )
+    before_count = db.connection.execute(
+        "SELECT COUNT(*) FROM platform_tags"
+    ).fetchone()[0]
+    db.connection.commit()
+    db.close()
+
+    upgraded = Database(path)
+    upgraded.connect()
+    assert upgraded.migrate() == [6]
+    assert upgraded.connection is not None
+    after_count = upgraded.connection.execute(
+        "SELECT COUNT(*) FROM platform_tags"
+    ).fetchone()[0]
+    index = upgraded.connection.execute(
+        """
+        SELECT name FROM sqlite_master
+        WHERE type='index' AND name='idx_platform_tags_lookup'
+        """
+    ).fetchone()
+    upgraded.close()
+
+    assert before_count == 2
+    assert after_count == before_count
+    assert index is not None
+
+
 def test_company_source_job_roundtrip(db):
     db.upsert_company({"master_id": 1, "name": "Acme", "tier": "Tier 1",
                        "careers_url": "https://acme.example.com", "resolution_status": "resolved"})

@@ -3,6 +3,13 @@
 This file distinguishes offline FIXTURE coverage from LIVE validation. No LIVE
 source request or job submission is authorized by this document.
 
+## Migration history note
+
+The prior version of migration 5 removed duplicate platform-tag rows before
+creating a unique index. `data/job_agent.sqlite3` records migration 5 as
+applied; migration 6 now creates the non-unique lookup index without deleting
+rows.
+
 ## BLOCKED
 
 - **A-029 - LIVE source spike:** Not run. Network access is prohibited for this
@@ -38,6 +45,13 @@ source request or job submission is authorized by this document.
 - **Search-keyword scoring integration:** Not built; keyword groups populate
   the Saved Alert Checklist only and do not bypass the existing role,
   experience, or score-floor gates.
+- **A-042 - score calibration:** Not completed. The scorer has FIXTURE test
+  coverage, but calibrated weights were not approved against real labels.
+- **A-056 - scheduled dry-run rehearsal:** Not run. The owner-only
+  preferences.yaml is absent, so the rehearsal was not performed.
+- **A-055 - performance/request-cap review:** No measured performance
+  benchmark was run. Existing HTTP caps and delays are configured and fixture
+  tested, but runtime/per-host capacity has not been measured.
 
 Offline FIXTURE tests and outputs must never be described as real jobs or
 LIVE verification.

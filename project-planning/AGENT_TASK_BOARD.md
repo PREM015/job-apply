@@ -4,14 +4,27 @@ Last updated: **2026-11-07**
 Current task: **Correction 4 local safety and registry implementation**
 Next task: **PART 4 only after exact `PREFERENCES APPROVED`**.
 
-## Execution update (2026-11-07)
+## Correction 4 execution update
 
-The detailed task rows below are the original planning snapshot, not current
-execution evidence. Use the latest local commits, test output, and
-`project-planning/BLOCKED.md` to determine present status. The current build is
-offline-only: fixture jobs are separated from the owner company database,
-registry URLs are stored unverified, and no LIVE source or apply request is
-authorized. The real G4 import has not been confirmed in this session.
+The detailed task rows and phase summary below are the original planning
+snapshot; their TODO/BLOCKED cells are not current status evidence. Correction
+4 has since been implemented and the read-only G4 master import completed.
+The master workbook hash was unchanged before and after import. The live
+company database and FIXTURE job database are separate. The latest recorded
+full FIXTURE suite result is 114 passed. Do not interpret that suite as LIVE
+source validation.
+
+Current gates and unverified work are listed in `BLOCKED.md`. In particular,
+adapter endpoint patterns remain unverified, no LIVE request or submission is
+authorized, and PART 4 has not started. The real company import is LIVE data;
+the pipeline's sample jobs and the full test suite are FIXTURE data.
+
+Correction 5 migration note: the earlier migration 5 SQL had already been
+applied to the LIVE company database. Migration 6 adds the non-destructive
+lookup index for databases already at version 5. The scorer (A-036) has
+FIXTURE evidence; calibration (A-042), the performance review (A-055), and the
+scheduled rehearsal (A-056) are not built or run. A-048's dashboard labeling
+tool is complete; real labeling remains owner-blocked.
 
 ## 1. Status legend
 
@@ -24,7 +37,7 @@ authorized. The real G4 import has not been confirmed in this session.
 
 Do not start a task whose dependencies are not `DONE`. Do not start a second task in the same session. One task = one report = one stop.
 
-## 2. Summary
+## 2. Historical planning summary (not current task status)
 
 | Phase | Task range | Done | Removed | Blocked/TODO |
 |---|---|---:|---:|---:|
