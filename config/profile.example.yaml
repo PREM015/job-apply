@@ -1,0 +1,3 @@
+# Private owner profile template.
+# Copy this file to config/profile.yaml (or profile.yaml) and fill it in locally.
+# Never commit the filled file. It is ignored by Git.

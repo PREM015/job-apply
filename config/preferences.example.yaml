@@ -1,0 +1,105 @@
+roles:
+  accepted:
+    - software engineer
+    - software developer
+    - developer
+    - programmer
+    - sde
+    - frontend
+    - backend
+    - full stack
+    - fullstack
+    - data engineer
+    - ml engineer
+    - devops
+    - site reliability
+    - qa engineer
+    - automation engineer
+    - intern
+  excluded_titles:
+    - senior
+    - staff
+    - principal
+    - architect
+    - manager
+    - director
+    - head of
+    - sales engineer
+    - support engineer
+    - civil engineer
+    - mechanical engineer
+skills:
+  required:
+    - python
+    - javascript
+    - typescript
+    - node.js
+    - react
+    - java
+    - c++
+    - c#
+    - .net
+    - sql
+    - git
+  preferred:
+    - docker
+    - kubernetes
+    - aws
+    - postgresql
+    - mongodb
+    - redis
+    - fastapi
+    - django
+    - express
+    - rest api
+  aliases:
+    js: javascript
+    node: node.js
+    nodejs: node.js
+    reactjs: react
+    postgres: postgresql
+    full stack: fullstack
+    ".net core": .net
+experience:
+  ceiling_years: 2
+  acceptable_levels:
+    - internship
+    - fresher
+    - 0-1
+    - 1-2
+  reject_levels:
+    - 2-3
+    - 3plus
+locations:
+  countries:
+    - IN
+  cities:
+    - Bengaluru
+    - Bangalore
+    - Hyderabad
+    - Pune
+    - Chennai
+    - Noida
+    - Gurugram
+    - Remote
+  allow_remote: true
+  remote_excluded_countries: []
+weights:
+  role_title: 30
+  required_skills: 25
+  experience: 20
+  location: 10
+  education: 5
+  company_tier: 5
+  recency: 5
+quotas:
+  total_per_day: 30
+  per_tier:
+    1: 10
+    2: 10
+    3: 7
+    4: 3
+  per_company: 2
+thresholds:
+  auto_apply_min: 70
+  manual_apply_min: 50

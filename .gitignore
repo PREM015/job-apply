@@ -1,0 +1,80 @@
+# Secrets and private owner data
+.env
+.env.*
+!.env.example
+/config.yaml
+profile.yaml
+answers.yaml
+config/profile.yaml
+config/answers.yaml
+config/secrets.yaml
+.streamlit/secrets.toml
+*.local.yaml
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+
+# Private documents and workbooks
+*.pdf
+*.xlsx
+*.xlsm
+*.xls
+~$*.xlsx
+~$*.xlsm
+~$*.xls
+
+# Local database, exports, and runtime state
+data/
+*.sqlite
+*.sqlite3
+*.db
+*.db-*
+*.sqlite-wal
+*.sqlite-shm
+logs/
+*.log
+browser_profile/
+proofs/
+backups/
+job_agent.lock
+pending_updates.json
+
+# Archived legacy files (keep archive/MOVE_LOG.md)
+archive/legacy_*/
+
+# Caches and test artifacts
+__pycache__/
+*.pyc
+*.pyo
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*.exe
+python-*.exe
+
