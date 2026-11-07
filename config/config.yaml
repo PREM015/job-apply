@@ -1,0 +1,18 @@
+dry_run: true
+database_path: data/job_agent.sqlite3
+exports_dir: data/exports
+logs_dir: logs
+authoritative_workbook: null
+dashboard:
+  host: 127.0.0.1
+  port: 8501
+http:
+  timeout_seconds: 10
+  max_retries: 2
+  per_host_delay_seconds: 1.0
+  request_cap: 20
+  user_agent: "JobAgent/1.0 (offline-first; read-only)"
+limits:
+  max_description_chars: 20000
+  max_jobs_per_run: 100
+  backup_keep: 14
