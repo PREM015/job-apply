@@ -20,6 +20,7 @@ Add an explicit, bounded LIVE discovery command that retrieves public job listin
 - **REQ-008 - No application submission:** Check apply URLs using counted GETs only; never submit or automate an application.
 - **REQ-009 - Offline regression coverage:** Cover safety gates, HTTP policy, resolution, data isolation, pipeline origin, and apply-link checks with network-mocked FIXTURE tests; preserve existing fixture and apply-refusal behavior.
 - **REQ-010 - Evidence and results:** Save the request ledger and run evidence, and report actual jobs and statuses without credentials, cookies, or full response dumps.
+- **REQ-011 - Single widening pass:** If fewer than five jobs pass all gates, permit one additional pass over up to 25 not-yet-attempted companies, only while the same global 300-request budget has capacity. Do not widen score floors or other gates.
 
 ## Non-goals
 
@@ -90,6 +91,7 @@ All automated network-policy tests use `responses`; tests make no real network c
 5. **REQ-007:** Existing pipeline gates, score floor, dedupe, and quota are preserved.
 6. **REQ-005/REQ-010:** The request ledger, per-adapter verification results, funnel, and actual top results are reproducible from the run evidence.
 7. **REQ-008/REQ-009:** Apply URLs receive GET-only checks, automated tests run offline, and LIVE APPLY remains impossible.
+8. **REQ-011:** Fewer than five surviving jobs may trigger at most one additional batch of 25 companies; all requests still share the original 300-request cap.
 
 ## Known limitations
 
