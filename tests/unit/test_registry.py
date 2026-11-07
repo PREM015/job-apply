@@ -14,10 +14,12 @@ def test_registry_import_is_idempotent_and_offline(db):
     first = import_registry(db, platforms_path, keywords_path)
     first_platform_count = len(db.list_registry_platforms())
     first_alert_count = len(db.list_saved_alerts())
+    first_tag_count = db.connection.execute("SELECT COUNT(*) FROM platform_tags").fetchone()[0]
     second = import_registry(db, platforms_path, keywords_path)
     assert first == second
     assert len(db.list_registry_platforms()) == first_platform_count
     assert len(db.list_saved_alerts()) == first_alert_count
+    assert db.connection.execute("SELECT COUNT(*) FROM platform_tags").fetchone()[0] == first_tag_count
     assert db.list_sources() == []
     assert first["platform_raw_entries"] == 114
     assert first["keyword_count"] == 24

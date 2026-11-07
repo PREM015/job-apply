@@ -224,7 +224,7 @@ class Database:
             platform_id = int(row[0])
             conn.execute(
                 "INSERT OR IGNORE INTO platform_tags(platform_id, section, owner_group) VALUES (?, ?, ?)",
-                (platform_id, platform["section"], platform.get("owner_group")),
+                (platform_id, platform["section"], platform.get("owner_group") or ""),
             )
         return platform_id
 

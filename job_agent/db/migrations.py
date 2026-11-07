@@ -207,4 +207,17 @@ MIGRATIONS: list[tuple[int, str]] = [
         ALTER TABLE jobs ADD COLUMN origin TEXT NOT NULL DEFAULT 'discovery';
         """,
     ),
+    (
+        5,
+        """
+        DELETE FROM platform_tags
+        WHERE rowid NOT IN (
+            SELECT MIN(rowid)
+            FROM platform_tags
+            GROUP BY platform_id, section, COALESCE(owner_group, '')
+        );
+        CREATE UNIQUE INDEX IF NOT EXISTS idx_platform_tags_identity
+            ON platform_tags(platform_id, section, COALESCE(owner_group, ''));
+        """,
+    ),
 ]
