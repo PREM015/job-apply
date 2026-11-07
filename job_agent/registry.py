@@ -162,6 +162,7 @@ def import_registry(db: Database, platforms_path: str | Path, keywords_path: str
             keyword_count += 1
 
     owner_rows = []
+    owner_entry_count = 0
     matched_count = 0
     matched_names: list[str] = []
     unmatched_names: list[str] = []
@@ -174,21 +175,18 @@ def import_registry(db: Database, platforms_path: str | Path, keywords_path: str
             for entry in entries:
                 name, url = (part.strip() for part in entry.split("|", 1))
                 owner_rows.append({"name": name, "url": url, "owner_group": group})
+    owner_entry_count = len(owner_rows)
+    unique_owner_rows: dict[str, dict[str, str]] = {}
+    for owner in owner_rows:
+        company_key = f"{_domain(owner['url'])}|{normalize_company_name(owner['name'])}"
+        if company_key in unique_owner_rows:
+            if owner["name"] not in company_duplicate_names:
+                company_duplicate_names.append(owner["name"])
+        else:
+            unique_owner_rows[company_key] = owner
+    owner_rows = list(unique_owner_rows.values())
 
     if owner_rows and master_workbook:
-        company_keys: dict[str, int] = {}
-        for owner in owner_rows:
-            company_key = f"{_domain(owner['url'])}|{normalize_company_name(owner['name'])}"
-            company_keys[company_key] = company_keys.get(company_key, 0) + 1
-        company_duplicate_names = [
-            owner_rows[index]["name"]
-            for index, owner in enumerate(owner_rows)
-            if company_keys[f"{_domain(owner['url'])}|{normalize_company_name(owner['name'])}"] > 1
-            and not any(
-                previous["name"] == owner["name"]
-                for previous in owner_rows[:index]
-            )
-        ]
         master = read_companies(master_workbook)["companies"]
         by_name = {normalize_company_name(str(row.get("name", ""))): row for row in master}
         by_domain: dict[str, dict[str, Any]] = {}
@@ -237,7 +235,7 @@ def import_registry(db: Database, platforms_path: str | Path, keywords_path: str
             cls: sum(row["handling_class"] == cls for row in platforms)
             for cls in sorted({row["handling_class"] for row in platforms})
         },
-        "company_owner_entries": len(owner_rows),
+        "company_owner_entries": owner_entry_count,
         "company_owner_unique": len({
             f"{_domain(owner['url'])}|{normalize_company_name(owner['name'])}"
             for owner in owner_rows

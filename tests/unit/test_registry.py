@@ -104,6 +104,7 @@ def test_owner_company_registry_matches_exactly_and_keeps_urls_unverified(db, tm
         "groups": {
             "Global Technology Companies": [
                 "Google|https://www.google.com/about/careers/applications/jobs/results/",
+                "Google|https://www.google.com/about/careers/applications/jobs/results/",
                 "Apple|https://www.apple.com/careers/",
             ],
         },
@@ -118,6 +119,9 @@ def test_owner_company_registry_matches_exactly_and_keeps_urls_unverified(db, tm
     )
     assert sha256(master_path) == before
     assert result["company_matched"] == 1
+    assert result["company_owner_entries"] == 3
+    assert result["company_owner_unique"] == 2
+    assert result["company_merged_duplicates"] == ["Google"]
     assert result["matched_names"] == ["Google"]
     assert result["unmatched_names"] == ["Apple"]
     assert result["needs_review"] == ["Apple"]
