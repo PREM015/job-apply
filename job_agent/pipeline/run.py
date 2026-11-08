@@ -13,10 +13,26 @@ from .score import score_job
 from .validate import validate_jobs
 
 
-def run_pipeline(db: Database, prefs: dict, batches: list[dict[str, Any]], actor: str = "system") -> dict[str, Any]:
-    run_id = db.create_run()
+def run_pipeline(
+    db: Database,
+    prefs: dict,
+    batches: list[dict[str, Any]],
+    actor: str = "system",
+    *,
+    minimum_score: int | None = None,
+    run_mode: str = "dry",
+) -> dict[str, Any]:
+    if minimum_score is not None and (
+        isinstance(minimum_score, bool) or not isinstance(minimum_score, int) or not 0 <= minimum_score <= 100
+    ):
+        raise ValueError("minimum_score must be an integer in 0..100")
+    if run_mode not in {"dry", "live_discovery"}:
+        raise ValueError("run_mode must be 'dry' or 'live_discovery'")
+
+    run_id = db.create_run(mode=run_mode)
     counters = {"source_count": len(batches), "fetched_count": 0, "normalized_count": 0,
-                "rejected_count": 0, "duplicate_count": 0, "queued_count": 0}
+                "rejected_count": 0, "score_floor_rejected_count": 0,
+                "duplicate_count": 0, "queued_count": 0}
     errors: list[str] = []
     normalized: list[dict[str, Any]] = []
     rejection_reasons: list[dict[str, Any]] = []
@@ -37,6 +53,8 @@ def run_pipeline(db: Database, prefs: dict, batches: list[dict[str, Any]], actor
             "source_type": batch.get("source_type", "unknown"),
             "tier": batch.get("tier"),
         }
+        if batch.get("origin") is not None:
+            metadata["origin"] = batch["origin"]
         for raw in raw_jobs:
             normalized_job = normalize_job(raw, batch.get("url"))
             normalized_job.update(metadata)
@@ -70,6 +88,11 @@ def run_pipeline(db: Database, prefs: dict, batches: list[dict[str, Any]], actor
         job["score_total"] = result.total
         job["score_breakdown"] = result.breakdown
         job["score_reasons"] = result.reasons
+        if minimum_score is not None and result.total < minimum_score:
+            counters["rejected_count"] += 1
+            counters["score_floor_rejected_count"] += 1
+            rejection_reasons.append({"job": job, "reason": "score_below_manual_apply_min"})
+            continue
         job["is_new"] = existing is None
         job_id, created = db.upsert_job(job)
         job["job_id"] = job_id

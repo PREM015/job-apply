@@ -2,7 +2,7 @@
 
 ## Status
 
-The owner approved the design in chat. Requirement identifiers were added for planning traceability; this amendment awaits owner review. Implementation and any network access remain gated on approval of the amendment and an implementation plan.
+The owner approved the design and requirement traceability in chat. Implementation and any network access remain gated on approval of the implementation plan.
 
 ## Goal
 

@@ -5,6 +5,7 @@ import argparse
 import json
 import sqlite3
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 from .companies.importer import data_quality_report, import_companies
@@ -57,6 +58,38 @@ def cmd_run(args, config: dict) -> int:
         result = run_pipeline(db, prefs, fixture["batches"])
         result["dataset"] = "FIXTURE"
         print(json.dumps(result, indent=2, default=str))
+        return 0
+    finally:
+        db.close()
+
+
+def cmd_fixture_demo(args, config: dict) -> int:
+    fixture_path = FIXTURE_DATABASE_PATH.resolve()
+    if fixture_path.exists():
+        backup_dir = fixture_path.parent / "backups"
+        backup_dir.mkdir(parents=True, exist_ok=True)
+        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        archived_path = backup_dir / f"{fixture_path.stem}_{stamp}{fixture_path.suffix}"
+        fixture_path.replace(archived_path)
+        for suffix in ("-wal", "-shm"):
+            sidecar = Path(f"{fixture_path}{suffix}")
+            if sidecar.exists():
+                sidecar.replace(Path(f"{archived_path}{suffix}"))
+
+    fixture = _load_fixture("tests/fixtures/e2e_fixture.json")
+    db = _db(str(fixture_path), config)
+    db.connect()
+    try:
+        db.migrate()
+        for company in fixture.get("companies", []):
+            db.upsert_company(company)
+        for source in fixture.get("sources", []):
+            db.add_source(source)
+        result = run_pipeline(db, load_preferences("config/preferences.example.yaml"), fixture["batches"])
+        result["dataset"] = "FIXTURE"
+        export_path = Path(config["exports_dir"]) / "fixture_queue.xlsx"
+        exported = export_workbook(db, str(export_path), config["exports_dir"], force=True)
+        print(json.dumps({"dataset": "FIXTURE", "pipeline": result, "export": exported}, indent=2, default=str))
         return 0
     finally:
         db.close()
@@ -181,6 +214,55 @@ def cmd_doctor(args, config: dict) -> int:
     return 0 if preferences_valid else 1
 
 
+def cmd_discover_live(args, config: dict) -> int:
+    prefs = load_preferences(args.preferences)
+    print(json.dumps({
+        "preferences_schema": "VALID",
+        "preferences_keys": sorted(prefs),
+        "experience_ceiling_years": prefs["experience"]["ceiling_years"],
+        "locations": prefs["locations"],
+        "work_modes": "unsupported by preference schema; not filtered",
+    }, ensure_ascii=True))
+    if not args.network_ok:
+        raise SafetyLockError("discover-live requires the explicit --network-ok flag")
+
+    database_path = Path(args.db or config["database_path"]).resolve()
+    configured_path = Path(config["database_path"]).resolve()
+    if database_path != configured_path:
+        raise SafetyLockError("discover-live can only use the configured real database path")
+    if database_path == FIXTURE_DATABASE_PATH.resolve():
+        raise SafetyLockError("discover-live cannot use the fixture database")
+    if not database_path.is_file():
+        raise SafetyLockError(f"real database does not exist: {database_path}")
+
+    from .live_discovery import run_live_discovery, write_live_evidence
+
+    db = Database(
+        database_path,
+        backup_keep=int(config.get("limits", {}).get("backup_keep", 14)),
+        prune_backups=False,
+        backup_on_connect=not args.dry_report,
+        read_only=args.dry_report,
+    )
+    db.connect()
+    try:
+        if not args.dry_report:
+            db.migrate()
+        report = run_live_discovery(
+            db,
+            prefs,
+            config,
+            max_companies=args.max_companies,
+            max_requests=args.max_requests,
+            dry_report=args.dry_report,
+        )
+        write_live_evidence(report)
+        print(json.dumps(report, indent=2, ensure_ascii=True, default=str))
+        return 0
+    finally:
+        db.close()
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="job_agent")
     parser.add_argument("--config", default="config/config.yaml")
@@ -192,6 +274,9 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--fixtures", required=False)
     run.add_argument("--preferences", default="config/preferences.yaml")
     run.set_defaults(func=cmd_run)
+
+    fixture_demo = sub.add_parser("fixture-demo", help="recreate and run the offline FIXTURE database")
+    fixture_demo.set_defaults(func=cmd_fixture_demo)
 
     report = sub.add_parser("report", help="print a daily report")
     report.add_argument("--run-id", type=int, default=None)
@@ -224,6 +309,17 @@ def build_parser() -> argparse.ArgumentParser:
     doctor = sub.add_parser("doctor", help="inspect local runtime and data paths without network access")
     doctor.add_argument("--preferences", default="config/preferences.yaml")
     doctor.set_defaults(func=cmd_doctor)
+
+    discover = sub.add_parser(
+        "discover-live",
+        help="discover public jobs with bounded GET requests; never submits applications",
+    )
+    discover.add_argument("--preferences", default="config/preferences.yaml")
+    discover.add_argument("--network-ok", action="store_true")
+    discover.add_argument("--max-companies", type=int, default=25)
+    discover.add_argument("--max-requests", type=int, default=300)
+    discover.add_argument("--dry-report", action="store_true")
+    discover.set_defaults(func=cmd_discover_live)
     return parser
 
 

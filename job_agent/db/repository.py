@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
+from urllib.parse import quote
 from itertools import count
 from contextlib import contextmanager
 from datetime import datetime, timezone
@@ -20,16 +21,41 @@ def now_iso() -> str:
 
 
 class Database:
-    def __init__(self, path: str | Path = "data/job_agent.sqlite3", backup_keep: int = 14):
+    def __init__(
+        self,
+        path: str | Path = "data/job_agent.sqlite3",
+        backup_keep: int = 14,
+        *,
+        prune_backups: bool = True,
+        backup_on_connect: bool = True,
+        read_only: bool = False,
+    ):
         self.path = Path(path)
         self.backup_keep = backup_keep
+        self.prune_backups = prune_backups
+        self.backup_on_connect = backup_on_connect
+        self.read_only = read_only
         self.connection: sqlite3.Connection | None = None
 
     def connect(self) -> sqlite3.Connection:
+        if self.read_only:
+            if not self.path.is_file():
+                raise FileNotFoundError(f"database does not exist: {self.path}")
+            uri_path = quote(self.path.resolve().as_posix(), safe="/:")
+            self.connection = sqlite3.connect(f"file:{uri_path}?mode=ro", uri=True)
+            self.connection.row_factory = sqlite3.Row
+            self.connection.execute("PRAGMA foreign_keys = ON")
+            return self.connection
+
         self.path.parent.mkdir(parents=True, exist_ok=True)
         existed = self.path.exists() and self.path.stat().st_size > 0
-        if existed and self.connection is None:
-            backup_database(self.path, self.path.parent / "backups", keep=self.backup_keep)
+        if existed and self.connection is None and self.backup_on_connect:
+            backup_database(
+                self.path,
+                self.path.parent / "backups",
+                keep=self.backup_keep,
+                prune=self.prune_backups,
+            )
         self.connection = sqlite3.connect(str(self.path))
         self.connection.row_factory = sqlite3.Row
         self.connection.execute("PRAGMA foreign_keys = ON")
@@ -467,11 +493,11 @@ class Database:
                          (status, 0 if status in {"closed", "expired"} else 1, now_iso(), job_id))
 
     # ----------------------------------------------------------------------- runs
-    def create_run(self) -> int:
+    def create_run(self, mode: str = "dry") -> int:
         assert self.connection is not None
         with self.transaction() as conn:
             cur = conn.execute(
-                "INSERT INTO daily_runs(started_at, mode) VALUES (?, 'dry')", (now_iso(),)
+                "INSERT INTO daily_runs(started_at, mode) VALUES (?, ?)", (now_iso(), mode)
             )
             return int(cur.lastrowid)
 

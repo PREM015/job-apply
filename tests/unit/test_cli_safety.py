@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import ast
 import subprocess
 import sys
 from pathlib import Path
@@ -113,6 +114,25 @@ def test_cli_fixture_run_rejects_real_database(config_path, tmp_path, capsys):
     assert "fixture runs are confined to data/fixture_job_agent.sqlite3" in capsys.readouterr().err
 
 
+def test_fixture_demo_recreates_only_fixture_database(config_path, tmp_path, capsys, monkeypatch):
+    fixture_db = tmp_path / "fixture_job_agent.sqlite3"
+    fixture_db.write_bytes(b"old fixture database")
+    monkeypatch.setattr(cli, "FIXTURE_DATABASE_PATH", fixture_db)
+
+    code = main(["--config", str(config_path), "fixture-demo"])
+
+    assert code == 0
+    result = json.loads(capsys.readouterr().out)
+    assert result["dataset"] == "FIXTURE"
+    assert result["pipeline"]["counters"]["queued_count"] == 3
+    assert list((tmp_path / "backups").glob("fixture_job_agent_*.sqlite3"))
+    assert Path(yaml.safe_load(config_path.read_text(encoding="utf-8"))["database_path"]).exists() is False
+    import sqlite3
+    with sqlite3.connect(fixture_db) as connection:
+        assert connection.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 6
+        assert connection.execute("SELECT COUNT(*) FROM jobs").fetchone()[0] == 3
+
+
 def test_cli_run_requires_preferences_file(config_path, tmp_path, capsys):
     code = main([
         "--config", str(config_path),
@@ -161,6 +181,51 @@ def test_doctor_reports_valid_and_invalid_preferences(config_path, tmp_path, cap
     assert invalid == 1
     assert "Preferences schema: INVALID" in invalid_output
     assert "unknown keys" in invalid_output
+
+
+def test_discover_live_requires_network_flag_before_client_import(config_path, capsys):
+    code = main([
+        "--config", str(config_path),
+        "discover-live",
+        "--preferences", str(ROOT / "config" / "preferences.example.yaml"),
+    ])
+    assert code == 2
+    output = capsys.readouterr()
+    assert '"preferences_schema": "VALID"' in output.out
+    assert "--network-ok" in output.err
+
+
+def test_discover_live_rejects_invalid_preferences_before_network(config_path, tmp_path, capsys):
+    invalid_preferences = tmp_path / "old-preferences.yaml"
+    invalid_preferences.write_text(
+        "target_roles: [Developer]\nmax_years_experience: 2\n",
+        encoding="utf-8",
+    )
+    code = main([
+        "--config", str(config_path),
+        "discover-live",
+        "--network-ok",
+        "--preferences", str(invalid_preferences),
+    ])
+    assert code == 1
+    output = capsys.readouterr()
+    assert "unknown keys" in output.err
+    assert output.out == ""
+
+
+def test_discover_live_modules_do_not_import_apply_or_submit_code():
+    for path in (
+        ROOT / "job_agent" / "cli.py",
+        ROOT / "job_agent" / "live_discovery.py",
+    ):
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        imported = []
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                imported.extend(alias.name.lower() for alias in node.names)
+            elif isinstance(node, ast.ImportFrom):
+                imported.append((node.module or "").lower())
+        assert not any("apply" in name or "submit" in name for name in imported)
 
 
 def test_cli_import_companies(config_path, tmp_path, capsys):
