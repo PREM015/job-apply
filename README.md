@@ -68,3 +68,4 @@ keyword groups into the configured local database without network access.
   require terms approval before any future implementation.
 - Adapter endpoint patterns remain UNVERIFIED until checked against an
   owner-approved real response.
+"# job-apply" 
