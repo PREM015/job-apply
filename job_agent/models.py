@@ -15,6 +15,9 @@ class RawJob:
     description: str = ""
     posted_at: str | None = None
     employment_type: str = ""
+    workplace_type: str | None = None
+    is_remote: bool | None = None
+    structured_location: str | None = None
     raw: dict[str, Any] = field(default_factory=dict)
 
 
@@ -25,6 +28,7 @@ class FetchResult:
     payload: bytes = b""
     error: str | None = None
     elapsed_ms: int = 0
+    content_type: str | None = None
 
 
 @dataclass

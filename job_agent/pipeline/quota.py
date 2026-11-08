@@ -20,12 +20,16 @@ def select_quota(candidates: list[dict], prefs: dict, applied_keys: set[str] | N
             str(job.get("tier", "9")),
             -int(job.get("recency_rank", 0)),
             str(job.get("company_name", "")).lower(),
+            str(job.get("canonical_url", "")),
+            int(job.get("job_id", 0)),
         ),
     )
     for job in ranked:
         if len(selected) >= total_cap:
             break
         if job.get("already_applied") or job.get("suppressed"):
+            continue
+        if job.get("user_state") in {"applied", "dismissed", "rejected", "skipped", "archived"}:
             continue
         if job.get("canonical_url") in applied_keys or job.get("fingerprint") in applied_keys:
             continue

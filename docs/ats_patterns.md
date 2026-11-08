@@ -8,11 +8,11 @@ new codebase. These notes are for parsing public job boards only.
 
 | ATS | Public board pattern | New adapter | Live status |
 |---|---|---|---|
-| Greenhouse | `boards.greenhouse.io/<board>` / `job-boards.greenhouse.io/<board>` | `sources/greenhouse.py` | fixture-tested, live blocked |
-| Lever | `jobs.lever.co/<board>` | `sources/lever.py` | fixture-tested, live blocked |
-| Ashby | `jobs.ashbyhq.com/<board>` | `sources/ashby.py` | fixture-tested, live blocked |
+| Greenhouse | `boards.greenhouse.io/<board>` / `job-boards.greenhouse.io/<board>`; API `boards-api.greenhouse.io/v1/boards/<board>/jobs?content=true` | `sources/greenhouse.py` | offline fixture-tested; live unverified |
+| Lever | `jobs.lever.co/<board>`; API `api.lever.co/v0/postings/<board>?mode=json` | `sources/lever.py` | offline fixture-tested; live unverified |
+| Ashby | `jobs.ashbyhq.com/<board>`; API `api.ashbyhq.com/posting-api/job-board/<board>` | `sources/ashby.py` | offline fixture-tested; live unverified |
 | SmartRecruiters | `jobs.smartrecruiters.com/<board>` / `careers.smartrecruiters.com/<board>` | `sources/smartrecruiters.py` | fixture-tested, live blocked |
-| Workable | `<tenant>.workable.com` | `sources/workable.py` | fixture-tested, live blocked |
+| Workable | `<tenant>.workable.com` or `apply.workable.com/<board>` | `sources/workable.py` | fixture-tested, live unverified |
 | Keka | `<tenant>.keka.com/careers/` | `sources/keka_zoho.py` | fixture-tested, disabled |
 | Zoho Recruit | `<tenant>.zohorecruit.com/jobs/Careers` | `sources/keka_zoho.py` | fixture-tested, disabled |
 | JSON-LD | any public careers page with `application/ld+json` `JobPosting` | `sources/jsonld.py` | fixture-tested, live blocked |
@@ -33,7 +33,9 @@ fill forms, and does not submit anything.
 
 - `Company` career links are resolved to an ATS family by hostname pattern.
 - A job URL is canonicalized (tracking parameters removed, fragment removed, host lowercased).
-- JSON-LD is preferred when no ATS pattern matches.
+- A generic career URL is not a confirmed ATS source; it is marked `manual_check`. A bounded page scan may inspect JSON-LD or a supported ATS link, but does not upgrade the resolver's confidence by assumption.
+- Greenhouse, Lever, and Ashby board slugs are resolved from the board URL and used to request their public JSON endpoints directly.
+- ATS API responses are accepted only for HTTP 200 with a JSON content type and valid expected JSON structure. Diagnostics retain status, content type, payload size, and SHA-256, not raw response bodies.
 - Sitemap URLs must contain `job`, `career`, `position`, `opening`, or `vacanc`.
 - Keka and Zoho remain disabled in `config/sources.yaml` until a human approves research.
 

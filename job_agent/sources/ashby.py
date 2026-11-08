@@ -1,22 +1,21 @@
 from __future__ import annotations
 
-import json
-
 from ..models import RawJob
-from .base import BaseAdapter, SourceRef
+from .base import BaseAdapter, SourceParseError, SourceRef, decode_json
 
 
 class AshbyAdapter(BaseAdapter):
     source_type = "ashby"
 
     def parse(self, payload: bytes, source: SourceRef) -> list[RawJob]:
-        try:
-            data = json.loads(payload.decode("utf-8"))
-        except (ValueError, UnicodeDecodeError):
-            return []
-        jobs = data.get("jobs", []) if isinstance(data, dict) else data
+        data = decode_json(payload, self.source_type)
+        jobs = data.get("jobs") if isinstance(data, dict) else data if isinstance(data, list) else None
+        if not isinstance(jobs, list):
+            raise SourceParseError("ashby:unexpected_response_shape")
         results = []
         for job in jobs:
+            if not isinstance(job, dict):
+                raise SourceParseError("ashby:job_entry_is_not_an_object")
             location = job.get("location") or job.get("locationName") or ""
             if isinstance(location, dict):
                 location = location.get("name", "")
@@ -27,8 +26,11 @@ class AshbyAdapter(BaseAdapter):
                 company_name=source.identifier or "",
                 url=job.get("jobUrl") or job.get("url", ""),
                 location=location,
-                description=job.get("descriptionHtml") or job.get("description", ""),
+                description=job.get("descriptionPlain") or job.get("description", ""),
                 posted_at=job.get("publishedAt") or job.get("updatedAt"),
+                workplace_type=job.get("workplaceType"),
+                is_remote=job.get("isRemote") if isinstance(job.get("isRemote"), bool) else None,
+                structured_location=location or None,
                 raw=job,
             ))
         return results

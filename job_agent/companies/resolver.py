@@ -7,26 +7,44 @@ from urllib.parse import urljoin, urlsplit
 from ..sources.base import SourceRef
 
 ATS_PATTERNS = [
-    ("greenhouse", re.compile(r"(?:boards|job-boards)\.greenhouse\.io/([^/?#]+)")),
-    ("lever", re.compile(r"jobs\.lever\.co/([^/?#]+)")),
-    ("ashby", re.compile(r"jobs\.ashbyhq\.com/([^/?#]+)")),
-    ("smartrecruiters", re.compile(r"(?:jobs|careers)\.smartrecruiters\.com/([^/?#]+)")),
-    ("workable", re.compile(r"([^./]+)\.workable\.com")),
-    ("keka", re.compile(r"([^./]+)\.keka\.com")),
-    ("zoho", re.compile(r"([^./]+)\.zohorecruit\.com")),
+    ("greenhouse", re.compile(r"^(?:boards|job-boards)\.greenhouse\.io$")),
+    ("lever", re.compile(r"^jobs\.lever\.co$")),
+    ("ashby", re.compile(r"^jobs\.ashbyhq\.com$")),
+    ("smartrecruiters", re.compile(r"^(?:jobs|careers)\.smartrecruiters\.com$")),
+    ("workable", re.compile(r"^[^./]+\.workable\.com$")),
+    ("keka", re.compile(r"^[^./]+\.keka\.com$")),
+    ("zoho", re.compile(r"^[^./]+\.zohorecruit\.com$")),
 ]
 
 
 def detect_ats(url: str) -> tuple[str | None, str | None]:
     if not url:
         return None, None
+    try:
+        parts = urlsplit(url)
+        if parts.scheme.lower() not in {"http", "https"} or not parts.hostname:
+            return None, None
+    except ValueError:
+        return None, None
+    host = parts.hostname.lower()
+    path_segments = [segment for segment in parts.path.split("/") if segment]
+    if host == "boards-api.greenhouse.io" and len(path_segments) >= 3:
+        if path_segments[:2] == ["v1", "boards"]:
+            return "greenhouse", path_segments[2]
+    if host == "api.lever.co" and len(path_segments) >= 3:
+        if path_segments[:2] == ["v0", "postings"]:
+            return "lever", path_segments[2]
+    if host == "api.ashbyhq.com" and len(path_segments) >= 3:
+        if path_segments[:2] == ["posting-api", "job-board"]:
+            return "ashby", path_segments[2]
+    if host == "apply.workable.com":
+        return ("workable", path_segments[0]) if path_segments else (None, None)
     for source_type, pattern in ATS_PATTERNS:
-        match = pattern.search(url)
-        if match:
-            return source_type, match.group(1)
-    if url.lower().endswith(".xml") or "sitemap" in url.lower():
+        if pattern.fullmatch(host) and path_segments:
+            return source_type, path_segments[0]
+    if parts.path.lower().endswith(".xml") or "sitemap" in parts.path.lower():
         return "sitemap", None
-    return "jsonld", None
+    return None, None
 
 
 def resolve_company(company: dict, overrides: dict | None = None) -> dict:
@@ -42,9 +60,13 @@ def resolve_company(company: dict, overrides: dict | None = None) -> dict:
         if not url:
             continue
         ats_type, identifier = detect_ats(str(url))
-        return {"company_master_id": master_id, "source_type": ats_type or "jsonld",
-                "url": str(url), "identifier": identifier or company.get("name"),
-                "resolution_status": "resolved", "resolution_reason": key}
+        if ats_type:
+            return {"company_master_id": master_id, "source_type": ats_type,
+                    "url": str(url), "identifier": identifier or company.get("name"),
+                    "resolution_status": "resolved", "resolution_reason": key}
+        return {"company_master_id": master_id, "source_type": None,
+                "url": str(url), "identifier": company.get("name"),
+                "resolution_status": "manual_check", "resolution_reason": key}
     return {"company_master_id": master_id, "source_type": None, "url": None,
             "identifier": None, "resolution_status": "unresolved", "resolution_reason": "no_url"}
 

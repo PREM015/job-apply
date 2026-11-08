@@ -47,12 +47,38 @@ def test_work_mode():
     assert work_mode("Hybrid - Bengaluru") == "hybrid"
     assert work_mode("onsite") == "onsite"
     assert work_mode("Bengaluru") == "unknown"
+    assert work_mode("", "We do not offer remote work.") == "unknown"
+    assert work_mode("", "Hybrid work is not offered.") == "unknown"
+    assert work_mode("", "Remote work available.", workplace_type="On-site") == "needs_review"
+    assert work_mode("", "", workplace_type="Remote") == "remote"
 
 
 def test_country_eligibility():
     assert country_eligibility("Bengaluru, India", "", {"IN"}) == ("IN", True)
     assert country_eligibility("New York, USA", "", {"IN"}) == ("US", False)
-    assert country_eligibility("Somewhere", "", {"IN"}) == ("unknown", True)
+    assert country_eligibility("Bengaluru", "Our US client is looking for engineers.", {"IN"}) == ("IN", True)
+    assert country_eligibility("Somewhere", "", {"IN"}) == ("unknown", False)
+
+
+@pytest.mark.parametrize("title,description,expected", [
+    ("Software Engineer Intern", "Requires 5+ years of professional experience.", "3plus"),
+    ("Graduate Software Engineer", "A graduate degree is required.", "unknown"),
+    ("Graduate Software Engineer", "Graduate recruitment program for new engineers.", "fresher"),
+    ("SDE-3", "", "3plus"),
+    ("Software Engineer II", "", "2-3"),
+])
+def test_experience_uses_requirement_and_role_evidence(title, description, expected):
+    assert experience_level(title, description) == expected
+
+
+def test_seniority_and_role_title_boundaries():
+    assert is_excluded_title("Sr. Software Engineer")
+    assert is_excluded_title("SDE-3")
+    assert not is_excluded_title("Staffing Platform Engineer")
+    assert not is_excluded_title("Software Engineer II")
+    assert software_classification("Staffing Platform", "")[0] is False
+    assert software_classification("Data Entry Operator", "uses Excel and SQL")[0] is False
+    assert software_classification("Software Engineer", "")[0] is True
 
 
 def test_extract_skills_word_boundaries_and_aliases():
@@ -82,6 +108,24 @@ def test_classify_job_enriches():
     assert job["country"] == "IN"
     assert job["country_eligible"] is True
     assert job["skills_required"] == ["python", "react"]
+
+
+def test_unknown_country_does_not_become_eligible():
+    job = {"title": "Software Engineer", "description_text": "Remote role",
+           "location_raw": "Remote", "employment_type": "full_time"}
+    classify_job(job, {"skills": {}, "locations": {"countries": ["IN"]}})
+    assert job["country"] == "unknown"
+    assert job["country_eligible"] is False
+
+
+def test_unknown_experience_is_not_eligible_by_default():
+    from job_agent.pipeline.match import hard_filter
+
+    job = {"is_software": 1, "experience_level": "unknown", "country": "IN",
+           "country_eligible": True, "work_mode": "unknown"}
+    assert hard_filter(job, {"experience": {"ceiling_years": 2}}) == (
+        False, "experience_unknown",
+    )
 
 
 def test_validate_job_reasons():

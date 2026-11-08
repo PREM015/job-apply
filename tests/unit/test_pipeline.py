@@ -39,9 +39,124 @@ def test_pipeline_second_run_is_idempotent(db, prefs):
     run_pipeline(db, prefs, fixture["batches"])
     result = run_pipeline(db, prefs, fixture["batches"])
     assert result["counters"]["duplicate_count"] == 3
-    assert result["counters"]["queued_count"] == 0
+    assert result["counters"]["queued_count"] == 3
     assert db.counts()["jobs"] == 3
-    assert db.counts()["queue"] == 3
+    assert db.counts()["queue"] == 6
+
+
+def test_stored_eligible_jobs_are_queued_when_a_later_run_fetches_nothing(db, prefs):
+    fixture = seed(db)
+    first = run_pipeline(db, prefs, fixture["batches"])
+    second = run_pipeline(db, prefs, [])
+    assert first["counters"]["queued_count"] == 3
+    assert second["counters"]["queued_count"] == 3
+    assert {item["job_id"] for item in second["queue"]} == {
+        item["job_id"] for item in first["queue"]
+    }
+
+
+def test_existing_job_refreshes_latest_ineligible_evidence(db, prefs):
+    fixture = seed(db)
+    first = run_pipeline(db, prefs, fixture["batches"])
+    engineer = next(item for item in first["queue"] if item["title"] == "Software Engineer")
+    fixture["batches"][0]["jobs"][0]["description"] = (
+        "Python and React. Requires 5+ years of professional experience."
+    )
+
+    next_run = run_pipeline(db, prefs, fixture["batches"])
+
+    stored = db.get_job(engineer["job_id"])
+    assert stored["experience_level"] == "3plus"
+    assert engineer["job_id"] not in {item["job_id"] for item in next_run["queue"]}
+
+
+def test_dismissed_job_stays_excluded_and_saved_state_is_preserved(db, prefs):
+    fixture = seed(db)
+    first = run_pipeline(db, prefs, fixture["batches"])
+    dismissed_id = first["queue"][0]["job_id"]
+    saved_id = first["queue"][1]["job_id"]
+    db.update_queue_state(first["queue"][0]["queue_id"], "dismissed")
+    db.update_queue_state(first["queue"][1]["queue_id"], "saved")
+
+    next_run = run_pipeline(db, prefs, [])
+
+    next_by_id = {item["job_id"]: item for item in next_run["queue"]}
+    assert dismissed_id not in next_by_id
+    assert next_by_id[saved_id]["state"] == "saved"
+
+
+def test_incomplete_or_failed_scans_never_close_jobs(db, prefs):
+    fixture = seed(db)
+    run_pipeline(db, prefs, fixture["batches"])
+    greenhouse_job = next(job for job in db.list_jobs() if job["source_id"] == 1)
+
+    run_pipeline(db, prefs, [{
+        "source_id": 1, "source_type": "greenhouse", "scan_complete": False, "jobs": [],
+    }])
+    assert db.get_job(greenhouse_job["job_id"])["status"] == "active"
+
+    run_pipeline(db, prefs, [{
+        "source_id": 1, "source_type": "greenhouse", "scan_complete": True,
+        "jobs": [], "error": "http_503",
+    }])
+    assert db.get_job(greenhouse_job["job_id"])["status"] == "active"
+    assert db.connection.execute(
+        "SELECT COUNT(*) FROM job_source_scan_state WHERE source_id=1"
+    ).fetchone()[0] == 0
+
+
+def test_two_successful_complete_scans_close_missing_job_with_reason(db, prefs):
+    fixture = seed(db)
+    run_pipeline(db, prefs, fixture["batches"])
+    greenhouse_job = next(job for job in db.list_jobs() if job["source_id"] == 1)
+    empty_complete_scan = {
+        "source_id": 1, "source_type": "greenhouse", "scan_complete": True, "jobs": [],
+    }
+
+    run_pipeline(db, prefs, [empty_complete_scan])
+    assert db.get_job(greenhouse_job["job_id"])["status"] == "active"
+    run_pipeline(db, prefs, [{
+        "source_id": 1, "source_type": "greenhouse", "scan_complete": True,
+        "jobs": [], "error": "http_503",
+    }])
+    assert db.get_job(greenhouse_job["job_id"])["status"] == "active"
+    misses = db.connection.execute(
+        "SELECT consecutive_misses FROM job_source_scan_state WHERE source_id=1 AND job_id=?",
+        (greenhouse_job["job_id"],),
+    ).fetchone()[0]
+    assert misses == 1
+    run_pipeline(db, prefs, [empty_complete_scan])
+
+    closed = db.get_job(greenhouse_job["job_id"])
+    assert closed["status"] == "closed"
+    assert closed["is_active"] == 0
+    assert closed["closed_at"]
+    assert closed["closed_reason"] == (
+        "missing from two consecutive successful complete source scans"
+    )
+
+
+def test_invalid_record_makes_an_otherwise_complete_scan_incomplete(db, prefs):
+    fixture = seed(db)
+    run_pipeline(db, prefs, fixture["batches"])
+    greenhouse_job = next(job for job in db.list_jobs() if job["source_id"] == 1)
+    db.record_complete_source_scan(1, set())
+    invalid_job = {
+        "source_id": 1, "source_type": "greenhouse", "source_job_id": "bad",
+        "title": "", "company_name": "Acme", "url": "https://example.com/job",
+    }
+
+    run_pipeline(db, prefs, [{
+        "source_id": 1, "source_type": "greenhouse", "scan_complete": True,
+        "jobs": [invalid_job],
+    }])
+
+    row = db.connection.execute(
+        "SELECT consecutive_misses FROM job_source_scan_state WHERE source_id=1 AND job_id=?",
+        (greenhouse_job["job_id"],),
+    ).fetchone()
+    assert row[0] == 1
+    assert db.get_job(greenhouse_job["job_id"])["status"] == "active"
 
 
 def test_pipeline_skips_already_applied(db, prefs):

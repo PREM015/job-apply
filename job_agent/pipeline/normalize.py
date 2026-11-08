@@ -77,6 +77,26 @@ def normalize_job(raw: dict | object, base_url: str | None = None) -> dict:
     if not isinstance(raw, dict):
         raise TypeError("raw job must be a mapping or dataclass")
     url = canonicalize_url(raw.get("url") or raw.get("apply_url"), base_url)
+    raw_payload = raw.get("raw") if isinstance(raw.get("raw"), dict) else {}
+    structured_location = (
+        raw.get("structured_location")
+        or raw_payload.get("jobLocation")
+        or raw_payload.get("location")
+        or raw.get("location")
+    )
+    if isinstance(structured_location, dict):
+        address = structured_location.get("address")
+        if isinstance(address, dict):
+            structured_location = ", ".join(
+                str(address[key]) for key in ("addressLocality", "addressRegion", "addressCountry")
+                if address.get(key)
+            ) or structured_location.get("name", "")
+        else:
+            structured_location = structured_location.get("name", "")
+    workplace_type = raw.get("workplace_type") or raw_payload.get("workplaceType")
+    is_remote = raw.get("is_remote")
+    if not isinstance(is_remote, bool):
+        is_remote = raw_payload.get("isRemote")
     return {
         "source_type": raw.get("source_type", "unknown"),
         "source_job_id": str(raw["source_job_id"]) if raw.get("source_job_id") not in (None, "") else None,
@@ -85,6 +105,9 @@ def normalize_job(raw: dict | object, base_url: str | None = None) -> dict:
         "canonical_url": url,
         "apply_url": canonicalize_url(raw.get("apply_url") or url, base_url),
         "location_raw": clean_text(raw.get("location")),
+        "structured_location": clean_text(str(structured_location)) if structured_location else "",
+        "workplace_type": clean_text(str(workplace_type)) if workplace_type else "",
+        "is_remote": is_remote if isinstance(is_remote, bool) else None,
         "description_text": bounded_text(strip_html(raw.get("description") or raw.get("description_text"))),
         "posted_at": parse_date(raw.get("posted_at")),
         "employment_type": clean_text(raw.get("employment_type")).lower() or "unknown",

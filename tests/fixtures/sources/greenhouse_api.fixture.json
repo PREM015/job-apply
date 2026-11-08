@@ -1,0 +1,17 @@
+{
+  "jobs": [
+    {
+      "id": 8123456,
+      "title": "Software Engineer Intern",
+      "updated_at": "2026-10-25T10:30:00Z",
+      "location": {
+        "name": "Bengaluru, India"
+      },
+      "absolute_url": "https://boards.greenhouse.io/samplefixture/jobs/8123456",
+      "content": "<p>Internship role working with Python and React.</p>"
+    }
+  ],
+  "meta": {
+    "total": 1
+  }
+}

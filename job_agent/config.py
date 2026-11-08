@@ -109,6 +109,9 @@ def load_sources(path: str | Path = "config/sources.yaml") -> dict[str, Any]:
             raise ConfigError(f"source {name} must have enabled")
         if not isinstance(spec["enabled"], bool):
             raise ConfigError(f"source {name}.enabled must be boolean")
+        request_cap = spec.get("request_cap")
+        if isinstance(request_cap, bool) or not isinstance(request_cap, int) or request_cap <= 0:
+            raise ConfigError(f"source {name}.request_cap must be a positive integer")
     return data["sources"]
 
 

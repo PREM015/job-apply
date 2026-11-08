@@ -28,7 +28,7 @@ def _experience_points(level: str, prefs: dict, weight: int) -> int:
 
 def _location_points(job: dict, prefs: dict, weight: int) -> int:
     location_cfg = prefs.get("locations", {})
-    location = f"{job.get('location_raw', '')} {job.get('description_text', '')}".lower()
+    location = f"{job.get('structured_location', '')} {job.get('location_raw', '')}".lower()
     if job.get("work_mode") == "remote" and location_cfg.get("allow_remote", True):
         return weight
     for city in location_cfg.get("cities", []):

@@ -223,4 +223,24 @@ MIGRATIONS: list[tuple[int, str]] = [
             ON platform_tags(platform_id, section);
         """,
     ),
+    (
+        7,
+        """
+        ALTER TABLE jobs ADD COLUMN workplace_type TEXT;
+        ALTER TABLE jobs ADD COLUMN is_remote INTEGER;
+        ALTER TABLE jobs ADD COLUMN structured_location TEXT;
+        ALTER TABLE jobs ADD COLUMN closed_at TEXT;
+        ALTER TABLE jobs ADD COLUMN closed_reason TEXT;
+
+        CREATE TABLE IF NOT EXISTS job_source_scan_state (
+            source_id INTEGER NOT NULL REFERENCES sources(source_id) ON DELETE CASCADE,
+            job_id INTEGER NOT NULL REFERENCES jobs(job_id) ON DELETE CASCADE,
+            consecutive_misses INTEGER NOT NULL DEFAULT 0,
+            last_scan_at TEXT NOT NULL,
+            closed_at TEXT,
+            closed_reason TEXT,
+            PRIMARY KEY (source_id, job_id)
+        );
+        """,
+    ),
 ]

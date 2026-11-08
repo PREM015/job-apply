@@ -1,6 +1,7 @@
 """Pipeline orchestration. This is the only pipeline module that writes."""
 from __future__ import annotations
 
+from collections import defaultdict
 from typing import Any
 
 from ..db.repository import Database
@@ -36,6 +37,7 @@ def run_pipeline(
     errors: list[str] = []
     normalized: list[dict[str, Any]] = []
     rejection_reasons: list[dict[str, Any]] = []
+    complete_sources: set[int] = set()
 
     for batch in batches:
         raw_jobs = batch.get("jobs", [])
@@ -47,6 +49,8 @@ def run_pipeline(
             continue
         if batch.get("source_id") is not None:
             db.update_source_health(int(batch["source_id"]), "ok", True)
+            if batch.get("scan_complete") is True:
+                complete_sources.add(int(batch["source_id"]))
         metadata = {
             "source_id": batch.get("source_id"),
             "company_master_id": batch.get("company_master_id"),
@@ -64,8 +68,15 @@ def run_pipeline(
     accepted, validation_rejects = validate_jobs(normalized)
     counters["rejected_count"] += len(validation_rejects)
     rejection_reasons.extend(validation_rejects)
+    invalid_source_ids = {
+        int(item["job"]["source_id"])
+        for item in validation_rejects
+        if item.get("job", {}).get("source_id") is not None
+    }
 
-    classified: list[dict[str, Any]] = []
+    seen_by_source: dict[int, set[int]] = defaultdict(set)
+    queue_states = db.latest_queue_states()
+    applied_keys = db.applied_keys()
     for job in accepted:
         classify_job(job, prefs)
         company_key = job.get("company_name", "").lower()
@@ -78,26 +89,76 @@ def run_pipeline(
             existing = db.find_job_by_source(int(job["source_id"]), str(job["source_job_id"]))
         if existing is None:
             existing = db.find_job_by_url(job["canonical_url"])
-        job["already_applied"] = job["canonical_url"] in db.applied_keys() or job["fingerprint"] in db.applied_keys()
+        if existing:
+            existing_id = int(existing["job_id"])
+            job["job_id"] = existing_id
+            if existing.get("source_id") is not None:
+                seen_by_source[int(existing["source_id"])].add(existing_id)
+            if job.get("source_id") is not None:
+                seen_by_source[int(job["source_id"])].add(existing_id)
+            job["status"] = (
+                "active" if existing.get("status") in {"closed", "expired"}
+                else existing.get("status", "active")
+            )
+        user_state = queue_states.get(int(job["job_id"])) if job.get("job_id") else None
+        job["user_state"] = user_state
+        job["already_applied"] = (
+            job["canonical_url"] in applied_keys
+            or job["fingerprint"] in applied_keys
+            or user_state in {"applied", "dismissed"}
+        )
+        result = score_job(job, prefs, job.get("tier"))
+        job["score_total"] = result.total
+        job["score_breakdown"] = result.breakdown
+        job["score_reasons"] = result.reasons
+        if existing:
+            db.upsert_job(job)
+            counters["duplicate_count"] += 1
         ok, reason = hard_filter(job, prefs)
         if not ok:
             counters["rejected_count"] += 1
             rejection_reasons.append({"job": job, "reason": reason})
+            continue
+        if minimum_score is not None and result.total < minimum_score:
+            counters["rejected_count"] += 1
+            counters["score_floor_rejected_count"] += 1
+            rejection_reasons.append({"job": job, "reason": "score_below_manual_apply_min"})
+            continue
+        job_id, created = db.upsert_job(job) if not existing else (int(existing["job_id"]), False)
+        job["job_id"] = job_id
+        if not created and not existing:
+            counters["duplicate_count"] += 1
+        if job.get("source_id") is not None:
+            seen_by_source[int(job["source_id"])].add(job_id)
+
+    for source_id in complete_sources - invalid_source_ids:
+        db.record_complete_source_scan(source_id, seen_by_source[source_id])
+
+    classified: list[dict[str, Any]] = []
+    queue_states = db.latest_queue_states()
+    applied_keys = db.applied_keys()
+    for stored in db.list_jobs(active_only=True):
+        job = dict(stored)
+        company = db.get_company(int(job["company_master_id"])) if job.get("company_master_id") else None
+        job["tier"] = company.get("tier") if company else None
+        classify_job(job, prefs)
+        company_key = str(job.get("company_name") or "").lower()
+        job["suppressed"] = bool(company_key and db.is_suppressed("company", company_key))
+        user_state = queue_states.get(int(job["job_id"]))
+        job["user_state"] = user_state
+        job["already_applied"] = (
+            job.get("canonical_url") in applied_keys
+            or job.get("fingerprint") in applied_keys
+            or user_state in {"applied", "dismissed"}
+        )
+        ok, reason = hard_filter(job, prefs)
+        if not ok:
             continue
         result = score_job(job, prefs, job.get("tier"))
         job["score_total"] = result.total
         job["score_breakdown"] = result.breakdown
         job["score_reasons"] = result.reasons
         if minimum_score is not None and result.total < minimum_score:
-            counters["rejected_count"] += 1
-            counters["score_floor_rejected_count"] += 1
-            rejection_reasons.append({"job": job, "reason": "score_below_manual_apply_min"})
-            continue
-        job["is_new"] = existing is None
-        job_id, created = db.upsert_job(job)
-        job["job_id"] = job_id
-        if not created:
-            counters["duplicate_count"] += 1
             continue
         classified.append(job)
 
@@ -107,9 +168,16 @@ def run_pipeline(
                 left["possible_duplicate"] = True
                 right["possible_duplicate"] = True
 
-    selected = select_quota(classified, prefs, db.applied_keys(), set())
+    selected = select_quota(classified, prefs, applied_keys, set())
     for rank, job in enumerate(selected, start=1):
-        db.enqueue(run_id, int(job["job_id"]), rank, int(job["score_total"]), "; ".join(job.get("score_reasons", [])))
+        db.enqueue(
+            run_id,
+            int(job["job_id"]),
+            rank,
+            int(job["score_total"]),
+            "; ".join(job.get("score_reasons", [])),
+            state=str(job.get("user_state") or "queued"),
+        )
     counters["queued_count"] = len(selected)
     db.finish_run(run_id, counters, errors)
     return {

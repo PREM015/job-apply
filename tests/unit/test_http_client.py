@@ -29,6 +29,17 @@ def test_http_success_and_honest_user_agent():
 
 
 @responses.activate
+def test_http_result_captures_response_content_type():
+    responses.add(responses.GET, "https://acme.example.com/robots.txt", status=404)
+    responses.add(
+        responses.GET, "https://acme.example.com/jobs",
+        body=b"{}", status=200, content_type="application/json",
+    )
+    result = HttpClient(per_host_delay=0).get("https://acme.example.com/jobs")
+    assert result.content_type == "application/json"
+
+
+@responses.activate
 def test_http_403_is_blocked_without_retry():
     allow_robots("acme.example.com")
     responses.add(responses.GET, "https://acme.example.com/jobs", status=403)

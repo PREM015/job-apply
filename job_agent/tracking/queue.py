@@ -3,7 +3,10 @@ from __future__ import annotations
 
 from ..db.repository import Database
 
-VALID_STATES = {"queued", "reviewed", "interested", "applied", "skipped", "rejected", "archived"}
+VALID_STATES = {
+    "queued", "reviewed", "interested", "saved", "applied", "dismissed",
+    "skipped", "rejected", "archived",
+}
 
 
 def set_state(db: Database, queue_id: int, new_state: str, actor: str = "owner", note: str = "") -> None:

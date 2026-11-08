@@ -185,27 +185,32 @@ class HttpClient:
                 if attempt < self.max_retries and host not in self._blocked_hosts:
                     time.sleep(self._retry_after(response.headers.get("Retry-After")))
                     continue
-                return FetchResult(ok=False, status=429, error="rate_limited", elapsed_ms=elapsed)
+                return FetchResult(ok=False, status=429, error="rate_limited", elapsed_ms=elapsed,
+                                   content_type=response.headers.get("Content-Type"))
             if response.status_code == 403:
-                return FetchResult(ok=False, status=403, error="blocked", elapsed_ms=elapsed)
+                return FetchResult(ok=False, status=403, error="blocked", elapsed_ms=elapsed,
+                                   content_type=response.headers.get("Content-Type"))
             if response.status_code in TRANSIENT_STATUSES:
                 last_error = f"http_{response.status_code}"
                 if attempt < self.max_retries:
                     time.sleep(1.0)
                     continue
-                return FetchResult(ok=False, status=response.status_code, error=last_error, elapsed_ms=elapsed)
+                return FetchResult(ok=False, status=response.status_code, error=last_error, elapsed_ms=elapsed,
+                                   content_type=response.headers.get("Content-Type"))
             if response.status_code >= 400:
                 return FetchResult(
                     ok=False,
                     status=response.status_code,
                     error=f"http_{response.status_code}",
                     elapsed_ms=elapsed,
+                    content_type=response.headers.get("Content-Type"),
                 )
             return FetchResult(
                 ok=True,
                 status=response.status_code,
                 payload=response.content,
                 elapsed_ms=elapsed,
+                content_type=response.headers.get("Content-Type"),
             )
 
         return FetchResult(

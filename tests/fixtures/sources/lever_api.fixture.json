@@ -1,0 +1,16 @@
+[
+  {
+    "id": "lever-fixture-001",
+    "text": "Backend Developer",
+    "createdAt": 1792924200000,
+    "categories": {
+      "location": "Pune, India",
+      "commitment": "Full-time"
+    },
+    "hostedUrl": "https://jobs.lever.co/samplefixture/lever-fixture-001",
+    "description": "<p>Backend role.</p>",
+    "descriptionPlain": "Python and SQL. Entry-level role.",
+    "workplaceType": "On-site",
+    "isRemote": false
+  }
+]

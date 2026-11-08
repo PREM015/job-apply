@@ -29,7 +29,7 @@
       "jobs": [
         {"source_type": "lever", "source_job_id": "lev-1", "title": "Backend Developer", "company_name": "Beta", "url": "https://jobs.lever.co/beta/lev-1", "location": "Pune, India", "description": "Python and SQL. Degree. 1-2 years.", "posted_at": "2026-11-05T09:00:00Z", "employment_type": "full_time"},
         {"source_type": "lever", "source_job_id": "lev-2", "title": "Senior Software Engineer", "company_name": "Beta", "url": "https://jobs.lever.co/beta/lev-2", "location": "Pune, India", "description": "Python and SQL. Senior role.", "posted_at": "2026-11-05T09:00:00Z", "employment_type": "full_time"},
-        {"source_type": "lever", "source_job_id": "lev-3", "title": "Frontend Engineer", "company_name": "Beta", "url": "https://jobs.lever.co/beta/lev-3", "location": "Remote", "description": "JavaScript, React, Node.js. Entry level. Bachelor degree.", "posted_at": "2026-11-04T08:00:00Z", "employment_type": "full_time"}
+        {"source_type": "lever", "source_job_id": "lev-3", "title": "Frontend Engineer", "company_name": "Beta", "url": "https://jobs.lever.co/beta/lev-3", "location": "Remote, India", "description": "JavaScript, React, Node.js. Entry level. Bachelor degree.", "posted_at": "2026-11-04T08:00:00Z", "employment_type": "full_time"}
       ]
     },
     {

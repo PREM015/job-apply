@@ -391,15 +391,27 @@ class Database:
             if existing:
                 conn.execute(
                     """
-                    UPDATE jobs SET last_seen_at=?, score_total=?, score_breakdown=?, is_active=1,
+                    UPDATE jobs SET last_seen_at=?, score_total=?, score_breakdown=?,
+                        is_active=CASE WHEN status IN ('closed','expired') THEN 0 ELSE 1 END,
+                        title=?, company_name=?, apply_url=?, location_raw=?, employment_type=?,
+                        description_text=?, posted_at=?, is_internship=?,
                         experience_level=?, is_software=?, software_evidence=?, skills_required=?,
-                        skills_preferred=?, work_mode=?, country=?, updated_at=?
+                        skills_preferred=?, work_mode=?, country=?, workplace_type=?, is_remote=?,
+                        structured_location=?, updated_at=?
                     WHERE job_id=?
                     """,
                     (
                         stamp,
                         int(job.get("score_total", 0)),
                         json.dumps(job.get("score_breakdown", {}), sort_keys=True),
+                        job.get("title", existing["title"]),
+                        job.get("company_name", existing["company_name"]),
+                        job.get("apply_url", existing["apply_url"]),
+                        job.get("location_raw", existing["location_raw"]),
+                        job.get("employment_type", existing["employment_type"]),
+                        job.get("description_text", existing["description_text"]),
+                        job.get("posted_at", existing["posted_at"]),
+                        int(job.get("is_internship", existing["is_internship"])),
                         job.get("experience_level", "unknown"),
                         int(job.get("is_software", 0)),
                         json.dumps(job.get("software_evidence", [])),
@@ -407,6 +419,9 @@ class Database:
                         json.dumps(job.get("skills_preferred", [])),
                         job.get("work_mode", "unknown"),
                         job.get("country", "unknown"),
+                        job.get("workplace_type") or None,
+                        None if job.get("is_remote") is None else int(job["is_remote"]),
+                        job.get("structured_location") or None,
                         stamp,
                         int(existing["job_id"]),
                     ),
@@ -418,12 +433,14 @@ class Database:
                     title, company_name, location_raw, city, region, country, work_mode, employment_type,
                     experience_level, is_internship, is_software, software_evidence, skills_required,
                     skills_preferred, description_text, posted_at, discovered_at, last_seen_at, status, origin,
-                    score_total, score_breakdown, dedupe_key, fingerprint, is_active, created_at, updated_at)
+                    score_total, score_breakdown, dedupe_key, fingerprint, is_active, workplace_type,
+                    is_remote, structured_location, created_at, updated_at)
                 VALUES (:source_id, :company_master_id, :source_job_id, :canonical_url, :apply_url,
                     :title, :company_name, :location_raw, :city, :region, :country, :work_mode, :employment_type,
                     :experience_level, :is_internship, :is_software, :software_evidence, :skills_required,
                     :skills_preferred, :description_text, :posted_at, :discovered_at, :last_seen_at, :status, :origin,
-                    :score_total, :score_breakdown, :dedupe_key, :fingerprint, 1, :created_at, :updated_at)
+                    :score_total, :score_breakdown, :dedupe_key, :fingerprint, 1, :workplace_type,
+                    :is_remote, :structured_location, :created_at, :updated_at)
                 """,
                 {
                     "source_id": job.get("source_id"),
@@ -455,11 +472,84 @@ class Database:
                     "score_breakdown": json.dumps(job.get("score_breakdown", {}), sort_keys=True),
                     "dedupe_key": job["dedupe_key"],
                     "fingerprint": job["fingerprint"],
+                    "workplace_type": job.get("workplace_type") or None,
+                    "is_remote": None if job.get("is_remote") is None else int(job["is_remote"]),
+                    "structured_location": job.get("structured_location") or None,
                     "created_at": stamp,
                     "updated_at": stamp,
                 },
             )
             return int(cur.lastrowid), True
+
+    def record_complete_source_scan(self, source_id: int, seen_job_ids: set[int]) -> None:
+        """Track complete successful scans and close only after two consecutive misses."""
+        assert self.connection is not None
+        stamp = now_iso()
+        close_reason = "missing from two consecutive successful complete source scans"
+        with self.transaction() as conn:
+            existing_ids = {
+                int(row[0]) for row in conn.execute(
+                    "SELECT job_id FROM jobs WHERE source_id=? "
+                    "UNION SELECT job_id FROM job_source_scan_state WHERE source_id=?",
+                    (source_id, source_id),
+                )
+            }
+            all_ids = existing_ids | {int(job_id) for job_id in seen_job_ids}
+            for job_id in sorted(all_ids):
+                row = conn.execute(
+                    "SELECT status, is_active FROM jobs WHERE job_id=?", (job_id,),
+                ).fetchone()
+                if row is None:
+                    continue
+                previous = conn.execute(
+                    "SELECT consecutive_misses, closed_reason FROM job_source_scan_state "
+                    "WHERE source_id=? AND job_id=?",
+                    (source_id, job_id),
+                ).fetchone()
+                if job_id in seen_job_ids:
+                    if row["status"] in {"closed", "expired"} and previous and previous["closed_reason"]:
+                        conn.execute(
+                            "UPDATE jobs SET status='active', is_active=1, closed_at=NULL, "
+                            "closed_reason=NULL, updated_at=? WHERE job_id=?",
+                            (stamp, job_id),
+                        )
+                    conn.execute(
+                        """
+                        INSERT INTO job_source_scan_state(
+                            source_id, job_id, consecutive_misses, last_scan_at, closed_at, closed_reason
+                        ) VALUES (?, ?, 0, ?, NULL, NULL)
+                        ON CONFLICT(source_id, job_id) DO UPDATE SET
+                            consecutive_misses=0, last_scan_at=excluded.last_scan_at,
+                            closed_at=NULL, closed_reason=NULL
+                        """,
+                        (source_id, job_id, stamp),
+                    )
+                    continue
+                misses = int(previous[0]) + 1 if previous else 1
+                should_close = misses >= 2 and row["status"] not in {"closed", "expired"}
+                conn.execute(
+                    """
+                    INSERT INTO job_source_scan_state(
+                        source_id, job_id, consecutive_misses, last_scan_at, closed_at, closed_reason
+                    ) VALUES (?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(source_id, job_id) DO UPDATE SET
+                        consecutive_misses=excluded.consecutive_misses,
+                        last_scan_at=excluded.last_scan_at,
+                        closed_at=COALESCE(job_source_scan_state.closed_at, excluded.closed_at),
+                        closed_reason=COALESCE(job_source_scan_state.closed_reason, excluded.closed_reason)
+                    """,
+                    (
+                        source_id, job_id, misses, stamp,
+                        stamp if should_close else None,
+                        close_reason if should_close else None,
+                    ),
+                )
+                if should_close:
+                    conn.execute(
+                        "UPDATE jobs SET status='closed', is_active=0, closed_at=?, "
+                        "closed_reason=?, updated_at=? WHERE job_id=?",
+                        (stamp, close_reason, stamp, job_id),
+                    )
 
     def find_job_by_source(self, source_id: int, source_job_id: str) -> dict[str, Any] | None:
         assert self.connection is not None
@@ -488,9 +578,21 @@ class Database:
 
     def set_job_status(self, job_id: int, status: str) -> None:
         assert self.connection is not None
+        stamp = now_iso()
+        is_closed = status in {"closed", "expired"}
         with self.transaction() as conn:
-            conn.execute("UPDATE jobs SET status=?, is_active=?, updated_at=? WHERE job_id=?",
-                         (status, 0 if status in {"closed", "expired"} else 1, now_iso(), job_id))
+            conn.execute(
+                "UPDATE jobs SET status=?, is_active=?, closed_at=?, closed_reason=?, updated_at=? "
+                "WHERE job_id=?",
+                (
+                    status,
+                    0 if is_closed else 1,
+                    stamp if is_closed else None,
+                    "manually marked closed" if is_closed else None,
+                    stamp,
+                    job_id,
+                ),
+            )
 
     # ----------------------------------------------------------------------- runs
     def create_run(self, mode: str = "dry") -> int:
@@ -527,19 +629,27 @@ class Database:
         return [dict(r) for r in self.connection.execute("SELECT * FROM daily_runs ORDER BY run_id DESC")]
 
     # ---------------------------------------------------------------------- queue
-    def enqueue(self, run_id: int, job_id: int, rank: int, score: int, reason: str) -> int:
+    def enqueue(
+        self,
+        run_id: int,
+        job_id: int,
+        rank: int,
+        score: int,
+        reason: str,
+        state: str = "queued",
+    ) -> int:
         assert self.connection is not None
         stamp = now_iso()
         with self.transaction() as conn:
             cur = conn.execute(
                 "INSERT INTO queue(run_id, job_id, rank, score, reason, state, created_at, updated_at) "
-                "VALUES (?, ?, ?, ?, ?, 'queued', ?, ?)",
-                (run_id, job_id, rank, score, reason, stamp, stamp),
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                (run_id, job_id, rank, score, reason, state, stamp, stamp),
             )
             conn.execute(
                 "INSERT INTO queue_events(queue_id, old_state, new_state, actor, note, created_at) "
-                "VALUES (?, NULL, 'queued', 'system', 'daily selection', ?)",
-                (cur.lastrowid, stamp),
+                "VALUES (?, NULL, ?, 'system', 'daily selection; preserved prior user state', ?)",
+                (cur.lastrowid, state, stamp),
             )
             return int(cur.lastrowid)
 
@@ -554,6 +664,21 @@ class Database:
                         j.experience_level, j.work_mode, j.is_software
                  FROM queue q JOIN jobs j ON j.job_id=q.job_id WHERE q.run_id=? ORDER BY q.rank"""
         return [dict(r) for r in self.connection.execute(sql, (run_id,))]
+
+    def latest_queue_states(self) -> dict[int, str]:
+        assert self.connection is not None
+        rows = self.connection.execute(
+            """
+            SELECT q.job_id, q.state
+            FROM queue q
+            WHERE q.queue_id = (
+                SELECT prior.queue_id FROM queue prior
+                WHERE prior.job_id=q.job_id
+                ORDER BY prior.run_id DESC, prior.queue_id DESC LIMIT 1
+            )
+            """
+        )
+        return {int(row["job_id"]): str(row["state"]) for row in rows}
 
     def update_queue_state(self, queue_id: int, new_state: str, actor: str = "owner", note: str = "") -> None:
         assert self.connection is not None

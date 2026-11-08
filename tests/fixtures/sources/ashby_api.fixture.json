@@ -1,0 +1,14 @@
+{
+  "jobs": [
+    {
+      "id": "ashby-fixture-001",
+      "title": "Frontend Engineer",
+      "location": "Chennai, India",
+      "workplaceType": "Hybrid",
+      "isRemote": false,
+      "jobUrl": "https://jobs.ashbyhq.com/samplefixture/ashby-fixture-001",
+      "descriptionPlain": "React and TypeScript role for an early-career engineer.",
+      "descriptionHtml": "<p>React and TypeScript role for an early-career engineer.</p>"
+    }
+  ]
+}

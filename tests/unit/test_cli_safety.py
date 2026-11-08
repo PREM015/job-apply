@@ -11,6 +11,7 @@ import yaml
 from job_agent import cli
 from job_agent.cli import main
 from job_agent.dashboard.app import assert_local_host
+from job_agent.db.migrations import MIGRATIONS
 from job_agent.errors import SafetyLockError
 from tests.support import FIXTURES, ROOT
 
@@ -129,7 +130,9 @@ def test_fixture_demo_recreates_only_fixture_database(config_path, tmp_path, cap
     assert Path(yaml.safe_load(config_path.read_text(encoding="utf-8"))["database_path"]).exists() is False
     import sqlite3
     with sqlite3.connect(fixture_db) as connection:
-        assert connection.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 6
+        assert connection.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == max(
+            version for version, _ in MIGRATIONS
+        )
         assert connection.execute("SELECT COUNT(*) FROM jobs").fetchone()[0] == 3
 
 
@@ -162,7 +165,7 @@ def test_daily_launcher_is_locked_without_owner_preferences(config_path, capsys)
 def test_doctor_reports_valid_and_invalid_preferences(config_path, tmp_path, capsys):
     valid = main([
         "--config", str(config_path), "doctor",
-        "--preferences", str(ROOT / "config" / "preferences.yaml"),
+        "--preferences", str(ROOT / "config" / "preferences.example.yaml"),
     ])
     valid_output = capsys.readouterr().out
     assert valid == 0

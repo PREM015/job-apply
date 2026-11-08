@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import re
+import hashlib
 import sqlite3
 import tempfile
 from collections import Counter
@@ -18,7 +19,7 @@ from .db.repository import Database
 from .http_client import HttpClient
 from .models import RawJob
 from .pipeline.run import run_pipeline
-from .sources.base import SourceRef
+from .sources.base import SourceParseError, SourceRef, is_json_content_type
 from .sources.registry import get_adapter
 
 ATS_TYPES = {"greenhouse", "lever", "ashby", "smartrecruiters", "workable"}
@@ -106,7 +107,9 @@ def _source_candidate(
         stored_type = str(company.get("ats_type") or "").lower()
         source_type = str(
             (override or {}).get("source_type")
-            or (stored_type if stored_type in ATS_TYPES and detected_type == "jsonld" else detected_type)
+            or detected_type
+            or (stored_type if stored_type in ATS_TYPES else "")
+            or ("jsonld" if not detected_type else "")
             or resolved.get("source_type")
             or ""
         ).lower()
@@ -124,10 +127,18 @@ def _source_candidate(
             identifier=str(identifier or ""),
             resolution_reason=field,
         )
+        if source_type == "jsonld" and not detected_type and not (
+            (override or {}).get("source_type")
+        ):
+            resolved["resolution_status"] = "manual_check"
         candidates.append({
             "company": company,
             "resolved": resolved,
-            "method": "known_ats" if source_type in ATS_TYPES else "stored_url",
+            "method": (
+                "known_ats" if source_type in ATS_TYPES
+                else "page_scan_manual_check" if resolved.get("resolution_status") == "manual_check"
+                else "stored_url"
+            ),
             "priority": 0 if source_type in ATS_TYPES else 1,
         })
 
@@ -307,6 +318,63 @@ def verify_adapter_sample(source_type: str, jobs: list[RawJob]) -> dict[str, Any
     return {"verified": True, "reason": None, "field_names": field_names}
 
 
+def _feed_is_complete(source_type: str, payload: bytes) -> bool:
+    try:
+        import json
+
+        data = json.loads(payload.decode("utf-8"))
+    except (ValueError, UnicodeDecodeError):
+        return False
+    records = data if isinstance(data, list) else (
+        data.get("jobs", data.get("postings")) if isinstance(data, dict) else None
+    )
+    if not isinstance(records, list):
+        return False
+    if isinstance(data, dict):
+        pagination = data.get("pagination")
+        if data.get("hasMore") is True or data.get("has_more") is True:
+            return False
+        if data.get("hasNextPage") is True or data.get("has_next_page") is True:
+            return False
+        if any(data.get(key) for key in ("nextPage", "next_page", "nextCursor", "next_cursor")):
+            return False
+        totals = [
+            data.get(key) for key in ("total", "totalCount", "total_count")
+            if isinstance(data.get(key), int) and not isinstance(data.get(key), bool)
+        ]
+        if any(total != len(records) for total in totals):
+            return False
+        meta = data.get("meta")
+        if isinstance(meta, dict):
+            meta_totals = [
+                meta.get(key) for key in ("total", "totalCount", "total_count")
+                if isinstance(meta.get(key), int) and not isinstance(meta.get(key), bool)
+            ]
+            if any(total != len(records) for total in meta_totals):
+                return False
+            if any(meta.get(key) for key in (
+                "next", "nextPage", "next_page", "nextCursor", "next_cursor"
+            )):
+                return False
+        if isinstance(pagination, dict) and (
+            pagination.get("hasMore") is True
+            or pagination.get("has_more") is True
+            or pagination.get("next")
+            or pagination.get("nextCursor")
+        ):
+            return False
+    return source_type in ATS_TYPES
+
+
+def _response_diagnostics(result, payload: bytes) -> dict[str, Any]:
+    return {
+        "status": result.status,
+        "content_type": result.content_type,
+        "bytes": len(payload),
+        "sha256": hashlib.sha256(payload).hexdigest(),
+    }
+
+
 def _manual_apply_min(prefs: dict[str, Any]) -> int:
     thresholds = prefs.get("thresholds")
     if not isinstance(thresholds, dict):
@@ -357,6 +425,68 @@ def _fetch_company(
         "reason": None,
     }
 
+    if source_type in ATS_TYPES:
+        feed_url = adapter_url(resolved)
+        feed_result = client.get(feed_url)
+        attempt["endpoint"] = feed_url
+        attempt["response"] = _response_diagnostics(feed_result, feed_result.payload)
+        if not feed_result.ok:
+            attempt["reason"] = feed_result.error or f"http_{feed_result.status}"
+            attempt["source_error"] = {
+                **attempt["response"],
+                "error": attempt["reason"],
+            }
+            return None, attempt
+        if feed_result.status != 200:
+            attempt["reason"] = "unexpected_http_status"
+            attempt["source_error"] = {
+                **attempt["response"],
+                "error": "expected_http_200",
+            }
+            return None, attempt
+        if not is_json_content_type(feed_result.content_type):
+            attempt["reason"] = "unexpected_content_type"
+            attempt["source_error"] = {
+                **attempt["response"],
+                "error": "expected_json_content_type",
+            }
+            return None, attempt
+        adapter = get_adapter(source_type)
+        source_ref = SourceRef(
+            company_master_id=int(company["master_id"]),
+            source_type=source_type,
+            url=feed_url,
+            identifier=company_name,
+        )
+        try:
+            jobs = adapter.parse(feed_result.payload, source_ref)
+        except SourceParseError as exc:
+            attempt["reason"] = str(exc)
+            attempt["source_error"] = {
+                **attempt["response"],
+                "error": str(exc),
+            }
+            return None, attempt
+        verification = verify_adapter_sample(source_type, jobs)
+        attempt["source_type"] = source_type
+        attempt["verification"] = verification
+        attempt["status"] = "parsed" if verification["verified"] or not jobs else "skipped"
+        attempt["reason"] = verification["reason"]
+        if jobs and not verification["verified"]:
+            return None, attempt
+        for job in jobs:
+            job.company_name = company_name
+        return {
+            "company_master_id": int(company["master_id"]),
+            "company_name": company_name,
+            "tier": company.get("tier"),
+            "source_type": source_type,
+            "url": feed_url,
+            "origin": "LIVE",
+            "scan_complete": _feed_is_complete(source_type, feed_result.payload),
+            "jobs": jobs,
+        }, attempt
+
     page_result = client.get(source_url)
     if not page_result.ok:
         attempt["reason"] = page_result.error or f"http_{page_result.status}"
@@ -372,6 +502,7 @@ def _fetch_company(
 
     payload = page_result.payload
     feed_url = source_url
+    api_result = None
     if source_type == "jsonld":
         linked = find_ats_link(payload, source_url, enabled_sources)
         if linked:
@@ -392,20 +523,26 @@ def _fetch_company(
                 if not feed_result.ok:
                     attempt["reason"] = feed_result.error or f"http_{feed_result.status}"
                     return None, attempt
+                if feed_result.status != 200:
+                    attempt["reason"] = "unexpected_http_status"
+                    attempt["source_error"] = {
+                        **_response_diagnostics(feed_result, feed_result.payload),
+                        "error": "expected_http_200",
+                    }
+                    return None, attempt
+                if not is_json_content_type(feed_result.content_type):
+                    attempt["reason"] = "unexpected_content_type"
+                    attempt["source_error"] = {
+                        **_response_diagnostics(feed_result, feed_result.payload),
+                        "error": "expected_json_content_type",
+                    }
+                    return None, attempt
                 payload = feed_result.payload
+                api_result = feed_result
             else:
                 payload = board.payload
         else:
             source_type = "jsonld"
-    elif source_type in ATS_TYPES:
-        feed_url = adapter_url(resolved)
-        if feed_url != source_url:
-            feed_result = client.get(feed_url)
-            if not feed_result.ok:
-                attempt["reason"] = feed_result.error or f"http_{feed_result.status}"
-                return None, attempt
-            payload = feed_result.payload
-
     adapter = get_adapter(source_type)
     source_ref = SourceRef(
         company_master_id=int(company["master_id"]),
@@ -413,17 +550,30 @@ def _fetch_company(
         url=feed_url,
         identifier=company_name,
     )
-    jobs = adapter.parse(payload, source_ref)
+    try:
+        jobs = adapter.parse(payload, source_ref)
+    except SourceParseError as exc:
+        attempt["reason"] = str(exc)
+        if api_result is not None:
+            attempt["source_error"] = {
+                **_response_diagnostics(api_result, api_result.payload),
+                "error": str(exc),
+            }
+        return None, attempt
     verification = verify_adapter_sample(source_type, jobs)
     attempt["source_type"] = source_type
     attempt["verification"] = verification
-    if not verification["verified"]:
+    attempt["status"] = "parsed" if verification["verified"] or (
+        source_type in ATS_TYPES and not jobs
+    ) else "skipped"
+    if jobs and not verification["verified"]:
+        return None, attempt
+    if not jobs and source_type not in ATS_TYPES:
         attempt["reason"] = verification["reason"]
         return None, attempt
 
     for job in jobs:
         job.company_name = company_name
-    attempt["status"] = "parsed"
     return {
         "company_master_id": int(company["master_id"]),
         "company_name": company_name,
@@ -431,6 +581,10 @@ def _fetch_company(
         "source_type": source_type,
         "url": feed_url,
         "origin": "LIVE",
+        "scan_complete": bool(
+            api_result is not None
+            and _feed_is_complete(source_type, api_result.payload)
+        ),
         "jobs": jobs,
     }, attempt
 
@@ -563,7 +717,7 @@ def run_live_discovery(
         user_agent=str(http_config["user_agent"]),
     )
     source_request_caps = {
-        source_type: max(1, int(spec.get("request_cap", 1)))
+        source_type: int(spec["request_cap"])
         for source_type, spec in enabled_sources.items()
     }
     attempted: list[dict[str, Any]] = []

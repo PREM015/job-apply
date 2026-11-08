@@ -1,0 +1,3357 @@
+[
+  {
+    "id": "6ed76ce8-4156-4b60-b120-403538bd66cd",
+    "text": "Administrative Business Partner",
+    "hostedUrl": "https://jobs.lever.co/palantir/6ed76ce8-4156-4b60-b120-403538bd66cd",
+    "applyUrl": "https://jobs.lever.co/palantir/6ed76ce8-4156-4b60-b120-403538bd66cd/apply",
+    "categories": {
+      "location": "Singapore, Singapore"
+    },
+    "createdAt": 1786469891368,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "0ccbe620-a3ef-41d1-a5c4-68e56b3c91d0",
+    "text": "American Tech Fellowship",
+    "hostedUrl": "https://jobs.lever.co/palantir/0ccbe620-a3ef-41d1-a5c4-68e56b3c91d0",
+    "applyUrl": "https://jobs.lever.co/palantir/0ccbe620-a3ef-41d1-a5c4-68e56b3c91d0/apply",
+    "categories": {
+      "location": "North America"
+    },
+    "createdAt": 1750119374985,
+    "workplaceType": "remote"
+  },
+  {
+    "id": "10dfc8bc-99ad-4ca2-ab76-853cb90a92c2",
+    "text": "Backend Software Engineer - Application Development",
+    "hostedUrl": "https://jobs.lever.co/palantir/10dfc8bc-99ad-4ca2-ab76-853cb90a92c2",
+    "applyUrl": "https://jobs.lever.co/palantir/10dfc8bc-99ad-4ca2-ab76-853cb90a92c2/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1710188707256,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "ab7e3425-81d5-4705-a7b5-cd60c8a45cdb",
+    "text": "Backend Software Engineer - Application Development",
+    "hostedUrl": "https://jobs.lever.co/palantir/ab7e3425-81d5-4705-a7b5-cd60c8a45cdb",
+    "applyUrl": "https://jobs.lever.co/palantir/ab7e3425-81d5-4705-a7b5-cd60c8a45cdb/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1710191082166,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "9aadca04-df88-4b46-95d8-c3b2628b30b0",
+    "text": "Backend Software Engineer - Data Connectors",
+    "hostedUrl": "https://jobs.lever.co/palantir/9aadca04-df88-4b46-95d8-c3b2628b30b0",
+    "applyUrl": "https://jobs.lever.co/palantir/9aadca04-df88-4b46-95d8-c3b2628b30b0/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1793825826330,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "1345438c-ebfc-4fa5-b545-30c1414f317c",
+    "text": "Backend Software Engineer - Defense",
+    "hostedUrl": "https://jobs.lever.co/palantir/1345438c-ebfc-4fa5-b545-30c1414f317c",
+    "applyUrl": "https://jobs.lever.co/palantir/1345438c-ebfc-4fa5-b545-30c1414f317c/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1740435531334,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "a8174f9c-6f46-46b4-8e15-d1ff9e37c9eb",
+    "text": "Backend Software Engineer - Defense",
+    "hostedUrl": "https://jobs.lever.co/palantir/a8174f9c-6f46-46b4-8e15-d1ff9e37c9eb",
+    "applyUrl": "https://jobs.lever.co/palantir/a8174f9c-6f46-46b4-8e15-d1ff9e37c9eb/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1740435552105,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "d33e0c31-ac7e-4f57-ba74-36f2df6ae2f5",
+    "text": "Backend Software Engineer - Defense",
+    "hostedUrl": "https://jobs.lever.co/palantir/d33e0c31-ac7e-4f57-ba74-36f2df6ae2f5",
+    "applyUrl": "https://jobs.lever.co/palantir/d33e0c31-ac7e-4f57-ba74-36f2df6ae2f5/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1740435575088,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "6fe5515f-f677-4d98-8ac2-1775a425f5e7",
+    "text": "Backend Software Engineer - Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/6fe5515f-f677-4d98-8ac2-1775a425f5e7",
+    "applyUrl": "https://jobs.lever.co/palantir/6fe5515f-f677-4d98-8ac2-1775a425f5e7/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1754508487190,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "f70cdff7-c62f-4b73-a136-909e5e3d1891",
+    "text": "Backend Software Engineer - Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/f70cdff7-c62f-4b73-a136-909e5e3d1891",
+    "applyUrl": "https://jobs.lever.co/palantir/f70cdff7-c62f-4b73-a136-909e5e3d1891/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1708452790131,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "aaee4d20-7f1b-48b1-ad23-d52ffbf42a49",
+    "text": "Backend Software Engineer - Infrastructure, Foundations",
+    "hostedUrl": "https://jobs.lever.co/palantir/aaee4d20-7f1b-48b1-ad23-d52ffbf42a49",
+    "applyUrl": "https://jobs.lever.co/palantir/aaee4d20-7f1b-48b1-ad23-d52ffbf42a49/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1774528539111,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "fb2d3222-dbd8-4e03-8d39-47b820e9509c",
+    "text": "Backend Software Engineer - Infrastructure, Foundations",
+    "hostedUrl": "https://jobs.lever.co/palantir/fb2d3222-dbd8-4e03-8d39-47b820e9509c",
+    "applyUrl": "https://jobs.lever.co/palantir/fb2d3222-dbd8-4e03-8d39-47b820e9509c/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1708449747920,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "f163223b-db5d-4c6d-b73f-0a2eaf85583f",
+    "text": "Commercial Administrative Business Partner",
+    "hostedUrl": "https://jobs.lever.co/palantir/f163223b-db5d-4c6d-b73f-0a2eaf85583f",
+    "applyUrl": "https://jobs.lever.co/palantir/f163223b-db5d-4c6d-b73f-0a2eaf85583f/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1780672683975,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "45241c61-11af-45b5-86a0-a5302c028d6d",
+    "text": "Commercial Contracts Specialist",
+    "hostedUrl": "https://jobs.lever.co/palantir/45241c61-11af-45b5-86a0-a5302c028d6d",
+    "applyUrl": "https://jobs.lever.co/palantir/45241c61-11af-45b5-86a0-a5302c028d6d/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1648073203684,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "9675791e-59c3-4677-ac62-0c80c38da2eb",
+    "text": "Commercial Contracts Specialist",
+    "hostedUrl": "https://jobs.lever.co/palantir/9675791e-59c3-4677-ac62-0c80c38da2eb",
+    "applyUrl": "https://jobs.lever.co/palantir/9675791e-59c3-4677-ac62-0c80c38da2eb/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1648150733190,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "4d3986f0-4c01-4327-a0e4-e7d9bc7bc0c3",
+    "text": "Compliance Analyst",
+    "hostedUrl": "https://jobs.lever.co/palantir/4d3986f0-4c01-4327-a0e4-e7d9bc7bc0c3",
+    "applyUrl": "https://jobs.lever.co/palantir/4d3986f0-4c01-4327-a0e4-e7d9bc7bc0c3/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1750176235223,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "c6f9eaaf-b397-476f-8b7d-c511cfb7e5c6",
+    "text": "Compliance Analyst",
+    "hostedUrl": "https://jobs.lever.co/palantir/c6f9eaaf-b397-476f-8b7d-c511cfb7e5c6",
+    "applyUrl": "https://jobs.lever.co/palantir/c6f9eaaf-b397-476f-8b7d-c511cfb7e5c6/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1750176192698,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "2a41a2e2-55a4-4641-a3bf-101b7616dd63",
+    "text": "Contract Operations",
+    "hostedUrl": "https://jobs.lever.co/palantir/2a41a2e2-55a4-4641-a3bf-101b7616dd63",
+    "applyUrl": "https://jobs.lever.co/palantir/2a41a2e2-55a4-4641-a3bf-101b7616dd63/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1790350177738,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "2bc07b65-3f3a-4565-8d7c-d015bed92166",
+    "text": "Contract Operations",
+    "hostedUrl": "https://jobs.lever.co/palantir/2bc07b65-3f3a-4565-8d7c-d015bed92166",
+    "applyUrl": "https://jobs.lever.co/palantir/2bc07b65-3f3a-4565-8d7c-d015bed92166/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1790350196130,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "9d0cf52c-089a-41fd-93ee-3d501c8c14d8",
+    "text": "Contract Operations",
+    "hostedUrl": "https://jobs.lever.co/palantir/9d0cf52c-089a-41fd-93ee-3d501c8c14d8",
+    "applyUrl": "https://jobs.lever.co/palantir/9d0cf52c-089a-41fd-93ee-3d501c8c14d8/apply",
+    "categories": {
+      "location": "Denver, CO"
+    },
+    "createdAt": 1790350161615,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "bf3792b7-f485-47a3-ad8c-97c2d793207b",
+    "text": "Contract Operations",
+    "hostedUrl": "https://jobs.lever.co/palantir/bf3792b7-f485-47a3-ad8c-97c2d793207b",
+    "applyUrl": "https://jobs.lever.co/palantir/bf3792b7-f485-47a3-ad8c-97c2d793207b/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1790350141737,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "1a581b97-ce5b-4b4c-84b0-dd54cf8cfe14",
+    "text": "Corporate Counsel",
+    "hostedUrl": "https://jobs.lever.co/palantir/1a581b97-ce5b-4b4c-84b0-dd54cf8cfe14",
+    "applyUrl": "https://jobs.lever.co/palantir/1a581b97-ce5b-4b4c-84b0-dd54cf8cfe14/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1659104802629,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "1ef0cb77-03a2-4b60-b61d-ace924ef06e7",
+    "text": "Corporate Counsel",
+    "hostedUrl": "https://jobs.lever.co/palantir/1ef0cb77-03a2-4b60-b61d-ace924ef06e7",
+    "applyUrl": "https://jobs.lever.co/palantir/1ef0cb77-03a2-4b60-b61d-ace924ef06e7/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1651255511913,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "9804d4d1-bd2f-42d5-ae3e-3e3e51aa3830",
+    "text": "Corporate Counsel",
+    "hostedUrl": "https://jobs.lever.co/palantir/9804d4d1-bd2f-42d5-ae3e-3e3e51aa3830",
+    "applyUrl": "https://jobs.lever.co/palantir/9804d4d1-bd2f-42d5-ae3e-3e3e51aa3830/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1709325865697,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "1b690123-1766-4e75-a0ef-0f58afa864b4",
+    "text": "Data Engineer - Talent Acquisition Operations",
+    "hostedUrl": "https://jobs.lever.co/palantir/1b690123-1766-4e75-a0ef-0f58afa864b4",
+    "applyUrl": "https://jobs.lever.co/palantir/1b690123-1766-4e75-a0ef-0f58afa864b4/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1791416144350,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "16a1b500-13fe-4c22-ad89-372093b462da",
+    "text": "Deal Team - Business Affairs",
+    "hostedUrl": "https://jobs.lever.co/palantir/16a1b500-13fe-4c22-ad89-372093b462da",
+    "applyUrl": "https://jobs.lever.co/palantir/16a1b500-13fe-4c22-ad89-372093b462da/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1631653025119,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "2add8e90-c65a-4684-8c0d-6dfa7a541871",
+    "text": "Deal Team - Business Affairs",
+    "hostedUrl": "https://jobs.lever.co/palantir/2add8e90-c65a-4684-8c0d-6dfa7a541871",
+    "applyUrl": "https://jobs.lever.co/palantir/2add8e90-c65a-4684-8c0d-6dfa7a541871/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1631655146735,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "a7a77fc5-9f68-4ded-aad7-4814d96cb316",
+    "text": "Deal Team - Business Affairs",
+    "hostedUrl": "https://jobs.lever.co/palantir/a7a77fc5-9f68-4ded-aad7-4814d96cb316",
+    "applyUrl": "https://jobs.lever.co/palantir/a7a77fc5-9f68-4ded-aad7-4814d96cb316/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1631654772683,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "bc803bd5-7793-452d-9ae5-9301ee24615a",
+    "text": "Defensive Security Analyst",
+    "hostedUrl": "https://jobs.lever.co/palantir/bc803bd5-7793-452d-9ae5-9301ee24615a",
+    "applyUrl": "https://jobs.lever.co/palantir/bc803bd5-7793-452d-9ae5-9301ee24615a/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1767873118513,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "2e193bdf-e668-49c1-ba32-66cc1aa131a4",
+    "text": "Deployment Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/2e193bdf-e668-49c1-ba32-66cc1aa131a4",
+    "applyUrl": "https://jobs.lever.co/palantir/2e193bdf-e668-49c1-ba32-66cc1aa131a4/apply",
+    "categories": {
+      "location": "Seoul, South Korea"
+    },
+    "createdAt": 1650642179333,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "79c3f906-622b-4261-8fc6-8af0028caa27",
+    "text": "Deployment Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/79c3f906-622b-4261-8fc6-8af0028caa27",
+    "applyUrl": "https://jobs.lever.co/palantir/79c3f906-622b-4261-8fc6-8af0028caa27/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1362700800000,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "9ace479e-a9e4-4610-a553-122d3831863a",
+    "text": "Deployment Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/9ace479e-a9e4-4610-a553-122d3831863a",
+    "applyUrl": "https://jobs.lever.co/palantir/9ace479e-a9e4-4610-a553-122d3831863a/apply",
+    "categories": {
+      "location": "Warsaw, Poland"
+    },
+    "createdAt": 1635394388600,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "b81be534-e1d6-4946-8121-1e1360d4d030",
+    "text": "Deployment Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/b81be534-e1d6-4946-8121-1e1360d4d030",
+    "applyUrl": "https://jobs.lever.co/palantir/b81be534-e1d6-4946-8121-1e1360d4d030/apply",
+    "categories": {
+      "location": "Oslo, Norway"
+    },
+    "createdAt": 1782387578255,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "bc087dba-1e41-49e0-83bd-36832122363d",
+    "text": "Deployment Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/bc087dba-1e41-49e0-83bd-36832122363d",
+    "applyUrl": "https://jobs.lever.co/palantir/bc087dba-1e41-49e0-83bd-36832122363d/apply",
+    "categories": {
+      "location": "Chicago, IL"
+    },
+    "createdAt": 1651059808711,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "e0ab8226-b928-4e3a-bf87-08fe7b1ea595",
+    "text": "Deployment Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/e0ab8226-b928-4e3a-bf87-08fe7b1ea595",
+    "applyUrl": "https://jobs.lever.co/palantir/e0ab8226-b928-4e3a-bf87-08fe7b1ea595/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1669756040118,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "e65e0d73-1d91-4696-809f-7810ecd474d1",
+    "text": "Deployment Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/e65e0d73-1d91-4696-809f-7810ecd474d1",
+    "applyUrl": "https://jobs.lever.co/palantir/e65e0d73-1d91-4696-809f-7810ecd474d1/apply",
+    "categories": {
+      "location": "Singapore, Singapore"
+    },
+    "createdAt": 1460130670921,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "6940fc9a-b79c-4935-a90f-1c6a02e54fb1",
+    "text": "Deployment Strategist - Germany Forward Deployed",
+    "hostedUrl": "https://jobs.lever.co/palantir/6940fc9a-b79c-4935-a90f-1c6a02e54fb1",
+    "applyUrl": "https://jobs.lever.co/palantir/6940fc9a-b79c-4935-a90f-1c6a02e54fb1/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1792762503402,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "e5b8c2f0-aa26-4615-ba92-f4b5c175c112",
+    "text": "Deployment Strategist - Intel",
+    "hostedUrl": "https://jobs.lever.co/palantir/e5b8c2f0-aa26-4615-ba92-f4b5c175c112",
+    "applyUrl": "https://jobs.lever.co/palantir/e5b8c2f0-aa26-4615-ba92-f4b5c175c112/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1634546460896,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "ba8fdce3-7f60-45f6-8323-d74cc18c4320",
+    "text": "Deployment Strategist - Japan Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/ba8fdce3-7f60-45f6-8323-d74cc18c4320",
+    "applyUrl": "https://jobs.lever.co/palantir/ba8fdce3-7f60-45f6-8323-d74cc18c4320/apply",
+    "categories": {
+      "location": "Tokyo, Japan"
+    },
+    "createdAt": 1778857464910,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "fa93a1f8-dc95-40d0-b5ca-f2aebaab0806",
+    "text": "Deployment Strategist - Japan Forward Deployed",
+    "hostedUrl": "https://jobs.lever.co/palantir/fa93a1f8-dc95-40d0-b5ca-f2aebaab0806",
+    "applyUrl": "https://jobs.lever.co/palantir/fa93a1f8-dc95-40d0-b5ca-f2aebaab0806/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1727961520616,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "2bfdcb53-7abd-42a4-9eaf-ebe07450f798",
+    "text": "Deployment Strategist - Japan Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/2bfdcb53-7abd-42a4-9eaf-ebe07450f798",
+    "applyUrl": "https://jobs.lever.co/palantir/2bfdcb53-7abd-42a4-9eaf-ebe07450f798/apply",
+    "categories": {
+      "location": "Tokyo, Japan"
+    },
+    "createdAt": 1754645389724,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "1a53939d-8ffa-4570-b31a-6d0bc53fdb59",
+    "text": "Deployment Strategist - Korea Forward Deployed",
+    "hostedUrl": "https://jobs.lever.co/palantir/1a53939d-8ffa-4570-b31a-6d0bc53fdb59",
+    "applyUrl": "https://jobs.lever.co/palantir/1a53939d-8ffa-4570-b31a-6d0bc53fdb59/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1727960713676,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "1f007e36-a620-4d15-bf0b-70dc3f3439d8",
+    "text": "Deployment Strategist - Spain",
+    "hostedUrl": "https://jobs.lever.co/palantir/1f007e36-a620-4d15-bf0b-70dc3f3439d8",
+    "applyUrl": "https://jobs.lever.co/palantir/1f007e36-a620-4d15-bf0b-70dc3f3439d8/apply",
+    "categories": {
+      "location": "Madrid, Spain"
+    },
+    "createdAt": 1782735231262,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "2f3a0a57-8f77-44d2-99c3-18aef115374f",
+    "text": "Deployment Strategist - UK Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/2f3a0a57-8f77-44d2-99c3-18aef115374f",
+    "applyUrl": "https://jobs.lever.co/palantir/2f3a0a57-8f77-44d2-99c3-18aef115374f/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1642085343259,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "30c2563d-9a16-4dd7-81e8-b6f646384199",
+    "text": "Deployment Strategist - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/30c2563d-9a16-4dd7-81e8-b6f646384199",
+    "applyUrl": "https://jobs.lever.co/palantir/30c2563d-9a16-4dd7-81e8-b6f646384199/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1588985527307,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "44d3394e-003e-4609-b864-ff141e233635",
+    "text": "Deployment Strategist - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/44d3394e-003e-4609-b864-ff141e233635",
+    "applyUrl": "https://jobs.lever.co/palantir/44d3394e-003e-4609-b864-ff141e233635/apply",
+    "categories": {
+      "location": "Norfolk, VA"
+    },
+    "createdAt": 1791841622809,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "4775e970-ade8-4a0d-8145-9255dc4cbac9",
+    "text": "Deployment Strategist - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/4775e970-ade8-4a0d-8145-9255dc4cbac9",
+    "applyUrl": "https://jobs.lever.co/palantir/4775e970-ade8-4a0d-8145-9255dc4cbac9/apply",
+    "categories": {
+      "location": "Laurel, MD"
+    },
+    "createdAt": 1791910356052,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "5f39f83b-ef08-4ee8-afda-a2c77440598f",
+    "text": "Deployment Strategist - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/5f39f83b-ef08-4ee8-afda-a2c77440598f",
+    "applyUrl": "https://jobs.lever.co/palantir/5f39f83b-ef08-4ee8-afda-a2c77440598f/apply",
+    "categories": {
+      "location": "Fayetteville, NC"
+    },
+    "createdAt": 1768257880602,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "6f5cf287-1d3e-4c10-abf6-18cf4c955ded",
+    "text": "Deployment Strategist - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/6f5cf287-1d3e-4c10-abf6-18cf4c955ded",
+    "applyUrl": "https://jobs.lever.co/palantir/6f5cf287-1d3e-4c10-abf6-18cf4c955ded/apply",
+    "categories": {
+      "location": "Honolulu, HI"
+    },
+    "createdAt": 1649700360960,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "802add74-04cf-479c-9479-ff3043940e29",
+    "text": "Deployment Strategist - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/802add74-04cf-479c-9479-ff3043940e29",
+    "applyUrl": "https://jobs.lever.co/palantir/802add74-04cf-479c-9479-ff3043940e29/apply",
+    "categories": {
+      "location": "Kitsap, WA"
+    },
+    "createdAt": 1790261634739,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "e2a3c133-7964-4e64-ba17-84a8b0b19506",
+    "text": "Deployment Strategist - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/e2a3c133-7964-4e64-ba17-84a8b0b19506",
+    "applyUrl": "https://jobs.lever.co/palantir/e2a3c133-7964-4e64-ba17-84a8b0b19506/apply",
+    "categories": {
+      "location": "Miami, FL"
+    },
+    "createdAt": 1788381965526,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "ead4e034-e6e1-4993-86d1-ad9b8e2933a5",
+    "text": "Deployment Strategist - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/ead4e034-e6e1-4993-86d1-ad9b8e2933a5",
+    "applyUrl": "https://jobs.lever.co/palantir/ead4e034-e6e1-4993-86d1-ad9b8e2933a5/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1597853452133,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "8c95f750-9d42-456e-91fd-464ad87e4b83",
+    "text": "Deployment Strategist - Warp Speed",
+    "hostedUrl": "https://jobs.lever.co/palantir/8c95f750-9d42-456e-91fd-464ad87e4b83",
+    "applyUrl": "https://jobs.lever.co/palantir/8c95f750-9d42-456e-91fd-464ad87e4b83/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1738968067197,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "774cf5c9-bf6a-4d77-bf60-d50ef1beb1a0",
+    "text": "Deployment Strategist, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/774cf5c9-bf6a-4d77-bf60-d50ef1beb1a0",
+    "applyUrl": "https://jobs.lever.co/palantir/774cf5c9-bf6a-4d77-bf60-d50ef1beb1a0/apply",
+    "categories": {
+      "location": "Paris, France"
+    },
+    "createdAt": 1778517108152,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "a49d4181-a289-435a-b581-7f5af0497c8e",
+    "text": "Deployment Strategist, Internship - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/a49d4181-a289-435a-b581-7f5af0497c8e",
+    "applyUrl": "https://jobs.lever.co/palantir/a49d4181-a289-435a-b581-7f5af0497c8e/apply",
+    "categories": {
+      "location": "Honolulu, HI"
+    },
+    "createdAt": 1765492275446,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "69ab7e24-8f5d-426e-84f7-6d3b2d4a7efd",
+    "text": "Deployment Strategist, Internship - Warp Speed",
+    "hostedUrl": "https://jobs.lever.co/palantir/69ab7e24-8f5d-426e-84f7-6d3b2d4a7efd",
+    "applyUrl": "https://jobs.lever.co/palantir/69ab7e24-8f5d-426e-84f7-6d3b2d4a7efd/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1792705475404,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "d5f11334-3a73-4094-b7e0-d05b54e475b8",
+    "text": "Deployment Strategist, New Grad - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/d5f11334-3a73-4094-b7e0-d05b54e475b8",
+    "applyUrl": "https://jobs.lever.co/palantir/d5f11334-3a73-4094-b7e0-d05b54e475b8/apply",
+    "categories": {
+      "location": "Seoul, South Korea"
+    },
+    "createdAt": 1786371234429,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "5d8286d6-992a-404b-94af-99c173d40299",
+    "text": "Deployment Strategist, New Grad - Intel, US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/5d8286d6-992a-404b-94af-99c173d40299",
+    "applyUrl": "https://jobs.lever.co/palantir/5d8286d6-992a-404b-94af-99c173d40299/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1781541777674,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "37780e70-c7af-45e1-9be7-071df201c387",
+    "text": "Deployment Strategist, New Grad - Warp Speed",
+    "hostedUrl": "https://jobs.lever.co/palantir/37780e70-c7af-45e1-9be7-071df201c387",
+    "applyUrl": "https://jobs.lever.co/palantir/37780e70-c7af-45e1-9be7-071df201c387/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1792705327001,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "51ea4a3b-7764-4c87-96e4-310e19c856d5",
+    "text": "DevOps Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/51ea4a3b-7764-4c87-96e4-310e19c856d5",
+    "applyUrl": "https://jobs.lever.co/palantir/51ea4a3b-7764-4c87-96e4-310e19c856d5/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1530203163486,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "c3f40e41-6258-4233-a7f9-091bf67df30b",
+    "text": "DevOps Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/c3f40e41-6258-4233-a7f9-091bf67df30b",
+    "applyUrl": "https://jobs.lever.co/palantir/c3f40e41-6258-4233-a7f9-091bf67df30b/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1530201745138,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "3d06b4bc-6a7b-4f73-b5c5-4544354e3d0f",
+    "text": "Edge Infrastructure Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/3d06b4bc-6a7b-4f73-b5c5-4544354e3d0f",
+    "applyUrl": "https://jobs.lever.co/palantir/3d06b4bc-6a7b-4f73-b5c5-4544354e3d0f/apply",
+    "categories": {
+      "location": "Warsaw, Poland"
+    },
+    "createdAt": 1777626681817,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "4c13fdb2-308e-4185-bb6b-105d7bf38d92",
+    "text": "Finance Operator",
+    "hostedUrl": "https://jobs.lever.co/palantir/4c13fdb2-308e-4185-bb6b-105d7bf38d92",
+    "applyUrl": "https://jobs.lever.co/palantir/4c13fdb2-308e-4185-bb6b-105d7bf38d92/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1793405473562,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "bd7766c4-6aea-4b37-8d47-a8864bb9bd69",
+    "text": "Finance Operator Intern",
+    "hostedUrl": "https://jobs.lever.co/palantir/bd7766c4-6aea-4b37-8d47-a8864bb9bd69",
+    "applyUrl": "https://jobs.lever.co/palantir/bd7766c4-6aea-4b37-8d47-a8864bb9bd69/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1793405734399,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "636fc05c-d348-4a06-be51-597cb9e07488",
+    "text": "Forward Deployed AI Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/636fc05c-d348-4a06-be51-597cb9e07488",
+    "applyUrl": "https://jobs.lever.co/palantir/636fc05c-d348-4a06-be51-597cb9e07488/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1711140275560,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "ff1029bd-bb6d-4d78-a03e-5f9744d0b798",
+    "text": "Forward Deployed AI Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/ff1029bd-bb6d-4d78-a03e-5f9744d0b798",
+    "applyUrl": "https://jobs.lever.co/palantir/ff1029bd-bb6d-4d78-a03e-5f9744d0b798/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1715265181644,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "00c2c97b-8514-4617-9883-e53e486b6dcd",
+    "text": "Forward Deployed Enablement Engineer - Customer Success",
+    "hostedUrl": "https://jobs.lever.co/palantir/00c2c97b-8514-4617-9883-e53e486b6dcd",
+    "applyUrl": "https://jobs.lever.co/palantir/00c2c97b-8514-4617-9883-e53e486b6dcd/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1731430306017,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "4cba9c95-d16f-440d-83e7-2352480f689f",
+    "text": "Forward Deployed Enablement Engineer - Customer Success",
+    "hostedUrl": "https://jobs.lever.co/palantir/4cba9c95-d16f-440d-83e7-2352480f689f",
+    "applyUrl": "https://jobs.lever.co/palantir/4cba9c95-d16f-440d-83e7-2352480f689f/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1731495587380,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "a90eb029-19cc-413c-bd51-b8411053d7d4",
+    "text": "Forward Deployed Enablement Engineer - Customer Success",
+    "hostedUrl": "https://jobs.lever.co/palantir/a90eb029-19cc-413c-bd51-b8411053d7d4",
+    "applyUrl": "https://jobs.lever.co/palantir/a90eb029-19cc-413c-bd51-b8411053d7d4/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1760624901686,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "96a0ce26-cf84-4fa8-934b-acc4363620b2",
+    "text": "Forward Deployed Engineer - Mixed Reality",
+    "hostedUrl": "https://jobs.lever.co/palantir/96a0ce26-cf84-4fa8-934b-acc4363620b2",
+    "applyUrl": "https://jobs.lever.co/palantir/96a0ce26-cf84-4fa8-934b-acc4363620b2/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1738954423524,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "72e51928-07f0-4be0-aae5-0ae6956a4846",
+    "text": "Forward Deployed Infrastructure Engineer - UK Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/72e51928-07f0-4be0-aae5-0ae6956a4846",
+    "applyUrl": "https://jobs.lever.co/palantir/72e51928-07f0-4be0-aae5-0ae6956a4846/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1754551961467,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "0fccbe95-2520-4df3-8600-7897656c06a2",
+    "text": "Forward Deployed Infrastructure Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/0fccbe95-2520-4df3-8600-7897656c06a2",
+    "applyUrl": "https://jobs.lever.co/palantir/0fccbe95-2520-4df3-8600-7897656c06a2/apply",
+    "categories": {
+      "location": "Honolulu, HI"
+    },
+    "createdAt": 1777931172356,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "74748e0e-a0bc-4c53-a636-ef14e36d9b5e",
+    "text": "Forward Deployed Infrastructure Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/74748e0e-a0bc-4c53-a636-ef14e36d9b5e",
+    "applyUrl": "https://jobs.lever.co/palantir/74748e0e-a0bc-4c53-a636-ef14e36d9b5e/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1694655119967,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "b57f08e9-546c-4b9b-8d21-db0ebbc11363",
+    "text": "Forward Deployed Infrastructure Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/b57f08e9-546c-4b9b-8d21-db0ebbc11363",
+    "applyUrl": "https://jobs.lever.co/palantir/b57f08e9-546c-4b9b-8d21-db0ebbc11363/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1694654631418,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "3db7e40a-28e0-4ad1-96c5-93de5bc96aa9",
+    "text": "Forward Deployed Infrastructure Engineer, Internship - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/3db7e40a-28e0-4ad1-96c5-93de5bc96aa9",
+    "applyUrl": "https://jobs.lever.co/palantir/3db7e40a-28e0-4ad1-96c5-93de5bc96aa9/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1783723333024,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "8f362a1f-1eff-4327-94c1-ff46e2101c69",
+    "text": "Forward Deployed Infrastructure Engineer, Internship - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/8f362a1f-1eff-4327-94c1-ff46e2101c69",
+    "applyUrl": "https://jobs.lever.co/palantir/8f362a1f-1eff-4327-94c1-ff46e2101c69/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1783723393762,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "cadc0eb2-2703-43e4-8e4f-41edf5b071c6",
+    "text": "Forward Deployed Infrastructure Engineer, New Grad - UK Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/cadc0eb2-2703-43e4-8e4f-41edf5b071c6",
+    "applyUrl": "https://jobs.lever.co/palantir/cadc0eb2-2703-43e4-8e4f-41edf5b071c6/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1788161381774,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "33243fb5-6907-40c7-930c-968b25d825d0",
+    "text": "Forward Deployed Infrastructure Engineer, New Grad - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/33243fb5-6907-40c7-930c-968b25d825d0",
+    "applyUrl": "https://jobs.lever.co/palantir/33243fb5-6907-40c7-930c-968b25d825d0/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1761769577197,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "5a28f3a5-8655-47f2-ab19-a79b8a319da8",
+    "text": "Forward Deployed Infrastructure Engineer, New Grad - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/5a28f3a5-8655-47f2-ab19-a79b8a319da8",
+    "applyUrl": "https://jobs.lever.co/palantir/5a28f3a5-8655-47f2-ab19-a79b8a319da8/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1761769632326,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "701a9307-0619-45d3-b077-cabe9897cd12",
+    "text": "Forward Deployed Infrastructure Engineer, New Grad - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/701a9307-0619-45d3-b077-cabe9897cd12",
+    "applyUrl": "https://jobs.lever.co/palantir/701a9307-0619-45d3-b077-cabe9897cd12/apply",
+    "categories": {
+      "location": "Honolulu, HI"
+    },
+    "createdAt": 1788193656814,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "91117724-9389-48dc-912f-98e48d4d45d8",
+    "text": "Forward Deployed Infrastructure Engineer, New Grad - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/91117724-9389-48dc-912f-98e48d4d45d8",
+    "applyUrl": "https://jobs.lever.co/palantir/91117724-9389-48dc-912f-98e48d4d45d8/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1761762442352,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "5a99fe16-1bda-4313-ace2-a11ea6e58f0c",
+    "text": "Forward Deployed Reliability Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/5a99fe16-1bda-4313-ace2-a11ea6e58f0c",
+    "applyUrl": "https://jobs.lever.co/palantir/5a99fe16-1bda-4313-ace2-a11ea6e58f0c/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1776885303941,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "689e6869-01bc-40f1-b580-adb33a020065",
+    "text": "Forward Deployed Reliability Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/689e6869-01bc-40f1-b580-adb33a020065",
+    "applyUrl": "https://jobs.lever.co/palantir/689e6869-01bc-40f1-b580-adb33a020065/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1770733866362,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "22053072-4c22-49c4-8299-28e107ceeb98",
+    "text": "Forward Deployed Security Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/22053072-4c22-49c4-8299-28e107ceeb98",
+    "applyUrl": "https://jobs.lever.co/palantir/22053072-4c22-49c4-8299-28e107ceeb98/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1773087816622,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "a194220b-684a-4b4e-b918-1f70154b464c",
+    "text": "Forward Deployed Site Reliability Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/a194220b-684a-4b4e-b918-1f70154b464c",
+    "applyUrl": "https://jobs.lever.co/palantir/a194220b-684a-4b4e-b918-1f70154b464c/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1748558271671,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "1bb19522-3936-4adc-9ced-c3df8b5900b9",
+    "text": "Forward Deployed Software Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/1bb19522-3936-4adc-9ced-c3df8b5900b9",
+    "applyUrl": "https://jobs.lever.co/palantir/1bb19522-3936-4adc-9ced-c3df8b5900b9/apply",
+    "categories": {
+      "location": "Seoul, South Korea"
+    },
+    "createdAt": 1650641499656,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "5168e8fd-fec1-4fea-b7a1-81bdaea65850",
+    "text": "Forward Deployed Software Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/5168e8fd-fec1-4fea-b7a1-81bdaea65850",
+    "applyUrl": "https://jobs.lever.co/palantir/5168e8fd-fec1-4fea-b7a1-81bdaea65850/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1259971200000,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "7ea66860-ae93-4139-9388-b7284cb33f37",
+    "text": "Forward Deployed Software Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/7ea66860-ae93-4139-9388-b7284cb33f37",
+    "applyUrl": "https://jobs.lever.co/palantir/7ea66860-ae93-4139-9388-b7284cb33f37/apply",
+    "categories": {
+      "location": "Chicago, IL"
+    },
+    "createdAt": 1781615979731,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "98b81271-9e15-40b7-8dce-0c62f24702f9",
+    "text": "Forward Deployed Software Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/98b81271-9e15-40b7-8dce-0c62f24702f9",
+    "applyUrl": "https://jobs.lever.co/palantir/98b81271-9e15-40b7-8dce-0c62f24702f9/apply",
+    "categories": {
+      "location": "Vilnius, Lithuania"
+    },
+    "createdAt": 1643241332430,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "dab396d4-2f14-4796-aac0-0d82883dccf0",
+    "text": "Forward Deployed Software Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/dab396d4-2f14-4796-aac0-0d82883dccf0",
+    "applyUrl": "https://jobs.lever.co/palantir/dab396d4-2f14-4796-aac0-0d82883dccf0/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1390435200000,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "27bf5707-96fa-460e-8a5b-53bc192ca87b",
+    "text": "Forward Deployed Software Engineer  - Edge Autonomous Systems",
+    "hostedUrl": "https://jobs.lever.co/palantir/27bf5707-96fa-460e-8a5b-53bc192ca87b",
+    "applyUrl": "https://jobs.lever.co/palantir/27bf5707-96fa-460e-8a5b-53bc192ca87b/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1759857318124,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "909875b4-1940-41bd-b08d-a269c7235100",
+    "text": "Forward Deployed Software Engineer - AUS Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/909875b4-1940-41bd-b08d-a269c7235100",
+    "applyUrl": "https://jobs.lever.co/palantir/909875b4-1940-41bd-b08d-a269c7235100/apply",
+    "categories": {
+      "location": "Sydney, Australia"
+    },
+    "createdAt": 1725533065056,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "491a0133-b580-45c3-9fd4-2314faf82fb9",
+    "text": "Forward Deployed Software Engineer - Germany Forward Deployed",
+    "hostedUrl": "https://jobs.lever.co/palantir/491a0133-b580-45c3-9fd4-2314faf82fb9",
+    "applyUrl": "https://jobs.lever.co/palantir/491a0133-b580-45c3-9fd4-2314faf82fb9/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1793195763882,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "34b3a697-6e22-4751-befd-0b7921abbd5f",
+    "text": "Forward Deployed Software Engineer - Intel",
+    "hostedUrl": "https://jobs.lever.co/palantir/34b3a697-6e22-4751-befd-0b7921abbd5f",
+    "applyUrl": "https://jobs.lever.co/palantir/34b3a697-6e22-4751-befd-0b7921abbd5f/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1634547820776,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "8aba5995-653d-4805-96e8-24488e6abf37",
+    "text": "Forward Deployed Software Engineer - Japan Forward Deployed",
+    "hostedUrl": "https://jobs.lever.co/palantir/8aba5995-653d-4805-96e8-24488e6abf37",
+    "applyUrl": "https://jobs.lever.co/palantir/8aba5995-653d-4805-96e8-24488e6abf37/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1727962884157,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "12e94938-55cb-4ad9-9c05-405ebc9ef430",
+    "text": "Forward Deployed Software Engineer - Japan Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/12e94938-55cb-4ad9-9c05-405ebc9ef430",
+    "applyUrl": "https://jobs.lever.co/palantir/12e94938-55cb-4ad9-9c05-405ebc9ef430/apply",
+    "categories": {
+      "location": "Tokyo, Japan"
+    },
+    "createdAt": 1741360608655,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "a39bf84c-6648-4871-bd07-9b882d401c4c",
+    "text": "Forward Deployed Software Engineer - Korea Forward Deployed",
+    "hostedUrl": "https://jobs.lever.co/palantir/a39bf84c-6648-4871-bd07-9b882d401c4c",
+    "applyUrl": "https://jobs.lever.co/palantir/a39bf84c-6648-4871-bd07-9b882d401c4c/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1727962377899,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "3d0d9d92-0321-4459-a17d-fa1a76636a43",
+    "text": "Forward Deployed Software Engineer - Tactical Edge",
+    "hostedUrl": "https://jobs.lever.co/palantir/3d0d9d92-0321-4459-a17d-fa1a76636a43",
+    "applyUrl": "https://jobs.lever.co/palantir/3d0d9d92-0321-4459-a17d-fa1a76636a43/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1772482268859,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "57a3f928-e7d3-4037-8196-b38e2f867152",
+    "text": "Forward Deployed Software Engineer - UK Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/57a3f928-e7d3-4037-8196-b38e2f867152",
+    "applyUrl": "https://jobs.lever.co/palantir/57a3f928-e7d3-4037-8196-b38e2f867152/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1673459312149,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "289ad049-7b4e-41e3-8a39-146fbeb6fb64",
+    "text": "Forward Deployed Software Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/289ad049-7b4e-41e3-8a39-146fbeb6fb64",
+    "applyUrl": "https://jobs.lever.co/palantir/289ad049-7b4e-41e3-8a39-146fbeb6fb64/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1586986069956,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "29630180-0f10-4826-801f-12e226d3c7f1",
+    "text": "Forward Deployed Software Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/29630180-0f10-4826-801f-12e226d3c7f1",
+    "applyUrl": "https://jobs.lever.co/palantir/29630180-0f10-4826-801f-12e226d3c7f1/apply",
+    "categories": {
+      "location": "Laurel, MD"
+    },
+    "createdAt": 1791909652753,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "5b0f37e6-8569-4a62-9e38-c5a4edc67dcf",
+    "text": "Forward Deployed Software Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/5b0f37e6-8569-4a62-9e38-c5a4edc67dcf",
+    "applyUrl": "https://jobs.lever.co/palantir/5b0f37e6-8569-4a62-9e38-c5a4edc67dcf/apply",
+    "categories": {
+      "location": "Norfolk, VA"
+    },
+    "createdAt": 1791840432616,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "84131e3f-455e-47fc-9c11-898d95f09048",
+    "text": "Forward Deployed Software Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/84131e3f-455e-47fc-9c11-898d95f09048",
+    "applyUrl": "https://jobs.lever.co/palantir/84131e3f-455e-47fc-9c11-898d95f09048/apply",
+    "categories": {
+      "location": "San Diego, CA"
+    },
+    "createdAt": 1753817416882,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "a2e9ab0f-4dd1-4744-92b9-edc7ae393c58",
+    "text": "Forward Deployed Software Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/a2e9ab0f-4dd1-4744-92b9-edc7ae393c58",
+    "applyUrl": "https://jobs.lever.co/palantir/a2e9ab0f-4dd1-4744-92b9-edc7ae393c58/apply",
+    "categories": {
+      "location": "Kitsap, WA"
+    },
+    "createdAt": 1790261421850,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "ce8ca664-60dc-4f9a-8986-3c96673bcfdf",
+    "text": "Forward Deployed Software Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/ce8ca664-60dc-4f9a-8986-3c96673bcfdf",
+    "applyUrl": "https://jobs.lever.co/palantir/ce8ca664-60dc-4f9a-8986-3c96673bcfdf/apply",
+    "categories": {
+      "location": "Honolulu, HI"
+    },
+    "createdAt": 1649367151098,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "d83fac1c-353e-4b77-a586-3276b1090b6e",
+    "text": "Forward Deployed Software Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/d83fac1c-353e-4b77-a586-3276b1090b6e",
+    "applyUrl": "https://jobs.lever.co/palantir/d83fac1c-353e-4b77-a586-3276b1090b6e/apply",
+    "categories": {
+      "location": "Fayetteville, NC"
+    },
+    "createdAt": 1768257850743,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "e82b696e-a085-4bbf-8bcb-6d2c4f8cf2f7",
+    "text": "Forward Deployed Software Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/e82b696e-a085-4bbf-8bcb-6d2c4f8cf2f7",
+    "applyUrl": "https://jobs.lever.co/palantir/e82b696e-a085-4bbf-8bcb-6d2c4f8cf2f7/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1591127389658,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "be4ab5cb-9caa-4c2a-97b9-c73805fca4fc",
+    "text": "Forward Deployed Software Engineer - US Government - Federal Health and Civilian",
+    "hostedUrl": "https://jobs.lever.co/palantir/be4ab5cb-9caa-4c2a-97b9-c73805fca4fc",
+    "applyUrl": "https://jobs.lever.co/palantir/be4ab5cb-9caa-4c2a-97b9-c73805fca4fc/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1778175685599,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "e7100322-be11-40c8-9dba-7a21b7302c08",
+    "text": "Forward Deployed Software Engineer - US Government - Federal Health and Civilian",
+    "hostedUrl": "https://jobs.lever.co/palantir/e7100322-be11-40c8-9dba-7a21b7302c08",
+    "applyUrl": "https://jobs.lever.co/palantir/e7100322-be11-40c8-9dba-7a21b7302c08/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1778175732869,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "13f99633-43b5-4459-8e84-25073f257c18",
+    "text": "Forward Deployed Software Engineer - Warp Speed",
+    "hostedUrl": "https://jobs.lever.co/palantir/13f99633-43b5-4459-8e84-25073f257c18",
+    "applyUrl": "https://jobs.lever.co/palantir/13f99633-43b5-4459-8e84-25073f257c18/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1738958262841,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "1b6f1d82-d459-4dea-8bc2-8d2ffe6f881a",
+    "text": "Forward Deployed Software Engineer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/1b6f1d82-d459-4dea-8bc2-8d2ffe6f881a",
+    "applyUrl": "https://jobs.lever.co/palantir/1b6f1d82-d459-4dea-8bc2-8d2ffe6f881a/apply",
+    "categories": {
+      "location": "Paris, France"
+    },
+    "createdAt": 1778068078850,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "395a4483-fc3d-4b77-a500-501923fd0976",
+    "text": "Forward Deployed Software Engineer, Internship - AUS Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/395a4483-fc3d-4b77-a500-501923fd0976",
+    "applyUrl": "https://jobs.lever.co/palantir/395a4483-fc3d-4b77-a500-501923fd0976/apply",
+    "categories": {
+      "location": "Sydney, Australia"
+    },
+    "createdAt": 1780058819423,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "2ad0ab10-34c3-410d-883b-8052864a95cd",
+    "text": "Forward Deployed Software Engineer, Internship - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/2ad0ab10-34c3-410d-883b-8052864a95cd",
+    "applyUrl": "https://jobs.lever.co/palantir/2ad0ab10-34c3-410d-883b-8052864a95cd/apply",
+    "categories": {
+      "location": "Seoul, South Korea"
+    },
+    "createdAt": 1786369767811,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "4d29249a-d7e8-4c39-880d-3b35d7b2f6f6",
+    "text": "Forward Deployed Software Engineer, Internship - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/4d29249a-d7e8-4c39-880d-3b35d7b2f6f6",
+    "applyUrl": "https://jobs.lever.co/palantir/4d29249a-d7e8-4c39-880d-3b35d7b2f6f6/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1456357025251,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "d5486403-c050-4920-b2e0-91b69b61ebb2",
+    "text": "Forward Deployed Software Engineer, Internship - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/d5486403-c050-4920-b2e0-91b69b61ebb2",
+    "applyUrl": "https://jobs.lever.co/palantir/d5486403-c050-4920-b2e0-91b69b61ebb2/apply",
+    "categories": {
+      "location": "Chicago, IL"
+    },
+    "createdAt": 1782849666026,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "ac0dc094-2480-43c2-8495-26ade227ff4f",
+    "text": "Forward Deployed Software Engineer, Internship - France",
+    "hostedUrl": "https://jobs.lever.co/palantir/ac0dc094-2480-43c2-8495-26ade227ff4f",
+    "applyUrl": "https://jobs.lever.co/palantir/ac0dc094-2480-43c2-8495-26ade227ff4f/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1773145615948,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "26e23f5d-083b-45aa-b223-1a6e43d960bf",
+    "text": "Forward Deployed Software Engineer, Internship - UK Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/26e23f5d-083b-45aa-b223-1a6e43d960bf",
+    "applyUrl": "https://jobs.lever.co/palantir/26e23f5d-083b-45aa-b223-1a6e43d960bf/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1625177879795,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "315f695d-04d1-4a9a-848e-cb2bec7a997e",
+    "text": "Forward Deployed Software Engineer, Internship - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/315f695d-04d1-4a9a-848e-cb2bec7a997e",
+    "applyUrl": "https://jobs.lever.co/palantir/315f695d-04d1-4a9a-848e-cb2bec7a997e/apply",
+    "categories": {
+      "location": "Honolulu, HI"
+    },
+    "createdAt": 1765491974632,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "e0010393-c300-446f-bf67-fa2ef067f16f",
+    "text": "Forward Deployed Software Engineer, Internship - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/e0010393-c300-446f-bf67-fa2ef067f16f",
+    "applyUrl": "https://jobs.lever.co/palantir/e0010393-c300-446f-bf67-fa2ef067f16f/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1656624050237,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "e6ff8bf2-135e-474d-ad37-24f490ae1dd2",
+    "text": "Forward Deployed Software Engineer, Internship - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/e6ff8bf2-135e-474d-ad37-24f490ae1dd2",
+    "applyUrl": "https://jobs.lever.co/palantir/e6ff8bf2-135e-474d-ad37-24f490ae1dd2/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1625177563840,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "b3d81928-6c26-432f-8a0a-36602c2eefcb",
+    "text": "Forward Deployed Software Engineer, Internship - Warp Speed",
+    "hostedUrl": "https://jobs.lever.co/palantir/b3d81928-6c26-432f-8a0a-36602c2eefcb",
+    "applyUrl": "https://jobs.lever.co/palantir/b3d81928-6c26-432f-8a0a-36602c2eefcb/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1792705069924,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "2aa14e4f-d406-486e-9aa8-6ff3358d70a0",
+    "text": "Forward Deployed Software Engineer, New Grad - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/2aa14e4f-d406-486e-9aa8-6ff3358d70a0",
+    "applyUrl": "https://jobs.lever.co/palantir/2aa14e4f-d406-486e-9aa8-6ff3358d70a0/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1754050997609,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "2e6b0ac8-83e9-4be5-a3aa-cf319f751728",
+    "text": "Forward Deployed Software Engineer, New Grad - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/2e6b0ac8-83e9-4be5-a3aa-cf319f751728",
+    "applyUrl": "https://jobs.lever.co/palantir/2e6b0ac8-83e9-4be5-a3aa-cf319f751728/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1749858306552,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "341d5cae-a473-4813-9a6c-0f67fcc1b253",
+    "text": "Forward Deployed Software Engineer, New Grad - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/341d5cae-a473-4813-9a6c-0f67fcc1b253",
+    "applyUrl": "https://jobs.lever.co/palantir/341d5cae-a473-4813-9a6c-0f67fcc1b253/apply",
+    "categories": {
+      "location": "Seoul, South Korea"
+    },
+    "createdAt": 1786370568146,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "e500bcf3-19d8-4d3c-b340-4d76e4a55b40",
+    "text": "Forward Deployed Software Engineer, New Grad - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/e500bcf3-19d8-4d3c-b340-4d76e4a55b40",
+    "applyUrl": "https://jobs.lever.co/palantir/e500bcf3-19d8-4d3c-b340-4d76e4a55b40/apply",
+    "categories": {
+      "location": "Chicago, IL"
+    },
+    "createdAt": 1782744260702,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "fbca0358-083a-4222-bdbb-3bd729b48382",
+    "text": "Forward Deployed Software Engineer, New Grad - Intel, US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/fbca0358-083a-4222-bdbb-3bd729b48382",
+    "applyUrl": "https://jobs.lever.co/palantir/fbca0358-083a-4222-bdbb-3bd729b48382/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1781539682343,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "b4aa51a2-bc43-4d67-bf55-12db7feefb3a",
+    "text": "Forward Deployed Software Engineer, New Grad - UK Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/b4aa51a2-bc43-4d67-bf55-12db7feefb3a",
+    "applyUrl": "https://jobs.lever.co/palantir/b4aa51a2-bc43-4d67-bf55-12db7feefb3a/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1625160948948,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "cbe90327-3e6e-451c-a54c-1d3cbcef5aeb",
+    "text": "Forward Deployed Software Engineer, New Grad - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/cbe90327-3e6e-451c-a54c-1d3cbcef5aeb",
+    "applyUrl": "https://jobs.lever.co/palantir/cbe90327-3e6e-451c-a54c-1d3cbcef5aeb/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1656629948115,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "d1ac83d0-e923-42a5-8e6d-58dd0cab25ca",
+    "text": "Forward Deployed Software Engineer, New Grad - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/d1ac83d0-e923-42a5-8e6d-58dd0cab25ca",
+    "applyUrl": "https://jobs.lever.co/palantir/d1ac83d0-e923-42a5-8e6d-58dd0cab25ca/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1656629416107,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "66b495eb-aaf9-4bf9-a759-41854534add7",
+    "text": "Forward Deployed Software Engineer, New Grad - Warp Speed",
+    "hostedUrl": "https://jobs.lever.co/palantir/66b495eb-aaf9-4bf9-a759-41854534add7",
+    "applyUrl": "https://jobs.lever.co/palantir/66b495eb-aaf9-4bf9-a759-41854534add7/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1792704868169,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "2da4be12-bc7a-4950-87db-e9d68d955ff7",
+    "text": "Full Stack Software Engineer - Application Development",
+    "hostedUrl": "https://jobs.lever.co/palantir/2da4be12-bc7a-4950-87db-e9d68d955ff7",
+    "applyUrl": "https://jobs.lever.co/palantir/2da4be12-bc7a-4950-87db-e9d68d955ff7/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1708130982056,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "c44510a1-9537-4c52-ae81-51546979fe47",
+    "text": "Full Stack Software Engineer - Application Development",
+    "hostedUrl": "https://jobs.lever.co/palantir/c44510a1-9537-4c52-ae81-51546979fe47",
+    "applyUrl": "https://jobs.lever.co/palantir/c44510a1-9537-4c52-ae81-51546979fe47/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1708634286194,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "b72abc17-293d-47e0-a094-c1ab0016b794",
+    "text": "Incident Management Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/b72abc17-293d-47e0-a094-c1ab0016b794",
+    "applyUrl": "https://jobs.lever.co/palantir/b72abc17-293d-47e0-a094-c1ab0016b794/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1656408091395,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "12d13a31-5764-4678-8835-809f0deae49b",
+    "text": "Industrial Security Specialist",
+    "hostedUrl": "https://jobs.lever.co/palantir/12d13a31-5764-4678-8835-809f0deae49b",
+    "applyUrl": "https://jobs.lever.co/palantir/12d13a31-5764-4678-8835-809f0deae49b/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1770249721989,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "1e77a5e8-9843-4516-a186-7c24f0ff07a0",
+    "text": "Information Security Engineer - Infrastructure Security",
+    "hostedUrl": "https://jobs.lever.co/palantir/1e77a5e8-9843-4516-a186-7c24f0ff07a0",
+    "applyUrl": "https://jobs.lever.co/palantir/1e77a5e8-9843-4516-a186-7c24f0ff07a0/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1776298577252,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "4bfef5e0-6689-4db8-9ffe-ab6df6836845",
+    "text": "Information Security Engineer - Infrastructure Security",
+    "hostedUrl": "https://jobs.lever.co/palantir/4bfef5e0-6689-4db8-9ffe-ab6df6836845",
+    "applyUrl": "https://jobs.lever.co/palantir/4bfef5e0-6689-4db8-9ffe-ab6df6836845/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1776298551702,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "2127f3af-1fb3-4aa3-9aa1-eb06967e0166",
+    "text": "Information Security Engineer - Insider Risk",
+    "hostedUrl": "https://jobs.lever.co/palantir/2127f3af-1fb3-4aa3-9aa1-eb06967e0166",
+    "applyUrl": "https://jobs.lever.co/palantir/2127f3af-1fb3-4aa3-9aa1-eb06967e0166/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1776177079533,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "b0e1823a-fbe7-4c9d-a4d3-a1e738db2589",
+    "text": "Information Security Engineer - Insider Risk",
+    "hostedUrl": "https://jobs.lever.co/palantir/b0e1823a-fbe7-4c9d-a4d3-a1e738db2589",
+    "applyUrl": "https://jobs.lever.co/palantir/b0e1823a-fbe7-4c9d-a4d3-a1e738db2589/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1776177139276,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "ef725594-42dd-4f0d-ba8e-df8179dbc6cb",
+    "text": "Information Security Engineer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/ef725594-42dd-4f0d-ba8e-df8179dbc6cb",
+    "applyUrl": "https://jobs.lever.co/palantir/ef725594-42dd-4f0d-ba8e-df8179dbc6cb/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1659554724044,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "83d6d24a-5f37-4094-9818-f8ed7ca4898c",
+    "text": "Intellectual Property Counsel",
+    "hostedUrl": "https://jobs.lever.co/palantir/83d6d24a-5f37-4094-9818-f8ed7ca4898c",
+    "applyUrl": "https://jobs.lever.co/palantir/83d6d24a-5f37-4094-9818-f8ed7ca4898c/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1793807587624,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "20f220d8-02bb-404f-bbf1-1022ff3df6b7",
+    "text": "International Accountant",
+    "hostedUrl": "https://jobs.lever.co/palantir/20f220d8-02bb-404f-bbf1-1022ff3df6b7",
+    "applyUrl": "https://jobs.lever.co/palantir/20f220d8-02bb-404f-bbf1-1022ff3df6b7/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1759437630784,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "ff2c33a1-f707-4fc2-b003-4ba878812edf",
+    "text": "International Tax Manager",
+    "hostedUrl": "https://jobs.lever.co/palantir/ff2c33a1-f707-4fc2-b003-4ba878812edf",
+    "applyUrl": "https://jobs.lever.co/palantir/ff2c33a1-f707-4fc2-b003-4ba878812edf/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1667598036438,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "18383723-04a2-44ae-ae58-1166a76f0859",
+    "text": "Legal Operations Specialist",
+    "hostedUrl": "https://jobs.lever.co/palantir/18383723-04a2-44ae-ae58-1166a76f0859",
+    "applyUrl": "https://jobs.lever.co/palantir/18383723-04a2-44ae-ae58-1166a76f0859/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1740444329975,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "3c0c9552-f4ae-4467-b032-5809d2d62724",
+    "text": "Legal Operations Specialist",
+    "hostedUrl": "https://jobs.lever.co/palantir/3c0c9552-f4ae-4467-b032-5809d2d62724",
+    "applyUrl": "https://jobs.lever.co/palantir/3c0c9552-f4ae-4467-b032-5809d2d62724/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1788456845614,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "bd500579-5e1c-441f-b42f-66822d07dbba",
+    "text": "Legal Operations Specialist",
+    "hostedUrl": "https://jobs.lever.co/palantir/bd500579-5e1c-441f-b42f-66822d07dbba",
+    "applyUrl": "https://jobs.lever.co/palantir/bd500579-5e1c-441f-b42f-66822d07dbba/apply",
+    "categories": {
+      "location": "Denver, CO"
+    },
+    "createdAt": 1788456902694,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "7fa0ceca-c30e-48de-9b27-f98469c374f3",
+    "text": "Meritocracy Fellowship",
+    "hostedUrl": "https://jobs.lever.co/palantir/7fa0ceca-c30e-48de-9b27-f98469c374f3",
+    "applyUrl": "https://jobs.lever.co/palantir/7fa0ceca-c30e-48de-9b27-f98469c374f3/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1744203908597,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "74aed644-d963-4c5d-b7a0-149bc35f9c50",
+    "text": "Mixed Reality Developer",
+    "hostedUrl": "https://jobs.lever.co/palantir/74aed644-d963-4c5d-b7a0-149bc35f9c50",
+    "applyUrl": "https://jobs.lever.co/palantir/74aed644-d963-4c5d-b7a0-149bc35f9c50/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1686840311027,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "7dc7e7c3-39bf-4f4e-a8eb-e38a4a0af238",
+    "text": "Mobility Tax Analyst",
+    "hostedUrl": "https://jobs.lever.co/palantir/7dc7e7c3-39bf-4f4e-a8eb-e38a4a0af238",
+    "applyUrl": "https://jobs.lever.co/palantir/7dc7e7c3-39bf-4f4e-a8eb-e38a4a0af238/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1780001751875,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "d879b190-b6a1-41e1-9eca-bf94d36037e1",
+    "text": "Mobility Tax Analyst",
+    "hostedUrl": "https://jobs.lever.co/palantir/d879b190-b6a1-41e1-9eca-bf94d36037e1",
+    "applyUrl": "https://jobs.lever.co/palantir/d879b190-b6a1-41e1-9eca-bf94d36037e1/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1649348795636,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "61eaa54c-e1b7-4064-afad-f7df3d48d652",
+    "text": "Neurodivergent Fellowship",
+    "hostedUrl": "https://jobs.lever.co/palantir/61eaa54c-e1b7-4064-afad-f7df3d48d652",
+    "applyUrl": "https://jobs.lever.co/palantir/61eaa54c-e1b7-4064-afad-f7df3d48d652/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1765147375766,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "fd952b52-7b9c-4056-a3dd-0bc41fcfe603",
+    "text": "Neurodivergent Fellowship",
+    "hostedUrl": "https://jobs.lever.co/palantir/fd952b52-7b9c-4056-a3dd-0bc41fcfe603",
+    "applyUrl": "https://jobs.lever.co/palantir/fd952b52-7b9c-4056-a3dd-0bc41fcfe603/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1765149435415,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "62d74def-2134-427d-baa0-4783f2187266",
+    "text": "Operations Analyst - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/62d74def-2134-427d-baa0-4783f2187266",
+    "applyUrl": "https://jobs.lever.co/palantir/62d74def-2134-427d-baa0-4783f2187266/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1763408629789,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "b14585f4-9a68-49e8-97af-3f03f2a6c357",
+    "text": "Operations Analyst - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/b14585f4-9a68-49e8-97af-3f03f2a6c357",
+    "applyUrl": "https://jobs.lever.co/palantir/b14585f4-9a68-49e8-97af-3f03f2a6c357/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1660331365888,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "5f3f9547-2aea-4ac2-995d-e8fa53b16e39",
+    "text": "Operations Analyst - US Government Security",
+    "hostedUrl": "https://jobs.lever.co/palantir/5f3f9547-2aea-4ac2-995d-e8fa53b16e39",
+    "applyUrl": "https://jobs.lever.co/palantir/5f3f9547-2aea-4ac2-995d-e8fa53b16e39/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1791506367533,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "a468565d-8502-4baf-8788-b7ffe233b725",
+    "text": "Operations Analyst - US Government Security",
+    "hostedUrl": "https://jobs.lever.co/palantir/a468565d-8502-4baf-8788-b7ffe233b725",
+    "applyUrl": "https://jobs.lever.co/palantir/a468565d-8502-4baf-8788-b7ffe233b725/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1792159676618,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "99ab8dbd-fd69-4216-8c2a-09a202a1cb17",
+    "text": "People Partner",
+    "hostedUrl": "https://jobs.lever.co/palantir/99ab8dbd-fd69-4216-8c2a-09a202a1cb17",
+    "applyUrl": "https://jobs.lever.co/palantir/99ab8dbd-fd69-4216-8c2a-09a202a1cb17/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1596585173656,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "0492e9c4-9ba9-4da0-896f-75be5151bae9",
+    "text": "Physical Security Manager",
+    "hostedUrl": "https://jobs.lever.co/palantir/0492e9c4-9ba9-4da0-896f-75be5151bae9",
+    "applyUrl": "https://jobs.lever.co/palantir/0492e9c4-9ba9-4da0-896f-75be5151bae9/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1759274657470,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "721fe5ca-73b8-4223-826e-93a528194821",
+    "text": "Platform Engineer - Identity Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/721fe5ca-73b8-4223-826e-93a528194821",
+    "applyUrl": "https://jobs.lever.co/palantir/721fe5ca-73b8-4223-826e-93a528194821/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1785877674169,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "a80afc2b-2564-4a98-84c2-34cdcc0402df",
+    "text": "Platform Engineer - Identity Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/a80afc2b-2564-4a98-84c2-34cdcc0402df",
+    "applyUrl": "https://jobs.lever.co/palantir/a80afc2b-2564-4a98-84c2-34cdcc0402df/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1785877648301,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "cf08f44c-bf75-45ed-9fab-f4836e51013e",
+    "text": "Platform Engineer - Identity Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/cf08f44c-bf75-45ed-9fab-f4836e51013e",
+    "applyUrl": "https://jobs.lever.co/palantir/cf08f44c-bf75-45ed-9fab-f4836e51013e/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1785268366213,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "a753a9e7-a361-426b-9c25-3cf2488c1730",
+    "text": "Platform Intelligence Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/a753a9e7-a361-426b-9c25-3cf2488c1730",
+    "applyUrl": "https://jobs.lever.co/palantir/a753a9e7-a361-426b-9c25-3cf2488c1730/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1765833087652,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "95e0d2b0-437a-4096-a5c6-0f247f426c90",
+    "text": "Privacy & Civil Liberties Engineer - New Grad",
+    "hostedUrl": "https://jobs.lever.co/palantir/95e0d2b0-437a-4096-a5c6-0f247f426c90",
+    "applyUrl": "https://jobs.lever.co/palantir/95e0d2b0-437a-4096-a5c6-0f247f426c90/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1782414058129,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "09846827-b931-4a9f-bd64-c3bb8860187b",
+    "text": "Privacy and Civil Liberties Software Engineer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/09846827-b931-4a9f-bd64-c3bb8860187b",
+    "applyUrl": "https://jobs.lever.co/palantir/09846827-b931-4a9f-bd64-c3bb8860187b/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1475793251878,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "26032bad-d713-429d-8b04-2de7db93b5c3",
+    "text": "Procurement Operations Analyst",
+    "hostedUrl": "https://jobs.lever.co/palantir/26032bad-d713-429d-8b04-2de7db93b5c3",
+    "applyUrl": "https://jobs.lever.co/palantir/26032bad-d713-429d-8b04-2de7db93b5c3/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1628722612683,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "66955c3b-c530-4c4a-9d48-63b4aad61b9c",
+    "text": "Procurement Operations Analyst",
+    "hostedUrl": "https://jobs.lever.co/palantir/66955c3b-c530-4c4a-9d48-63b4aad61b9c",
+    "applyUrl": "https://jobs.lever.co/palantir/66955c3b-c530-4c4a-9d48-63b4aad61b9c/apply",
+    "categories": {
+      "location": "Denver, CO"
+    },
+    "createdAt": 1638568248048,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "2d8b7eaa-5c08-44ef-a0f0-5a96cee2794d",
+    "text": "Product Designer",
+    "hostedUrl": "https://jobs.lever.co/palantir/2d8b7eaa-5c08-44ef-a0f0-5a96cee2794d",
+    "applyUrl": "https://jobs.lever.co/palantir/2d8b7eaa-5c08-44ef-a0f0-5a96cee2794d/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1359590400000,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "c2d11af1-5b84-4be0-92ac-36113fb8f2b5",
+    "text": "Product Designer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/c2d11af1-5b84-4be0-92ac-36113fb8f2b5",
+    "applyUrl": "https://jobs.lever.co/palantir/c2d11af1-5b84-4be0-92ac-36113fb8f2b5/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1743704014536,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "dc02f308-bbcc-4163-b4fb-3f68efb2ce24",
+    "text": "Product Designer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/dc02f308-bbcc-4163-b4fb-3f68efb2ce24",
+    "applyUrl": "https://jobs.lever.co/palantir/dc02f308-bbcc-4163-b4fb-3f68efb2ce24/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1557873959021,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "1a935143-e857-480c-bc5a-ad625d754eb6",
+    "text": "Product Designer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/1a935143-e857-480c-bc5a-ad625d754eb6",
+    "applyUrl": "https://jobs.lever.co/palantir/1a935143-e857-480c-bc5a-ad625d754eb6/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1570669230544,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "44129013-01e0-4699-8fc1-7a189bb37b63",
+    "text": "Product Designer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/44129013-01e0-4699-8fc1-7a189bb37b63",
+    "applyUrl": "https://jobs.lever.co/palantir/44129013-01e0-4699-8fc1-7a189bb37b63/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1548784293349,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "8f7bbffa-92aa-4d25-9586-943b3322a27d",
+    "text": "Product Designer, Internship - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/8f7bbffa-92aa-4d25-9586-943b3322a27d",
+    "applyUrl": "https://jobs.lever.co/palantir/8f7bbffa-92aa-4d25-9586-943b3322a27d/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1755023487150,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "9db71277-3a9a-481b-a2a3-25c3125b0e8a",
+    "text": "Product Designer, Internship - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/9db71277-3a9a-481b-a2a3-25c3125b0e8a",
+    "applyUrl": "https://jobs.lever.co/palantir/9db71277-3a9a-481b-a2a3-25c3125b0e8a/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1785533737281,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "fa060d94-f85d-4d02-be58-b81787fe57e5",
+    "text": "Product Designer, Internship - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/fa060d94-f85d-4d02-be58-b81787fe57e5",
+    "applyUrl": "https://jobs.lever.co/palantir/fa060d94-f85d-4d02-be58-b81787fe57e5/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1724059335474,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "4c0fb3a1-8256-4d14-9a27-23727235752e",
+    "text": "Product Designer, New Grad",
+    "hostedUrl": "https://jobs.lever.co/palantir/4c0fb3a1-8256-4d14-9a27-23727235752e",
+    "applyUrl": "https://jobs.lever.co/palantir/4c0fb3a1-8256-4d14-9a27-23727235752e/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1502393978910,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "76161763-bafa-4ebb-a2ce-2a25e315b7d7",
+    "text": "Product Designer, New Grad",
+    "hostedUrl": "https://jobs.lever.co/palantir/76161763-bafa-4ebb-a2ce-2a25e315b7d7",
+    "applyUrl": "https://jobs.lever.co/palantir/76161763-bafa-4ebb-a2ce-2a25e315b7d7/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1755016736637,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "25378ba0-db78-4c70-8174-a05ce514fc65",
+    "text": "Product Designer, New Grad - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/25378ba0-db78-4c70-8174-a05ce514fc65",
+    "applyUrl": "https://jobs.lever.co/palantir/25378ba0-db78-4c70-8174-a05ce514fc65/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1704234060937,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "32295454-6629-4f47-b11e-bbd7f5d41acb",
+    "text": "Product Designer, New Grad - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/32295454-6629-4f47-b11e-bbd7f5d41acb",
+    "applyUrl": "https://jobs.lever.co/palantir/32295454-6629-4f47-b11e-bbd7f5d41acb/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1723761819366,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "5f7a90e7-f927-47bf-90ed-52d17c58ae02",
+    "text": "Product Designer, New Grad - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/5f7a90e7-f927-47bf-90ed-52d17c58ae02",
+    "applyUrl": "https://jobs.lever.co/palantir/5f7a90e7-f927-47bf-90ed-52d17c58ae02/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1732217373139,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "c80690ca-704b-46c2-9d95-e4f6e98ce4e2",
+    "text": "Production Engineer - Database Operations",
+    "hostedUrl": "https://jobs.lever.co/palantir/c80690ca-704b-46c2-9d95-e4f6e98ce4e2",
+    "applyUrl": "https://jobs.lever.co/palantir/c80690ca-704b-46c2-9d95-e4f6e98ce4e2/apply",
+    "categories": {
+      "location": "Singapore, Singapore"
+    },
+    "createdAt": 1738876888355,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "1198d36e-8163-4205-9492-effd3c86896c",
+    "text": "Regulatory Attorney",
+    "hostedUrl": "https://jobs.lever.co/palantir/1198d36e-8163-4205-9492-effd3c86896c",
+    "applyUrl": "https://jobs.lever.co/palantir/1198d36e-8163-4205-9492-effd3c86896c/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1662390099469,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "484908de-c32a-4259-be91-6b1f8738c14a",
+    "text": "Regulatory Attorney",
+    "hostedUrl": "https://jobs.lever.co/palantir/484908de-c32a-4259-be91-6b1f8738c14a",
+    "applyUrl": "https://jobs.lever.co/palantir/484908de-c32a-4259-be91-6b1f8738c14a/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1649108890727,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "58367f3e-1be8-4452-9282-c0d0deb69afc",
+    "text": "Regulatory Attorney",
+    "hostedUrl": "https://jobs.lever.co/palantir/58367f3e-1be8-4452-9282-c0d0deb69afc",
+    "applyUrl": "https://jobs.lever.co/palantir/58367f3e-1be8-4452-9282-c0d0deb69afc/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1657126363416,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "14dbdeb9-1537-4ccf-83ac-608287efa00f",
+    "text": "Revenue Accounting Manager",
+    "hostedUrl": "https://jobs.lever.co/palantir/14dbdeb9-1537-4ccf-83ac-608287efa00f",
+    "applyUrl": "https://jobs.lever.co/palantir/14dbdeb9-1537-4ccf-83ac-608287efa00f/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1777393153426,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "678d05bc-ea79-45ad-bdce-7a06a7cd9a54",
+    "text": "Revenue Accounting Manager",
+    "hostedUrl": "https://jobs.lever.co/palantir/678d05bc-ea79-45ad-bdce-7a06a7cd9a54",
+    "applyUrl": "https://jobs.lever.co/palantir/678d05bc-ea79-45ad-bdce-7a06a7cd9a54/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1777393043595,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "d770616f-1422-4420-972c-f95c31ca58e7",
+    "text": "Revenue Accounting Manager",
+    "hostedUrl": "https://jobs.lever.co/palantir/d770616f-1422-4420-972c-f95c31ca58e7",
+    "applyUrl": "https://jobs.lever.co/palantir/d770616f-1422-4420-972c-f95c31ca58e7/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1777414451272,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "1b694ba4-dfda-46b3-ae07-6392bcabb75c",
+    "text": "Risk and Compliance Specialist - Global Trade",
+    "hostedUrl": "https://jobs.lever.co/palantir/1b694ba4-dfda-46b3-ae07-6392bcabb75c",
+    "applyUrl": "https://jobs.lever.co/palantir/1b694ba4-dfda-46b3-ae07-6392bcabb75c/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1737505170645,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "aa77156e-de75-4f36-9d2a-4ec04f97b3c6",
+    "text": "Risk and Compliance Specialist - Global Trade",
+    "hostedUrl": "https://jobs.lever.co/palantir/aa77156e-de75-4f36-9d2a-4ec04f97b3c6",
+    "applyUrl": "https://jobs.lever.co/palantir/aa77156e-de75-4f36-9d2a-4ec04f97b3c6/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1737505145708,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "24060586-7ba8-47c0-bfc1-f1dd5b82d8bd",
+    "text": "Sales",
+    "hostedUrl": "https://jobs.lever.co/palantir/24060586-7ba8-47c0-bfc1-f1dd5b82d8bd",
+    "applyUrl": "https://jobs.lever.co/palantir/24060586-7ba8-47c0-bfc1-f1dd5b82d8bd/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1767973800613,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "d505f854-d339-448b-bf7e-46e2f32cff78",
+    "text": "Sales Finance Operations Analyst",
+    "hostedUrl": "https://jobs.lever.co/palantir/d505f854-d339-448b-bf7e-46e2f32cff78",
+    "applyUrl": "https://jobs.lever.co/palantir/d505f854-d339-448b-bf7e-46e2f32cff78/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1793629501443,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "8704b8c0-80b3-48b1-a82c-939994a0316c",
+    "text": "Security Systems Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/8704b8c0-80b3-48b1-a82c-939994a0316c",
+    "applyUrl": "https://jobs.lever.co/palantir/8704b8c0-80b3-48b1-a82c-939994a0316c/apply",
+    "categories": {
+      "location": "Denver, CO"
+    },
+    "createdAt": 1542137300988,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "98c244fc-444b-43ba-b152-30227191170b",
+    "text": "Security Systems Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/98c244fc-444b-43ba-b152-30227191170b",
+    "applyUrl": "https://jobs.lever.co/palantir/98c244fc-444b-43ba-b152-30227191170b/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1790194929272,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "a9788f77-d6d2-4ef9-9d57-7002d587b84f",
+    "text": "Security Systems Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/a9788f77-d6d2-4ef9-9d57-7002d587b84f",
+    "applyUrl": "https://jobs.lever.co/palantir/a9788f77-d6d2-4ef9-9d57-7002d587b84f/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1481235509218,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "fdbc68df-8817-49dc-96f3-18a53f4fcd4c",
+    "text": "Security Systems Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/fdbc68df-8817-49dc-96f3-18a53f4fcd4c",
+    "applyUrl": "https://jobs.lever.co/palantir/fdbc68df-8817-49dc-96f3-18a53f4fcd4c/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1535048620164,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "7177acab-5c64-4005-9b28-93f33b3e172a",
+    "text": "Senior Backend Software Engineer - Application Development",
+    "hostedUrl": "https://jobs.lever.co/palantir/7177acab-5c64-4005-9b28-93f33b3e172a",
+    "applyUrl": "https://jobs.lever.co/palantir/7177acab-5c64-4005-9b28-93f33b3e172a/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1775485237051,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "a92b55d0-1d36-4884-8e65-f456450b3a74",
+    "text": "Senior Backend Software Engineer - Application Development",
+    "hostedUrl": "https://jobs.lever.co/palantir/a92b55d0-1d36-4884-8e65-f456450b3a74",
+    "applyUrl": "https://jobs.lever.co/palantir/a92b55d0-1d36-4884-8e65-f456450b3a74/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1775485218943,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "2cd25c0b-088d-4a5c-9b96-1165a33fe652",
+    "text": "Senior Backend Software Engineer - Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/2cd25c0b-088d-4a5c-9b96-1165a33fe652",
+    "applyUrl": "https://jobs.lever.co/palantir/2cd25c0b-088d-4a5c-9b96-1165a33fe652/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1775485329104,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "b5ad6660-8145-4be5-97e2-3799f2912f5b",
+    "text": "Senior Backend Software Engineer - Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/b5ad6660-8145-4be5-97e2-3799f2912f5b",
+    "applyUrl": "https://jobs.lever.co/palantir/b5ad6660-8145-4be5-97e2-3799f2912f5b/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1775485294395,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "4e7d0732-f477-4c7a-aac9-abd62f8c9987",
+    "text": "Senior Front End Software Engineer - Application Development",
+    "hostedUrl": "https://jobs.lever.co/palantir/4e7d0732-f477-4c7a-aac9-abd62f8c9987",
+    "applyUrl": "https://jobs.lever.co/palantir/4e7d0732-f477-4c7a-aac9-abd62f8c9987/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1722996684764,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "d2a87a1d-63f4-4dcd-b0d0-f6be91fed4d3",
+    "text": "Senior Front End Software Engineer - Application Development",
+    "hostedUrl": "https://jobs.lever.co/palantir/d2a87a1d-63f4-4dcd-b0d0-f6be91fed4d3",
+    "applyUrl": "https://jobs.lever.co/palantir/d2a87a1d-63f4-4dcd-b0d0-f6be91fed4d3/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1722971901655,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "144f32bc-21e5-42bd-9710-7165a22d51e1",
+    "text": "Senior Identity Security Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/144f32bc-21e5-42bd-9710-7165a22d51e1",
+    "applyUrl": "https://jobs.lever.co/palantir/144f32bc-21e5-42bd-9710-7165a22d51e1/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1780002908591,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "146aba99-2a9a-44ee-9fb3-42dd1e211221",
+    "text": "Senior Identity Security Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/146aba99-2a9a-44ee-9fb3-42dd1e211221",
+    "applyUrl": "https://jobs.lever.co/palantir/146aba99-2a9a-44ee-9fb3-42dd1e211221/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1780003082886,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "bb7af139-064c-4a59-a784-9ba8c4324d21",
+    "text": "Senior Identity Security Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/bb7af139-064c-4a59-a784-9ba8c4324d21",
+    "applyUrl": "https://jobs.lever.co/palantir/bb7af139-064c-4a59-a784-9ba8c4324d21/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1780003022058,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "4c956604-f861-4140-a7d2-3e39fc834c1c",
+    "text": "Senior Manager, Corporate Accounting",
+    "hostedUrl": "https://jobs.lever.co/palantir/4c956604-f861-4140-a7d2-3e39fc834c1c",
+    "applyUrl": "https://jobs.lever.co/palantir/4c956604-f861-4140-a7d2-3e39fc834c1c/apply",
+    "categories": {
+      "location": "Denver, CO"
+    },
+    "createdAt": 1642603339659,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "b0ae5f2e-ef97-437b-b2e1-a3098ecc154f",
+    "text": "Senior Manager, Corporate Accounting",
+    "hostedUrl": "https://jobs.lever.co/palantir/b0ae5f2e-ef97-437b-b2e1-a3098ecc154f",
+    "applyUrl": "https://jobs.lever.co/palantir/b0ae5f2e-ef97-437b-b2e1-a3098ecc154f/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1642602904515,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "5b4f55a5-e883-445e-853d-7e0d40eec055",
+    "text": "Senior Revenue Accountant",
+    "hostedUrl": "https://jobs.lever.co/palantir/5b4f55a5-e883-445e-853d-7e0d40eec055",
+    "applyUrl": "https://jobs.lever.co/palantir/5b4f55a5-e883-445e-853d-7e0d40eec055/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1747431684385,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "ee898794-f9cc-45f1-8a40-9a49e7db62bd",
+    "text": "Senior Revenue Accountant",
+    "hostedUrl": "https://jobs.lever.co/palantir/ee898794-f9cc-45f1-8a40-9a49e7db62bd",
+    "applyUrl": "https://jobs.lever.co/palantir/ee898794-f9cc-45f1-8a40-9a49e7db62bd/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1747431416689,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "88f8f593-af1f-4d27-9042-454c24a64d3f",
+    "text": "Senior Software Engineer - Autonomous Systems",
+    "hostedUrl": "https://jobs.lever.co/palantir/88f8f593-af1f-4d27-9042-454c24a64d3f",
+    "applyUrl": "https://jobs.lever.co/palantir/88f8f593-af1f-4d27-9042-454c24a64d3f/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1759856752475,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "bba1ecbc-e56d-48b0-b33a-aefcbffbd655",
+    "text": "Senior Software Engineer - Autonomous Systems",
+    "hostedUrl": "https://jobs.lever.co/palantir/bba1ecbc-e56d-48b0-b33a-aefcbffbd655",
+    "applyUrl": "https://jobs.lever.co/palantir/bba1ecbc-e56d-48b0-b33a-aefcbffbd655/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1770140058389,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "d40d5d19-8f9e-4e6b-b4d3-b7457c90adec",
+    "text": "Senior Software Engineer - Autonomous Systems",
+    "hostedUrl": "https://jobs.lever.co/palantir/d40d5d19-8f9e-4e6b-b4d3-b7457c90adec",
+    "applyUrl": "https://jobs.lever.co/palantir/d40d5d19-8f9e-4e6b-b4d3-b7457c90adec/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1784749557785,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "d7030550-f80f-422c-965f-3120db433dea",
+    "text": "Senior Software Engineer - Autonomous Systems",
+    "hostedUrl": "https://jobs.lever.co/palantir/d7030550-f80f-422c-965f-3120db433dea",
+    "applyUrl": "https://jobs.lever.co/palantir/d7030550-f80f-422c-965f-3120db433dea/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1784749577199,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "8a95dba1-b814-4243-be14-eba1df340ceb",
+    "text": "Senior Software Engineer - Observability",
+    "hostedUrl": "https://jobs.lever.co/palantir/8a95dba1-b814-4243-be14-eba1df340ceb",
+    "applyUrl": "https://jobs.lever.co/palantir/8a95dba1-b814-4243-be14-eba1df340ceb/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1666025425306,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "39c57909-ae76-4c86-9290-9fb50c689c4f",
+    "text": "Senior Software Engineer, Network Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/39c57909-ae76-4c86-9290-9fb50c689c4f",
+    "applyUrl": "https://jobs.lever.co/palantir/39c57909-ae76-4c86-9290-9fb50c689c4f/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1709061248961,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "55005ee7-4e06-4520-b569-f6e8f26745cb",
+    "text": "Senior Software Engineer, Network Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/55005ee7-4e06-4520-b569-f6e8f26745cb",
+    "applyUrl": "https://jobs.lever.co/palantir/55005ee7-4e06-4520-b569-f6e8f26745cb/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1709061415305,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "89a77547-8b74-45b2-8590-f04b16e19a59",
+    "text": "Senior Software Engineer, Network Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/89a77547-8b74-45b2-8590-f04b16e19a59",
+    "applyUrl": "https://jobs.lever.co/palantir/89a77547-8b74-45b2-8590-f04b16e19a59/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1754688720231,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "26176860-7b27-412a-9959-d8b8705acf53",
+    "text": "Senior Software Engineer, Substrate",
+    "hostedUrl": "https://jobs.lever.co/palantir/26176860-7b27-412a-9959-d8b8705acf53",
+    "applyUrl": "https://jobs.lever.co/palantir/26176860-7b27-412a-9959-d8b8705acf53/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1754688750731,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "68d690cf-fc8a-4755-9b69-abe13f93d262",
+    "text": "Senior Software Engineer, Substrate",
+    "hostedUrl": "https://jobs.lever.co/palantir/68d690cf-fc8a-4755-9b69-abe13f93d262",
+    "applyUrl": "https://jobs.lever.co/palantir/68d690cf-fc8a-4755-9b69-abe13f93d262/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1709061781146,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "b80d45be-7fe8-4a11-b159-65551320c61f",
+    "text": "Senior Software Engineer, Substrate",
+    "hostedUrl": "https://jobs.lever.co/palantir/b80d45be-7fe8-4a11-b159-65551320c61f",
+    "applyUrl": "https://jobs.lever.co/palantir/b80d45be-7fe8-4a11-b159-65551320c61f/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1709061901580,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "c38bb622-6f8e-43a1-8ae7-32291da328a8",
+    "text": "Senior Software Engineer, Substrate",
+    "hostedUrl": "https://jobs.lever.co/palantir/c38bb622-6f8e-43a1-8ae7-32291da328a8",
+    "applyUrl": "https://jobs.lever.co/palantir/c38bb622-6f8e-43a1-8ae7-32291da328a8/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1709061610325,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "211f99dc-269e-4f25-84d3-d73dea782080",
+    "text": "Site Reliability Engineer - US Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/211f99dc-269e-4f25-84d3-d73dea782080",
+    "applyUrl": "https://jobs.lever.co/palantir/211f99dc-269e-4f25-84d3-d73dea782080/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1587583396436,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "2da72708-a7b0-4178-9cb2-6b009eb6e07f",
+    "text": "Site Reliability Operations Analyst",
+    "hostedUrl": "https://jobs.lever.co/palantir/2da72708-a7b0-4178-9cb2-6b009eb6e07f",
+    "applyUrl": "https://jobs.lever.co/palantir/2da72708-a7b0-4178-9cb2-6b009eb6e07f/apply",
+    "categories": {
+      "location": "Warsaw, Poland"
+    },
+    "createdAt": 1790949603948,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "5174e95b-2e0a-46f8-8db7-e2c837a0ac94",
+    "text": "Site Reliability Operations Analyst - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/5174e95b-2e0a-46f8-8db7-e2c837a0ac94",
+    "applyUrl": "https://jobs.lever.co/palantir/5174e95b-2e0a-46f8-8db7-e2c837a0ac94/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1701130896737,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "98bbe55b-f591-4272-a486-d82404d2c576",
+    "text": "Site Reliability Operations Analyst - UK Government",
+    "hostedUrl": "https://jobs.lever.co/palantir/98bbe55b-f591-4272-a486-d82404d2c576",
+    "applyUrl": "https://jobs.lever.co/palantir/98bbe55b-f591-4272-a486-d82404d2c576/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1724767469825,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "8f308f3e-43d2-49c9-accd-cc7af0f1565c",
+    "text": "Software Engineer - Apollo Platform",
+    "hostedUrl": "https://jobs.lever.co/palantir/8f308f3e-43d2-49c9-accd-cc7af0f1565c",
+    "applyUrl": "https://jobs.lever.co/palantir/8f308f3e-43d2-49c9-accd-cc7af0f1565c/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1660172342022,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "afea07a8-2721-45e6-a9ca-6580f3f9783c",
+    "text": "Software Engineer - Apollo Platform",
+    "hostedUrl": "https://jobs.lever.co/palantir/afea07a8-2721-45e6-a9ca-6580f3f9783c",
+    "applyUrl": "https://jobs.lever.co/palantir/afea07a8-2721-45e6-a9ca-6580f3f9783c/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1660172280651,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "f75cb0d2-6608-450b-848e-0f27937c930d",
+    "text": "Software Engineer - Apollo Platform",
+    "hostedUrl": "https://jobs.lever.co/palantir/f75cb0d2-6608-450b-848e-0f27937c930d",
+    "applyUrl": "https://jobs.lever.co/palantir/f75cb0d2-6608-450b-848e-0f27937c930d/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1660583695157,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "832e4652-5088-4e5b-aeac-1e82ec3ebad4",
+    "text": "Software Engineer - Apollo Systems",
+    "hostedUrl": "https://jobs.lever.co/palantir/832e4652-5088-4e5b-aeac-1e82ec3ebad4",
+    "applyUrl": "https://jobs.lever.co/palantir/832e4652-5088-4e5b-aeac-1e82ec3ebad4/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1762810038782,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "e47d4410-2542-47d8-b558-b5295fc28821",
+    "text": "Software Engineer - Apollo Systems",
+    "hostedUrl": "https://jobs.lever.co/palantir/e47d4410-2542-47d8-b558-b5295fc28821",
+    "applyUrl": "https://jobs.lever.co/palantir/e47d4410-2542-47d8-b558-b5295fc28821/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1762810072009,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "6b4b087c-4fc6-476d-9e72-e1bc6ac6c62a",
+    "text": "Software Engineer - Applied AI, Defense Applications",
+    "hostedUrl": "https://jobs.lever.co/palantir/6b4b087c-4fc6-476d-9e72-e1bc6ac6c62a",
+    "applyUrl": "https://jobs.lever.co/palantir/6b4b087c-4fc6-476d-9e72-e1bc6ac6c62a/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1793658040973,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "ca222ecd-b659-4e3e-aee5-d85655c7bbc8",
+    "text": "Software Engineer - Applied AI, Defense Applications",
+    "hostedUrl": "https://jobs.lever.co/palantir/ca222ecd-b659-4e3e-aee5-d85655c7bbc8",
+    "applyUrl": "https://jobs.lever.co/palantir/ca222ecd-b659-4e3e-aee5-d85655c7bbc8/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1793658066185,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "3b4ae28e-c4f2-4654-83b4-64366bfe72fa",
+    "text": "Software Engineer - Core Interfaces",
+    "hostedUrl": "https://jobs.lever.co/palantir/3b4ae28e-c4f2-4654-83b4-64366bfe72fa",
+    "applyUrl": "https://jobs.lever.co/palantir/3b4ae28e-c4f2-4654-83b4-64366bfe72fa/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1781215491704,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "cf76738e-3030-42fa-92ac-a9446df956fc",
+    "text": "Software Engineer - Core Interfaces",
+    "hostedUrl": "https://jobs.lever.co/palantir/cf76738e-3030-42fa-92ac-a9446df956fc",
+    "applyUrl": "https://jobs.lever.co/palantir/cf76738e-3030-42fa-92ac-a9446df956fc/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1768339322388,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "c288bb43-3c63-4557-bd96-600ef0d1b7a6",
+    "text": "Software Engineer - Defense Applications",
+    "hostedUrl": "https://jobs.lever.co/palantir/c288bb43-3c63-4557-bd96-600ef0d1b7a6",
+    "applyUrl": "https://jobs.lever.co/palantir/c288bb43-3c63-4557-bd96-600ef0d1b7a6/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1781216017398,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "f7dbfdf1-0bb1-4c11-ac15-6a139cee3410",
+    "text": "Software Engineer - Defense Applications",
+    "hostedUrl": "https://jobs.lever.co/palantir/f7dbfdf1-0bb1-4c11-ac15-6a139cee3410",
+    "applyUrl": "https://jobs.lever.co/palantir/f7dbfdf1-0bb1-4c11-ac15-6a139cee3410/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1769469719341,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "3c84af24-b7aa-483e-b2c3-e1d83494fe15",
+    "text": "Software Engineer - Developer Productivity",
+    "hostedUrl": "https://jobs.lever.co/palantir/3c84af24-b7aa-483e-b2c3-e1d83494fe15",
+    "applyUrl": "https://jobs.lever.co/palantir/3c84af24-b7aa-483e-b2c3-e1d83494fe15/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1667951904865,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "397fb983-47b7-4a53-a7df-f080f43f7720",
+    "text": "Software Engineer - Edge",
+    "hostedUrl": "https://jobs.lever.co/palantir/397fb983-47b7-4a53-a7df-f080f43f7720",
+    "applyUrl": "https://jobs.lever.co/palantir/397fb983-47b7-4a53-a7df-f080f43f7720/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1762289475959,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "67110929-adea-41c3-851a-8882e222d9e4",
+    "text": "Software Engineer - Edge AI Systems",
+    "hostedUrl": "https://jobs.lever.co/palantir/67110929-adea-41c3-851a-8882e222d9e4",
+    "applyUrl": "https://jobs.lever.co/palantir/67110929-adea-41c3-851a-8882e222d9e4/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1784758340264,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "cd2423c6-da68-430c-8be5-0ae7eea36497",
+    "text": "Software Engineer - Environment Platform",
+    "hostedUrl": "https://jobs.lever.co/palantir/cd2423c6-da68-430c-8be5-0ae7eea36497",
+    "applyUrl": "https://jobs.lever.co/palantir/cd2423c6-da68-430c-8be5-0ae7eea36497/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1725544600614,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "d5d83a8f-cb96-41cc-9612-c7224fbb2fbc",
+    "text": "Software Engineer - Environment Platform",
+    "hostedUrl": "https://jobs.lever.co/palantir/d5d83a8f-cb96-41cc-9612-c7224fbb2fbc",
+    "applyUrl": "https://jobs.lever.co/palantir/d5d83a8f-cb96-41cc-9612-c7224fbb2fbc/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1725544518430,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "71ed917e-850a-484b-9454-fa66bdf24540",
+    "text": "Software Engineer - Frontend Developer Productivity",
+    "hostedUrl": "https://jobs.lever.co/palantir/71ed917e-850a-484b-9454-fa66bdf24540",
+    "applyUrl": "https://jobs.lever.co/palantir/71ed917e-850a-484b-9454-fa66bdf24540/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1708715985252,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "8aec0fba-0ac9-48a5-8f54-f2d8465d6698",
+    "text": "Software Engineer - Mission Manager",
+    "hostedUrl": "https://jobs.lever.co/palantir/8aec0fba-0ac9-48a5-8f54-f2d8465d6698",
+    "applyUrl": "https://jobs.lever.co/palantir/8aec0fba-0ac9-48a5-8f54-f2d8465d6698/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1754688774101,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "c0b60d64-1244-4270-9d55-14115c97c24b",
+    "text": "Software Engineer - Mission Manager",
+    "hostedUrl": "https://jobs.lever.co/palantir/c0b60d64-1244-4270-9d55-14115c97c24b",
+    "applyUrl": "https://jobs.lever.co/palantir/c0b60d64-1244-4270-9d55-14115c97c24b/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1743118536410,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "e168a922-a2f0-45d0-912c-678d66e15118",
+    "text": "Software Engineer - Mission Manager",
+    "hostedUrl": "https://jobs.lever.co/palantir/e168a922-a2f0-45d0-912c-678d66e15118",
+    "applyUrl": "https://jobs.lever.co/palantir/e168a922-a2f0-45d0-912c-678d66e15118/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1743118509685,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "4056c8f6-0e6a-43f7-b387-4a97bd3dbb19",
+    "text": "Software Engineer \u2013 Query Engines",
+    "hostedUrl": "https://jobs.lever.co/palantir/4056c8f6-0e6a-43f7-b387-4a97bd3dbb19",
+    "applyUrl": "https://jobs.lever.co/palantir/4056c8f6-0e6a-43f7-b387-4a97bd3dbb19/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1790075194937,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "a576c5ef-2a51-4522-9c98-bca5ac2abbb3",
+    "text": "Software Engineer \u2013 Query Engines",
+    "hostedUrl": "https://jobs.lever.co/palantir/a576c5ef-2a51-4522-9c98-bca5ac2abbb3",
+    "applyUrl": "https://jobs.lever.co/palantir/a576c5ef-2a51-4522-9c98-bca5ac2abbb3/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1790332087251,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "3531977a-9b2f-40a0-a486-4eeb38e75fc1",
+    "text": "Software Engineer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/3531977a-9b2f-40a0-a486-4eeb38e75fc1",
+    "applyUrl": "https://jobs.lever.co/palantir/3531977a-9b2f-40a0-a486-4eeb38e75fc1/apply",
+    "categories": {
+      "location": "Singapore, Singapore"
+    },
+    "createdAt": 1768404524400,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "373eb939-6f57-4836-8479-be79a5e07249",
+    "text": "Software Engineer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/373eb939-6f57-4836-8479-be79a5e07249",
+    "applyUrl": "https://jobs.lever.co/palantir/373eb939-6f57-4836-8479-be79a5e07249/apply",
+    "categories": {
+      "location": "Denver, CO"
+    },
+    "createdAt": 1724906088941,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "76a60923-bb49-40f5-b061-7c7eb1299602",
+    "text": "Software Engineer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/76a60923-bb49-40f5-b061-7c7eb1299602",
+    "applyUrl": "https://jobs.lever.co/palantir/76a60923-bb49-40f5-b061-7c7eb1299602/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1625177031312,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "7d69cf8a-06fd-4f05-bd84-27149db29c4d",
+    "text": "Software Engineer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/7d69cf8a-06fd-4f05-bd84-27149db29c4d",
+    "applyUrl": "https://jobs.lever.co/palantir/7d69cf8a-06fd-4f05-bd84-27149db29c4d/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1656623940945,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "bdcfb29f-4f27-42de-933f-7f83a359b9f0",
+    "text": "Software Engineer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/bdcfb29f-4f27-42de-933f-7f83a359b9f0",
+    "applyUrl": "https://jobs.lever.co/palantir/bdcfb29f-4f27-42de-933f-7f83a359b9f0/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1625176840124,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "e27af7ab-41fc-40c9-b31d-02c6cb1c505c",
+    "text": "Software Engineer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/e27af7ab-41fc-40c9-b31d-02c6cb1c505c",
+    "applyUrl": "https://jobs.lever.co/palantir/e27af7ab-41fc-40c9-b31d-02c6cb1c505c/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1625176335503,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "8bcf4f33-0a79-4248-bbfd-49ac4be9dd8e",
+    "text": "Software Engineer, Internship - Defense Tech",
+    "hostedUrl": "https://jobs.lever.co/palantir/8bcf4f33-0a79-4248-bbfd-49ac4be9dd8e",
+    "applyUrl": "https://jobs.lever.co/palantir/8bcf4f33-0a79-4248-bbfd-49ac4be9dd8e/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1722900428111,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "a483f41b-0da9-42ea-8ed6-cbf6eb93cc6d",
+    "text": "Software Engineer, Internship - Defense Tech",
+    "hostedUrl": "https://jobs.lever.co/palantir/a483f41b-0da9-42ea-8ed6-cbf6eb93cc6d",
+    "applyUrl": "https://jobs.lever.co/palantir/a483f41b-0da9-42ea-8ed6-cbf6eb93cc6d/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1722900402003,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "f17e98d0-046a-4e6e-9d65-ed0b12dd0ff7",
+    "text": "Software Engineer, Internship - Defense Tech",
+    "hostedUrl": "https://jobs.lever.co/palantir/f17e98d0-046a-4e6e-9d65-ed0b12dd0ff7",
+    "applyUrl": "https://jobs.lever.co/palantir/f17e98d0-046a-4e6e-9d65-ed0b12dd0ff7/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1722900376668,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "b229baac-494b-4a0d-9a13-2e38806e06f3",
+    "text": "Software Engineer, Internship - Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/b229baac-494b-4a0d-9a13-2e38806e06f3",
+    "applyUrl": "https://jobs.lever.co/palantir/b229baac-494b-4a0d-9a13-2e38806e06f3/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1750950062839,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "f221738b-e97c-4ce3-a12a-17ada2b855e4",
+    "text": "Software Engineer, Internship - Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/f221738b-e97c-4ce3-a12a-17ada2b855e4",
+    "applyUrl": "https://jobs.lever.co/palantir/f221738b-e97c-4ce3-a12a-17ada2b855e4/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1755596923334,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "fd3603a9-7016-45c6-9c8d-04c9279ab85e",
+    "text": "Software Engineer, Internship - Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/fd3603a9-7016-45c6-9c8d-04c9279ab85e",
+    "applyUrl": "https://jobs.lever.co/palantir/fd3603a9-7016-45c6-9c8d-04c9279ab85e/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1750950908299,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "373367a9-3160-49d8-b7af-2efec062fad1",
+    "text": "Software Engineer, Internship - Production Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/373367a9-3160-49d8-b7af-2efec062fad1",
+    "applyUrl": "https://jobs.lever.co/palantir/373367a9-3160-49d8-b7af-2efec062fad1/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1750968313023,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "37964982-9b4c-471e-a1d8-fb8f45d7f116",
+    "text": "Software Engineer, Internship - Production Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/37964982-9b4c-471e-a1d8-fb8f45d7f116",
+    "applyUrl": "https://jobs.lever.co/palantir/37964982-9b4c-471e-a1d8-fb8f45d7f116/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1750968274819,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "3ab9e715-1ea9-4c6c-ad50-7340eac14e86",
+    "text": "Software Engineer, Internship - Production Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/3ab9e715-1ea9-4c6c-ad50-7340eac14e86",
+    "applyUrl": "https://jobs.lever.co/palantir/3ab9e715-1ea9-4c6c-ad50-7340eac14e86/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1755596487314,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "3e59369e-1392-42f2-8d03-86648e87e963",
+    "text": "Software Engineer, Internship - Query Engines",
+    "hostedUrl": "https://jobs.lever.co/palantir/3e59369e-1392-42f2-8d03-86648e87e963",
+    "applyUrl": "https://jobs.lever.co/palantir/3e59369e-1392-42f2-8d03-86648e87e963/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1792453813100,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "da774f81-c98c-4dcf-9b9c-949fd7d90a13",
+    "text": "Software Engineer, Internship - Query Engines",
+    "hostedUrl": "https://jobs.lever.co/palantir/da774f81-c98c-4dcf-9b9c-949fd7d90a13",
+    "applyUrl": "https://jobs.lever.co/palantir/da774f81-c98c-4dcf-9b9c-949fd7d90a13/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1792453658809,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "40840cef-bbd7-4557-bb21-cbdcf4be616e",
+    "text": "Software Engineer, Internship - Sovereign AI Systems",
+    "hostedUrl": "https://jobs.lever.co/palantir/40840cef-bbd7-4557-bb21-cbdcf4be616e",
+    "applyUrl": "https://jobs.lever.co/palantir/40840cef-bbd7-4557-bb21-cbdcf4be616e/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1793903644843,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "cd64bcd4-50bb-4aeb-a135-4e0487ffd312",
+    "text": "Software Engineer, Internship - Sovereign AI Systems",
+    "hostedUrl": "https://jobs.lever.co/palantir/cd64bcd4-50bb-4aeb-a135-4e0487ffd312",
+    "applyUrl": "https://jobs.lever.co/palantir/cd64bcd4-50bb-4aeb-a135-4e0487ffd312/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1793903375363,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "2458ba08-de79-4e8f-b553-060f9568727e",
+    "text": "Software Engineer, New Grad",
+    "hostedUrl": "https://jobs.lever.co/palantir/2458ba08-de79-4e8f-b553-060f9568727e",
+    "applyUrl": "https://jobs.lever.co/palantir/2458ba08-de79-4e8f-b553-060f9568727e/apply",
+    "categories": {
+      "location": "Singapore, Singapore"
+    },
+    "createdAt": 1727211444233,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "94984771-0704-446c-88c6-91ce748f6d92",
+    "text": "Software Engineer, New Grad",
+    "hostedUrl": "https://jobs.lever.co/palantir/94984771-0704-446c-88c6-91ce748f6d92",
+    "applyUrl": "https://jobs.lever.co/palantir/94984771-0704-446c-88c6-91ce748f6d92/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1625171097701,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "c34b424e-caf2-455a-b104-ae1096ccca29",
+    "text": "Software Engineer, New Grad",
+    "hostedUrl": "https://jobs.lever.co/palantir/c34b424e-caf2-455a-b104-ae1096ccca29",
+    "applyUrl": "https://jobs.lever.co/palantir/c34b424e-caf2-455a-b104-ae1096ccca29/apply",
+    "categories": {
+      "location": "Denver, CO"
+    },
+    "createdAt": 1603823560993,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "d372c805-d0cd-4a10-9522-fbecc78d6f3e",
+    "text": "Software Engineer, New Grad",
+    "hostedUrl": "https://jobs.lever.co/palantir/d372c805-d0cd-4a10-9522-fbecc78d6f3e",
+    "applyUrl": "https://jobs.lever.co/palantir/d372c805-d0cd-4a10-9522-fbecc78d6f3e/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1625171414997,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "0a838e66-1ab0-4fc4-b4d3-4671c0352278",
+    "text": "Software Engineer, New Grad - Defense",
+    "hostedUrl": "https://jobs.lever.co/palantir/0a838e66-1ab0-4fc4-b4d3-4671c0352278",
+    "applyUrl": "https://jobs.lever.co/palantir/0a838e66-1ab0-4fc4-b4d3-4671c0352278/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1750296862911,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "18d901fc-93bb-4d18-9f04-c72031e20d79",
+    "text": "Software Engineer, New Grad - Defense",
+    "hostedUrl": "https://jobs.lever.co/palantir/18d901fc-93bb-4d18-9f04-c72031e20d79",
+    "applyUrl": "https://jobs.lever.co/palantir/18d901fc-93bb-4d18-9f04-c72031e20d79/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1750297066017,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "f362d7aa-360d-4059-ab38-f482742693b3",
+    "text": "Software Engineer, New Grad - Defense",
+    "hostedUrl": "https://jobs.lever.co/palantir/f362d7aa-360d-4059-ab38-f482742693b3",
+    "applyUrl": "https://jobs.lever.co/palantir/f362d7aa-360d-4059-ab38-f482742693b3/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1750296980878,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "4abf26b4-795c-420a-bf22-1ab98db268b4",
+    "text": "Software Engineer, New Grad - Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/4abf26b4-795c-420a-bf22-1ab98db268b4",
+    "applyUrl": "https://jobs.lever.co/palantir/4abf26b4-795c-420a-bf22-1ab98db268b4/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1750899669277,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "7d75bed5-45d8-4876-840a-2d92ea79c98d",
+    "text": "Software Engineer, New Grad - Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/7d75bed5-45d8-4876-840a-2d92ea79c98d",
+    "applyUrl": "https://jobs.lever.co/palantir/7d75bed5-45d8-4876-840a-2d92ea79c98d/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1755596738032,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "9265acce-12cd-4179-8c50-55d15963532b",
+    "text": "Software Engineer, New Grad - Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/9265acce-12cd-4179-8c50-55d15963532b",
+    "applyUrl": "https://jobs.lever.co/palantir/9265acce-12cd-4179-8c50-55d15963532b/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1750900434912,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "15844944-fb69-4b57-9531-e988650b20c6",
+    "text": "Software Engineer, New Grad - Production Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/15844944-fb69-4b57-9531-e988650b20c6",
+    "applyUrl": "https://jobs.lever.co/palantir/15844944-fb69-4b57-9531-e988650b20c6/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1755596238891,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "4d5a144e-87ea-45e2-a68c-3fad590629af",
+    "text": "Software Engineer, New Grad - Production Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/4d5a144e-87ea-45e2-a68c-3fad590629af",
+    "applyUrl": "https://jobs.lever.co/palantir/4d5a144e-87ea-45e2-a68c-3fad590629af/apply",
+    "categories": {
+      "location": "Seattle, WA"
+    },
+    "createdAt": 1750967689498,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "e1a6c138-98bf-45e2-97f7-2c70371cc38a",
+    "text": "Software Engineer, New Grad - Production Infrastructure",
+    "hostedUrl": "https://jobs.lever.co/palantir/e1a6c138-98bf-45e2-97f7-2c70371cc38a",
+    "applyUrl": "https://jobs.lever.co/palantir/e1a6c138-98bf-45e2-97f7-2c70371cc38a/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1750967619925,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "0f7d1e01-1f74-4786-944d-910208d390fa",
+    "text": "Software Engineer, New Grad - Query Engines",
+    "hostedUrl": "https://jobs.lever.co/palantir/0f7d1e01-1f74-4786-944d-910208d390fa",
+    "applyUrl": "https://jobs.lever.co/palantir/0f7d1e01-1f74-4786-944d-910208d390fa/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1792453774147,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "90329118-d9b7-4b96-acdf-13377e3196ac",
+    "text": "Software Engineer, New Grad - Query Engines",
+    "hostedUrl": "https://jobs.lever.co/palantir/90329118-d9b7-4b96-acdf-13377e3196ac",
+    "applyUrl": "https://jobs.lever.co/palantir/90329118-d9b7-4b96-acdf-13377e3196ac/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1792453522249,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "40d0499b-e2ec-42cc-8a19-c454ed510195",
+    "text": "Support Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/40d0499b-e2ec-42cc-8a19-c454ed510195",
+    "applyUrl": "https://jobs.lever.co/palantir/40d0499b-e2ec-42cc-8a19-c454ed510195/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1779215478121,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "838bce97-415d-4cdc-95ea-904005feb131",
+    "text": "Support Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/838bce97-415d-4cdc-95ea-904005feb131",
+    "applyUrl": "https://jobs.lever.co/palantir/838bce97-415d-4cdc-95ea-904005feb131/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1779215152699,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "4186c7e2-1fc4-4049-81fb-fa98efb9d1de",
+    "text": "Talent Coordinator",
+    "hostedUrl": "https://jobs.lever.co/palantir/4186c7e2-1fc4-4049-81fb-fa98efb9d1de",
+    "applyUrl": "https://jobs.lever.co/palantir/4186c7e2-1fc4-4049-81fb-fa98efb9d1de/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1734375327964,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "a114f925-b5cb-4076-bf68-c77310754aec",
+    "text": "Talent Coordinator",
+    "hostedUrl": "https://jobs.lever.co/palantir/a114f925-b5cb-4076-bf68-c77310754aec",
+    "applyUrl": "https://jobs.lever.co/palantir/a114f925-b5cb-4076-bf68-c77310754aec/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1734486081949,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "133e2f49-685b-4234-b118-8d8e6851fb2e",
+    "text": "Talent Program and Events Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/133e2f49-685b-4234-b118-8d8e6851fb2e",
+    "applyUrl": "https://jobs.lever.co/palantir/133e2f49-685b-4234-b118-8d8e6851fb2e/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1793742163774,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "4bf39879-251f-43bd-be2a-c33a2663622d",
+    "text": "Talent Program Manager",
+    "hostedUrl": "https://jobs.lever.co/palantir/4bf39879-251f-43bd-be2a-c33a2663622d",
+    "applyUrl": "https://jobs.lever.co/palantir/4bf39879-251f-43bd-be2a-c33a2663622d/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1724968050457,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "484658a9-d6da-4d5f-9ab3-7c9f6ae3cd71",
+    "text": "Talent Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/484658a9-d6da-4d5f-9ab3-7c9f6ae3cd71",
+    "applyUrl": "https://jobs.lever.co/palantir/484658a9-d6da-4d5f-9ab3-7c9f6ae3cd71/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1753214335570,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "ef824a5d-0932-4f96-9347-2e66cd5a7b83",
+    "text": "Talent Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/ef824a5d-0932-4f96-9347-2e66cd5a7b83",
+    "applyUrl": "https://jobs.lever.co/palantir/ef824a5d-0932-4f96-9347-2e66cd5a7b83/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1730810210990,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "fef637bd-60f6-4603-b749-14e609c473a5",
+    "text": "Talent Strategist",
+    "hostedUrl": "https://jobs.lever.co/palantir/fef637bd-60f6-4603-b749-14e609c473a5",
+    "applyUrl": "https://jobs.lever.co/palantir/fef637bd-60f6-4603-b749-14e609c473a5/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1730809936448,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "b5362bc1-8a07-44e2-9ddc-cb4236aa0f20",
+    "text": "Technical Program Manager - Security",
+    "hostedUrl": "https://jobs.lever.co/palantir/b5362bc1-8a07-44e2-9ddc-cb4236aa0f20",
+    "applyUrl": "https://jobs.lever.co/palantir/b5362bc1-8a07-44e2-9ddc-cb4236aa0f20/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1784559036292,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "b908b3e4-81f9-47b3-9088-ee8dd3932003",
+    "text": "Technical Program Manager - Security",
+    "hostedUrl": "https://jobs.lever.co/palantir/b908b3e4-81f9-47b3-9088-ee8dd3932003",
+    "applyUrl": "https://jobs.lever.co/palantir/b908b3e4-81f9-47b3-9088-ee8dd3932003/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1784559684870,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "7eb0dedb-37ee-4175-b29f-10a9e4340076",
+    "text": "Technical Program Manager (TPM)",
+    "hostedUrl": "https://jobs.lever.co/palantir/7eb0dedb-37ee-4175-b29f-10a9e4340076",
+    "applyUrl": "https://jobs.lever.co/palantir/7eb0dedb-37ee-4175-b29f-10a9e4340076/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1620422447869,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "bd16f7ad-3bee-48fd-9902-b3ee9698b608",
+    "text": "Technical Program Manager (TPM) - Defense",
+    "hostedUrl": "https://jobs.lever.co/palantir/bd16f7ad-3bee-48fd-9902-b3ee9698b608",
+    "applyUrl": "https://jobs.lever.co/palantir/bd16f7ad-3bee-48fd-9902-b3ee9698b608/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1741593749813,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "95a76f41-97a4-4696-ade3-9c5a47a569c7",
+    "text": "Technical Writer",
+    "hostedUrl": "https://jobs.lever.co/palantir/95a76f41-97a4-4696-ade3-9c5a47a569c7",
+    "applyUrl": "https://jobs.lever.co/palantir/95a76f41-97a4-4696-ade3-9c5a47a569c7/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1628730481683,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "b11a97bd-ac86-4cf8-a008-ffe1772a190a",
+    "text": "Technical Writer",
+    "hostedUrl": "https://jobs.lever.co/palantir/b11a97bd-ac86-4cf8-a008-ffe1772a190a",
+    "applyUrl": "https://jobs.lever.co/palantir/b11a97bd-ac86-4cf8-a008-ffe1772a190a/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1628730525962,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "c9426c38-9c6f-44bc-acad-bb2e6ed315f6",
+    "text": "Technical Writer",
+    "hostedUrl": "https://jobs.lever.co/palantir/c9426c38-9c6f-44bc-acad-bb2e6ed315f6",
+    "applyUrl": "https://jobs.lever.co/palantir/c9426c38-9c6f-44bc-acad-bb2e6ed315f6/apply",
+    "categories": {
+      "location": "London, United Kingdom"
+    },
+    "createdAt": 1628730569319,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "168e1345-913c-4826-a926-a07d5cf10bba",
+    "text": "US Government Subcontracts Manager",
+    "hostedUrl": "https://jobs.lever.co/palantir/168e1345-913c-4826-a926-a07d5cf10bba",
+    "applyUrl": "https://jobs.lever.co/palantir/168e1345-913c-4826-a926-a07d5cf10bba/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1784662125463,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "4255e21c-d0f2-4f57-b5db-1f65830d6425",
+    "text": "Web Application Developer - Defense",
+    "hostedUrl": "https://jobs.lever.co/palantir/4255e21c-d0f2-4f57-b5db-1f65830d6425",
+    "applyUrl": "https://jobs.lever.co/palantir/4255e21c-d0f2-4f57-b5db-1f65830d6425/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1706642793232,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "6a82fd06-5754-46c2-8214-9ca4cd89fb9d",
+    "text": "Web Application Developer - Defense",
+    "hostedUrl": "https://jobs.lever.co/palantir/6a82fd06-5754-46c2-8214-9ca4cd89fb9d",
+    "applyUrl": "https://jobs.lever.co/palantir/6a82fd06-5754-46c2-8214-9ca4cd89fb9d/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1709663687259,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "96e4295f-3af7-48e5-a2c8-74622eaf5587",
+    "text": "Web Application Developer - Defense",
+    "hostedUrl": "https://jobs.lever.co/palantir/96e4295f-3af7-48e5-a2c8-74622eaf5587",
+    "applyUrl": "https://jobs.lever.co/palantir/96e4295f-3af7-48e5-a2c8-74622eaf5587/apply",
+    "categories": {
+      "location": "Palo Alto, CA"
+    },
+    "createdAt": 1709663782144,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "a3eaa0ef-3378-495f-8308-edbd9a93d26c",
+    "text": "Web Design Engineer",
+    "hostedUrl": "https://jobs.lever.co/palantir/a3eaa0ef-3378-495f-8308-edbd9a93d26c",
+    "applyUrl": "https://jobs.lever.co/palantir/a3eaa0ef-3378-495f-8308-edbd9a93d26c/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1782247530367,
+    "workplaceType": "hybrid"
+  },
+  {
+    "id": "e6be4159-c8d1-481d-ad15-13274861b795",
+    "text": "Workplace Operations Analyst",
+    "hostedUrl": "https://jobs.lever.co/palantir/e6be4159-c8d1-481d-ad15-13274861b795",
+    "applyUrl": "https://jobs.lever.co/palantir/e6be4159-c8d1-481d-ad15-13274861b795/apply",
+    "categories": {
+      "location": "Abu Dhabi, United Arab Emirates"
+    },
+    "createdAt": 1785342744185,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "75cc1c09-8ebd-44c8-b3bc-d122cd1fecb3",
+    "text": "Year at Palantir - Forward Deployed Software Engineer, Internship - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/75cc1c09-8ebd-44c8-b3bc-d122cd1fecb3",
+    "applyUrl": "https://jobs.lever.co/palantir/75cc1c09-8ebd-44c8-b3bc-d122cd1fecb3/apply",
+    "categories": {
+      "location": "Chicago, IL"
+    },
+    "createdAt": 1782328394474,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "e6789b17-62fb-4226-a079-f8c17ff19e2d",
+    "text": "Year at Palantir - Forward Deployed Software Engineer, Internship - Commercial",
+    "hostedUrl": "https://jobs.lever.co/palantir/e6789b17-62fb-4226-a079-f8c17ff19e2d",
+    "applyUrl": "https://jobs.lever.co/palantir/e6789b17-62fb-4226-a079-f8c17ff19e2d/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1774033367514,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "5c4c65c5-77da-4d36-856c-4ade87631019",
+    "text": "Year at Palantir - Forward Deployed Software Engineer, Internship - USG",
+    "hostedUrl": "https://jobs.lever.co/palantir/5c4c65c5-77da-4d36-856c-4ade87631019",
+    "applyUrl": "https://jobs.lever.co/palantir/5c4c65c5-77da-4d36-856c-4ade87631019/apply",
+    "categories": {
+      "location": "Washington, D.C."
+    },
+    "createdAt": 1776979025046,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "5c7bb70c-83ea-43e7-8055-0c8f319f4333",
+    "text": "Year at Palantir - Forward Deployed Software Engineer, Internship - USG",
+    "hostedUrl": "https://jobs.lever.co/palantir/5c7bb70c-83ea-43e7-8055-0c8f319f4333",
+    "applyUrl": "https://jobs.lever.co/palantir/5c7bb70c-83ea-43e7-8055-0c8f319f4333/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1774033522216,
+    "workplaceType": "onsite"
+  },
+  {
+    "id": "655f9937-a4ce-4e7d-80e2-a6659af07329",
+    "text": "Year at Palantir - Software Engineer, Internship",
+    "hostedUrl": "https://jobs.lever.co/palantir/655f9937-a4ce-4e7d-80e2-a6659af07329",
+    "applyUrl": "https://jobs.lever.co/palantir/655f9937-a4ce-4e7d-80e2-a6659af07329/apply",
+    "categories": {
+      "location": "New York, NY"
+    },
+    "createdAt": 1774033655933,
+    "workplaceType": "onsite"
+  }
+]

@@ -48,11 +48,10 @@ def test_preferences_example_is_valid_and_weights_sum_100():
     assert sum(prefs["weights"].values()) == 100
 
 
-def test_owner_preferences_load_with_application_schema():
-    prefs = load_preferences(ROOT / "config" / "preferences.yaml")
+def test_preferences_example_loads_with_application_schema():
+    prefs = load_preferences(ROOT / "config" / "preferences.example.yaml")
     assert prefs["experience"]["ceiling_years"] == 2
     assert prefs["locations"]["countries"] == ["IN"]
-    assert prefs["locations"]["cities"] == ["Bihar, India"]
 
 
 def test_old_owner_preferences_keys_are_rejected(tmp_path: Path):

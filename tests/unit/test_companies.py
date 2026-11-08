@@ -127,11 +127,17 @@ def test_import_companies_without_commit(tmp_path, db):
 def test_resolver_detects_ats_and_override():
     assert detect_ats("https://boards.greenhouse.io/acme") == ("greenhouse", "acme")
     assert detect_ats("https://jobs.lever.co/beta") == ("lever", "beta")
-    assert detect_ats("https://acme.example.com/careers") == ("jsonld", None)
+    assert detect_ats("https://api.lever.co/v0/postings/beta?mode=json") == ("lever", "beta")
+    assert detect_ats("https://api.ashbyhq.com/posting-api/job-board/gamma") == ("ashby", "gamma")
+    assert detect_ats("https://acme.example.com/careers") == (None, None)
+    assert detect_ats("https://apply.workable.com/company-slug/") == ("workable", "company-slug")
     company = {"master_id": 1, "name": "Acme", "careers_url": "https://boards.greenhouse.io/acme"}
     assert resolve_company(company)["source_type"] == "greenhouse"
     override = {"1": {"source_type": "lever", "url": "https://jobs.lever.co/acme"}}
     assert resolve_company(company, override)["resolution_status"] == "manual"
+    generic = resolve_company({"master_id": 3, "name": "Gamma", "careers_url": "https://gamma.example.com/jobs"})
+    assert generic["source_type"] is None
+    assert generic["resolution_status"] == "manual_check"
     assert resolve_company({"master_id": 2, "name": "None"})["resolution_status"] == "unresolved"
 
 
